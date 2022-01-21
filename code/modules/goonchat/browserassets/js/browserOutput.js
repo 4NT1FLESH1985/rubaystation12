@@ -531,7 +531,7 @@ function ehjaxCallback(data) {
 
 	} else if (data == 'roundrestart') {
 		opts.restarting = true;
-		internalOutput('<div class="connectionClosed internal restarting">The connection has been closed because the server is restarting. Please wait while you automatically reconnect.</div>', 'internal');
+		internalOutput('<div class="connectionClosed internal restarting">Сервер перезагружается. Ожидайте автоматического подключения.</div>', 'internal');
 	} else {
 		//Oh we're actually being sent data instead of an instruction
 		var dataJ;
@@ -547,7 +547,7 @@ function ehjaxCallback(data) {
 		if (data.clientData) {
 			if (opts.restarting) {
 				opts.restarting = false;
-				$('.connectionClosed.restarting:not(.restored)').addClass('restored').text('The round restarted and you successfully reconnected!');
+				$('.connectionClosed.restarting:not(.restored)').addClass('restored').text('Сервер перезагружен. Вы автоматически подключены обратно.');
 			}
 			if (!data.clientData.ckey && !data.clientData.ip && !data.clientData.compid) {
 				//TODO: Call shutdown perhaps
@@ -652,10 +652,10 @@ $(function() {
 				if (!opts.noResponse) { //Only actually append a message if the previous ping didn't also fail (to prevent spam)
 					opts.noResponse = true;
 					opts.noResponseCount++;
-					internalOutput('<div class="connectionClosed internal" data-count="'+opts.noResponseCount+'">You are either AFK, experiencing lag or the connection has closed.</div>', 'internal');
+					internalOutput('<div class="connectionClosed internal" data-count="'+opts.noResponseCount+'">Вы отключены от сервера.</div>', 'internal');
 				}
 		} else if (opts.noResponse) { //Previous ping attempt failed ohno
-				$('.connectionClosed[data-count="'+opts.noResponseCount+'"]:not(.restored)').addClass('restored').text('Your connection has been restored (probably)!');
+				$('.connectionClosed[data-count="'+opts.noResponseCount+'"]:not(.restored)').addClass('restored').text('Переподключение успешно!');
 				opts.noResponse = false;
 		}
 	}, 2000); //2 seconds
@@ -680,16 +680,16 @@ $(function() {
 
 	if (savedConfig.fontsize) {
 		$messages.css('font-size', savedConfig.fontsize);
-		internalOutput('<span class="internal boldnshit">Loaded font size setting of: '+savedConfig.fontsize+'</span>', 'internal');
+		internalOutput('<span class="internal boldnshit">Размер шрифта: '+savedConfig.fontsize+'</span>', 'internal');
 	}
 	if (savedConfig.iconsize) {
 		opts.iconsize = savedConfig.iconsize;
 		updateIconsSize($messages);
-		internalOutput('<span class="internal boldnshit">Loaded icon size setting of: '+savedConfig.iconsize+'</span>', 'internal');
+		internalOutput('<span class="internal boldnshit">Размер иконок: '+savedConfig.iconsize+'</span>', 'internal');
 	}
 	if (savedConfig.lineheight) {
 		$("body").css('line-height', savedConfig.lineheight);
-		internalOutput('<span class="internal boldnshit">Loaded line height setting of: '+savedConfig.lineheight+'</span>', 'internal');
+		internalOutput('<span class="internal boldnshit">Размер высоты строки: '+savedConfig.lineheight+'</span>', 'internal');
 	}
 	if(savedConfig.stheme){
 		setTheme(savedConfig.stheme);
@@ -699,7 +699,7 @@ $(function() {
 			opts.pingDisabled = true;
 			$('#ping').hide();
 		}
-		internalOutput('<span class="internal boldnshit">Loaded ping display of: '+(opts.pingDisabled ? 'hidden' : 'visible')+'</span>', 'internal');
+		internalOutput('<span class="internal boldnshit">Вид пинга: '+(opts.pingDisabled ? 'hidden' : 'visible')+'</span>', 'internal');
 	}
 	if (savedConfig.shighlightTerms) {
 		var savedTerms = $.parseJSON(savedConfig.shighlightTerms);
@@ -711,17 +711,17 @@ $(function() {
 		}
 		if (actualTerms) {
 			actualTerms = actualTerms.substring(0, actualTerms.length - 2);
-			internalOutput('<span class="internal boldnshit">Loaded highlight strings of: ' + actualTerms+'</span>', 'internal');
+			internalOutput('<span class="internal boldnshit">Подсветка строк: ' + actualTerms+'</span>', 'internal');
 			opts.highlightTerms = savedTerms;
 		}
 	}
 	if (savedConfig.shighlightColor) {
 		opts.highlightColor = savedConfig.shighlightColor;
-		internalOutput('<span class="internal boldnshit">Loaded highlight color of: '+savedConfig.shighlightColor+'</span>', 'internal');
+		internalOutput('<span class="internal boldnshit">Цвет подсветки строк: '+savedConfig.shighlightColor+'</span>', 'internal');
 	}
 	if (savedConfig.sfont) {
 		$('body').css({'font-family': savedConfig.sfont});
-		internalOutput('<span class="internal boldnshit">Loaded font: '+savedConfig.sfont+'</span>', 'internal');
+		internalOutput('<span class="internal boldnshit">Шрифт: '+savedConfig.sfont+'</span>', 'internal');
 	}
 
 	if (savedConfig.smessagecombining) {
@@ -818,7 +818,7 @@ $(function() {
 		// Hardcoded because else there would be no feedback message.
 		if (k == 113) { // F2
 			runByond('byond://winset?screenshot=auto');
-			internalOutput('Screenshot taken', 'internal');
+			internalOutput('Сделан снимок экрана.', 'internal');
 		}
 
 		var c = "";
@@ -928,14 +928,14 @@ $(function() {
 		savedConfig.fontsize = Math.max(parseInt(savedConfig.fontsize || 13) - 1, 1) + 'px';
 		$messages.css({'font-size': savedConfig.fontsize});
 		setCookie('fontsize', savedConfig.fontsize, 365);
-		internalOutput('<span class="internal boldnshit">Font size set to '+savedConfig.fontsize+'</span>', 'internal');
+		internalOutput('<span class="internal boldnshit">Размер шрифта '+savedConfig.fontsize+'</span>', 'internal');
 	});
 
 	$('#increaseFont').click(function(e) {
 		savedConfig.fontsize = (parseInt(savedConfig.fontsize || 13) + 1) + 'px';
 		$messages.css({'font-size': savedConfig.fontsize});
 		setCookie('fontsize', savedConfig.fontsize, 365);
-		internalOutput('<span class="internal boldnshit">Font size set to '+savedConfig.fontsize+'</span>', 'internal');
+		internalOutput('<span class="internal boldnshit">Размер шрифта '+savedConfig.fontsize+'</span>', 'internal');
 	});
 
 	$('#decreaseIcon').click(function(e) {
@@ -943,7 +943,7 @@ $(function() {
 		updateIconsSize($messages);
 		setCookie('iconsize', savedConfig.iconsize, 365);
 		opts.iconsize = savedConfig.iconsize;
-		internalOutput('<span class="internal boldnshit">Icon size set to '+savedConfig.iconsize+'</span>', 'internal');
+		internalOutput('<span class="internal boldnshit">Размер иконок '+savedConfig.iconsize+'</span>', 'internal');
 	})
 
 	$('#increaseIcon').click(function(e) {
@@ -951,21 +951,21 @@ $(function() {
 		updateIconsSize($messages);
 		setCookie('iconsize', savedConfig.iconsize, 365);
 		opts.iconsize = savedConfig.iconsize;
-		internalOutput('<span class="internal boldnshit">Icon size set to '+savedConfig.iconsize+'</span>', 'internal');
+		internalOutput('<span class="internal boldnshit">Размер иконок '+savedConfig.iconsize+'</span>', 'internal');
 	})
 
 	$('#decreaseLineHeight').click(function(e) {
 		savedConfig.lineheight = Math.max(parseFloat(savedConfig.lineheight || 1.2) - 0.1, 0.1).toFixed(1);
 		$("body").css({'line-height': savedConfig.lineheight});
 		setCookie('lineheight', savedConfig.lineheight, 365);
-		internalOutput('<span class="internal boldnshit">Line height set to '+savedConfig.lineheight+'</span>', 'internal');
+		internalOutput('<span class="internal boldnshit">Высота строки '+savedConfig.lineheight+'</span>', 'internal');
 	});
 
 	$('#increaseLineHeight').click(function(e) {
 		savedConfig.lineheight = (parseFloat(savedConfig.lineheight || 1.2) + 0.1).toFixed(1);
 		$("body").css({'line-height': savedConfig.lineheight});
 		setCookie('lineheight', savedConfig.lineheight, 365);
-		internalOutput('<span class="internal boldnshit">Line height set to '+savedConfig.lineheight+'</span>', 'internal');
+		internalOutput('<span class="internal boldnshit">Высота строки '+savedConfig.lineheight+'</span>', 'internal');
 	});
 
 	$('#togglePing').click(function(e) {
@@ -983,7 +983,7 @@ $(function() {
 		// Requires IE 10+ to issue download commands. Just opening a popup
 		// window will cause Ctrl+S to save a blank page, ignoring innerHTML.
 		if (!window.Blob) {
-			output('<span class="big red">This function is only supported on IE 10 and up. Upgrade if possible.</span>', 'internal');
+			output('<span class="big red">Эта функция поддерживается только в IE 10 и выше. Обновите, если это возможно.</span>', 'internal');
 			return;
 		}
 
@@ -991,7 +991,7 @@ $(function() {
 			type: 'GET',
 			url: 'browserOutput_white.css',
 			success: function(styleData) {
-				var blob = new Blob(['<head><title>Chat Log</title><style>', styleData, '</style></head><body>', $messages.html(), '</body>']);
+				var blob = new Blob(['<head><title>Лог Чата...</title><style>', styleData, '</style></head><body>', $messages.html(), '</body>']);
 
 				var fname = 'SS13 Chat Log';
 				var date = new Date(), month = date.getMonth(), day = date.getDay(), hours = date.getHours(), mins = date.getMinutes(), secs = date.getSeconds();
