@@ -5,21 +5,21 @@
 
 /datum/map/torch/get_map_info()
 	. = list()
-	. +=  "You're aboard the " + replacetext("<b>[station_name]</b>", "\improper", "") + ", an Expeditionary Corps starship. Its primary mission is looking for undiscovered sapient alien species, and general exploration along the way."
-	. +=  "The vessel is staffed with a mix of SCG government personnel and hired contractors."
-	. +=  "This area of space is uncharted, away from SCG territory. You might encounter remote outposts or drifting hulks, but no recognized government holds claim on this sector."
+	. +=  "<meta charset='utf-8'>Перед вами " + replacetext("<b>[station_name]</b>", "\improper", "") + ", корабль Экспедиционного Корпуса. Его основная миссия - поиск неоткрытых разумных инопланетных видов и общие исследования в данном секторе."
+	. +=  "Судно укомплектовано как государственным персоналом SCG, так и наемными подрядчиками."
+	. +=  "Эта область космоса неизведана, и находится вдали от территории SCG. Вы можете столкнуться с удаленными аванпостами или дрейфующими скитальцами, но ни одно официально ни одно правительство не претендует на этот сектор."
 	return jointext(., "<br>")
 
 /datum/map/torch/send_welcome()
 	var/obj/effect/overmap/visitable/ship/torch = SSshuttle.ship_by_type(/obj/effect/overmap/visitable/ship/torch)
 
-	var/welcome_text = "<center><img src = sollogo.png /><br /><font size = 3><b>SEV Torch</b> Sensor Readings:</font><br>"
-	welcome_text += "Report generated on [stationdate2text()] at [stationtime2text()]</center><br /><br />"
-	welcome_text += "<hr>Current system:<br /><b>[torch ? system_name : "Unknown"]</b><br /><br>"
+	var/welcome_text = "<meta charset='utf-8'><center><img src = sollogo.png /><br /><font size = 3><b>SEV Torch</b> Показания Сенсоров:</font><br>"
+	welcome_text += "Отчёт сгенерирован [stationdate2text()] at [stationtime2text()]</center><br /><br />"
+	welcome_text += "<hr>Текущая система:<br /><b>[torch ? system_name : "Неизвестно"]</b><br /><br>"
 
 	if (torch) //If the overmap is disabled, it's possible for there to be no torch.
 		var/list/space_things = list()
-		welcome_text += "Current Coordinates:<br /><b>[torch.x]:[torch.y]</b><br /><br>"
+		welcome_text += "<meta charset='utf-8'>Current Coordinates:<br /><b>[torch.x]:[torch.y]</b><br /><br>"
 		welcome_text += "Next system targeted for jump:<br /><b>[generate_system_name()]</b><br /><br>"
 		welcome_text += "Travel time to Sol:<br /><b>[rand(15,45)] days</b><br /><br>"
 		welcome_text += "Time since last port visit:<br /><b>[rand(60,180)] days</b><br /><hr>"
