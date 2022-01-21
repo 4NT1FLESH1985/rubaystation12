@@ -47,7 +47,7 @@
 	addtimer(CALLBACK(src, .proc/check_delete, animation), 15)
 
 
-/mob/proc/death(gibbed,deathmessage="seizes up and falls limp...", show_dead_message = "You have died.")
+/mob/proc/death(gibbed,deathmessage="", show_dead_message = "Я всё.")
 
 	if(stat == DEAD)
 		return 0

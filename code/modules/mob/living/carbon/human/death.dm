@@ -23,7 +23,7 @@
 	else
 		..()
 
-/mob/living/carbon/human/death(gibbed,deathmessage="seizes up and falls limp...", show_dead_message = "You have died.")
+/mob/living/carbon/human/death(gibbed,deathmessage="", show_dead_message = "Я всё.")
 
 	if(stat == DEAD) return
 
@@ -62,7 +62,7 @@
 		SSticker.mode.check_win()
 
 	if(wearing_rig)
-		wearing_rig.notify_ai("<span class='danger'>Warning: user death event. Mobility control passed to integrated intelligence system.</span>")
+		wearing_rig.notify_ai("<span class='danger'>Внимание: пользователь мёртв. Управление ИКСом переходит к встроеному искуственому интелекту.</span>")
 
 	. = ..(gibbed,"no message")
 	if(!gibbed)
