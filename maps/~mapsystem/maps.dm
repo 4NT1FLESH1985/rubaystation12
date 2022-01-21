@@ -436,8 +436,8 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 
 /datum/map/proc/setup_economy()
 	for (var/datum/feed_network/N in news_network)
-		N.CreateFeedChannel("Nyx Daily", "SolGov Minister of Information", 1, 1)
-		N.CreateFeedChannel("The Gibson Gazette", "Editor Mike Hammers", 1, 1)
+		N.CreateFeedChannel("Нокс Сообщает", "Министерство Информации СолПрав", 1, 1)
+		N.CreateFeedChannel("Газета Гибсона", "Редактор Майк Хаммерс", 1, 1)
 
 	for(var/loc_type in typesof(/datum/trade_destination) - /datum/trade_destination)
 		var/datum/trade_destination/D = new loc_type
@@ -460,11 +460,11 @@ var/const/MAP_HAS_RANK = 2		//Rank system, also togglable
 	vendor_account = department_accounts["Vendor"]
 
 /datum/map/proc/map_info(var/client/victim)
-	to_chat(victim, "<h2>Current map information</h2>")
+	to_chat(victim, "<meta charset='utf-8'><h2>Current map information</h2>")
 	to_chat(victim, get_map_info())
 
 /datum/map/proc/get_map_info()
-	return "No map information available"
+	return "<meta charset='utf-8'>No map information available"
 
 /datum/map/proc/bolt_saferooms()
 	return // overriden by torch
