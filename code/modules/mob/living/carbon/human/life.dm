@@ -101,7 +101,7 @@
 	else
 		stamina = clamp(stamina + amt, 0, 100)
 		if(stamina <= 0)
-			to_chat(src, SPAN_WARNING("You are exhausted!"))
+			to_chat(src, SPAN_WARNING("Я выдыхаюсь..."))
 			if(MOVING_QUICKLY(src))
 				set_moving_slowly()
 	if(last_stamina != stamina && hud_used)
