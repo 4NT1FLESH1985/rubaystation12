@@ -187,7 +187,7 @@
 		mymob.healths.SetName("health")
 		mymob.healths.screen_loc = ui_health
 		hud_elements |= mymob.healths
-		
+
 		mymob.oxygen = new /obj/screen/oxygen()
 		mymob.oxygen.icon = 'icons/mob/status_indicators.dmi'
 		mymob.oxygen.icon_state = "oxy0"
@@ -300,86 +300,86 @@
 		client.screen -= hud_used.hotkeybuttons
 		hud_used.hotkey_ui_hidden = 1
 
-// Yes, these use icon state. Yes, these are terrible. The alternative is duplicating 
+// Yes, these use icon state. Yes, these are terrible. The alternative is duplicating
 // a bunch of fairly blobby logic for every click override on these objects.
 
 /obj/screen/food/Click(var/location, var/control, var/params)
 	if(istype(usr) && usr.nutrition_icon == src)
 		switch(icon_state)
 			if("nutrition0")
-				to_chat(usr, SPAN_WARNING("You are completely stuffed."))
+				to_chat(usr, SPAN_WARNING("Я наелся."))
 			if("nutrition1")
-				to_chat(usr, SPAN_NOTICE("You are not hungry."))
+				to_chat(usr, SPAN_NOTICE("Не хочу кушать."))
 			if("nutrition2")
-				to_chat(usr, SPAN_NOTICE("You are a bit peckish."))
+				to_chat(usr, SPAN_NOTICE("Пожевал бы чего-нибуть."))
 			if("nutrition3")
-				to_chat(usr, SPAN_WARNING("You are quite hungry."))
+				to_chat(usr, SPAN_WARNING("Хочу кушать."))
 			if("nutrition4")
-				to_chat(usr, SPAN_DANGER("You are starving!"))
+				to_chat(usr, SPAN_DANGER("Голод."))
 
 /obj/screen/drink/Click(var/location, var/control, var/params)
 	if(istype(usr) && usr.hydration_icon == src)
 		switch(icon_state)
 			if("hydration0")
-				to_chat(usr, SPAN_WARNING("You are overhydrated."))
+				to_chat(usr, SPAN_WARNING("Я перепил."))
 			if("hydration1")
-				to_chat(usr, SPAN_NOTICE("You are not thirsty."))
+				to_chat(usr, SPAN_NOTICE("Не хочу пить."))
 			if("hydration2")
-				to_chat(usr, SPAN_NOTICE("You are a bit thirsty."))
+				to_chat(usr, SPAN_NOTICE("Выпил бы немного."))
 			if("hydration3")
-				to_chat(usr, SPAN_WARNING("You are quite thirsty."))
+				to_chat(usr, SPAN_WARNING("Хочу пить."))
 			if("hydration4")
-				to_chat(usr, SPAN_DANGER("You are dying of thirst!"))
+				to_chat(usr, SPAN_DANGER("Жажда."))
 
 /obj/screen/bodytemp/Click(var/location, var/control, var/params)
 	if(istype(usr) && usr.bodytemp == src)
 		switch(icon_state)
 			if("temp4")
-				to_chat(usr, SPAN_DANGER("You are being cooked alive!"))
+				to_chat(usr, SPAN_DANGER("Горю!"))
 			if("temp3")
-				to_chat(usr, SPAN_DANGER("Your body is burning up!"))
+				to_chat(usr, SPAN_DANGER("Очень жарко."))
 			if("temp2")
-				to_chat(usr, SPAN_DANGER("You are overheating."))
+				to_chat(usr, SPAN_DANGER("Я перегрелся."))
 			if("temp1")
-				to_chat(usr, SPAN_WARNING("You are uncomfortably hot."))
+				to_chat(usr, SPAN_WARNING("Тепло."))
 			if("temp-4")
-				to_chat(usr, SPAN_DANGER("You are being frozen solid!"))
+				to_chat(usr, SPAN_DANGER("Заледянел."))
 			if("temp-3")
-				to_chat(usr, SPAN_DANGER("You are freezing cold!"))
+				to_chat(usr, SPAN_DANGER("Очень холодно."))
 			if("temp-2")
-				to_chat(usr, SPAN_WARNING("You are dangerously chilled"))
+				to_chat(usr, SPAN_WARNING("Я застыл."))
 			if("temp-1")
-				to_chat(usr, SPAN_NOTICE("You are uncomfortably cold."))
+				to_chat(usr, SPAN_NOTICE("Холодно."))
 			else
-				to_chat(usr, SPAN_NOTICE("Your body is at a comfortable temperature."))
+				to_chat(usr, SPAN_NOTICE("Температура около меня приличная."))
 
 /obj/screen/pressure/Click(var/location, var/control, var/params)
 	if(istype(usr) && usr.pressure == src)
 		switch(icon_state)
 			if("pressure2")
-				to_chat(usr, SPAN_DANGER("The air pressure here is crushing!"))
+				to_chat(usr, SPAN_DANGER("Слишком высокое давление!"))
 			if("pressure1")
-				to_chat(usr, SPAN_WARNING("The air pressure here is dangerously high."))
+				to_chat(usr, SPAN_WARNING("Давление небезопасно высокое."))
 			if("pressure-1")
-				to_chat(usr, SPAN_WARNING("The air pressure here is dangerously low."))
+				to_chat(usr, SPAN_WARNING("Давление небезопасно низкое."))
 			if("pressure-2")
-				to_chat(usr, SPAN_DANGER("There is nearly no air pressure here!"))
+				to_chat(usr, SPAN_DANGER("Да тут же нету давления!"))
 			else
-				to_chat(usr, SPAN_NOTICE("The local air pressure is comfortable."))
+				to_chat(usr, SPAN_NOTICE("Давление около меня нормальное."))
 
 /obj/screen/toxins/Click(var/location, var/control, var/params)
 	if(istype(usr) && usr.toxin == src)
 		if(icon_state == "tox0")
-			to_chat(usr, SPAN_NOTICE("The air is clear of toxins."))
+			to_chat(usr, SPAN_NOTICE("Воздух чист около меня."))
 		else
-			to_chat(usr, SPAN_DANGER("The air is eating away at your skin!"))
+			to_chat(usr, SPAN_DANGER("Воздух около меня обжигает кожу!"))
 
 /obj/screen/oxygen/Click(var/location, var/control, var/params)
 	if(istype(usr) && usr.oxygen == src)
 		if(icon_state == "oxy0")
-			to_chat(usr, SPAN_NOTICE("You are breathing easy."))
+			to_chat(usr, SPAN_NOTICE("Я дышу."))
 		else
-			to_chat(usr, SPAN_DANGER("You cannot breathe!"))
+			to_chat(usr, SPAN_DANGER("Дышать трудно..."))
 
 /obj/screen/movement/Click(var/location, var/control, var/params)
 	if(istype(usr))
