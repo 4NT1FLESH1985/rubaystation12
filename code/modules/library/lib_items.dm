@@ -250,7 +250,7 @@
 			else	//Or just making full link in url
 				url = config.wiki_url + "?title=" + url
 		dat = {"
-			<html>
+			<html><meta charset='utf-8'>
 				<head>
 				</head>
 				<body>

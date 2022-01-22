@@ -243,19 +243,19 @@
  */
 /atom/proc/examine_damage_state(mob/user)
 	if (!is_alive())
-		to_chat(user, SPAN_DANGER("It looks broken."))
+		to_chat(user, SPAN_DANGER("Выглядит сломаным."))
 		return
 
 	var/damage_percentage = get_damage_percentage()
 	switch (damage_percentage)
 		if (0)
-			to_chat(user, SPAN_NOTICE("It looks fully intact."))
+			to_chat(user, SPAN_NOTICE(""))
 		if (1 to 32)
-			to_chat(user, SPAN_WARNING("It looks slightly damaged."))
+			to_chat(user, SPAN_WARNING("Вижу царапины."))
 		if (33 to 65)
-			to_chat(user, SPAN_WARNING("It looks moderately damaged."))
+			to_chat(user, SPAN_WARNING("Вмятины видны невооружёным глазом."))
 		else
-			to_chat(user, SPAN_DANGER("It looks severely damaged."))
+			to_chat(user, SPAN_DANGER("Вот-вот развалится."))
 
 /mob/examine_damage_state(mob/user)
 	if (!is_alive())

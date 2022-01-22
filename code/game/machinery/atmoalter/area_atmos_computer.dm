@@ -32,6 +32,7 @@
 		return
 	var/dat = {"
 	<html>
+	<meta charset='utf-8'>
 		<head>
 			<style type="text/css">
 				a.green:link { color:#00cc00; }
