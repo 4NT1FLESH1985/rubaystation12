@@ -28,7 +28,7 @@ client
 			if(GLOB.end_credits_song == null)
 				var/title_song = pick('sound/music/THUNDERDOME.ogg', 'sound/music/europa/Chronox_-_03_-_In_Orbit.ogg', 'sound/music/europa/asfarasitgets.ogg')
 				sound_to(mob, sound(title_song, wait = 0, volume = 40, channel = GLOB.lobby_sound_channel))
-			else if(get_preference_value(/datum/client_preference/play_admin_midis) == GLOB.PREF_YES)				
+			else if(get_preference_value(/datum/client_preference/play_admin_midis) == GLOB.PREF_YES)
 				sound_to(mob, sound(GLOB.end_credits_song, wait = 0, volume = 40, channel = GLOB.lobby_sound_channel))
 	sleep(50)
 	var/list/_credits = credits
@@ -133,7 +133,7 @@ client
 			if(rank.name_short)
 				used_name = "[rank.name_short] [used_name]"
 		var/showckey = 0
-		if(H.ckey && H.client)			
+		if(H.ckey && H.client)
 			if(H.client.get_preference_value(/datum/client_preference/show_ckey_credits) == GLOB.PREF_SHOW)
 				showckey = 1
 		var/decl/cultural_info/actor_culture = SSculture.get_culture(H.get_cultural_value(TAG_CULTURE))
@@ -142,7 +142,7 @@ client
 		if(!showckey)
 			if(prob(90))
 				chunk += "[actor_culture.get_random_name(H.gender)]\t \t \t \t[uppertext(used_name)][job]"
-			else				
+			else
 				var/datum/gender/G = gender_datums[H.gender]
 				chunk += "[used_name]\t \t \t \t[uppertext(G.him)]SELF"
 		else
@@ -170,10 +170,10 @@ client
 		var/datum/species/S = all_species[spec]
 		corpses += "[monkies[spec]] [lowertext(monkies[spec] > 1 ? S.name_plural : S.name)]"
 	if(corpses.len)
-		titles += "<center>BASED ON REAL EVENTS<br>In memory of [english_list(corpses)].</center>"
+		titles += "<center>Основано на реальных событиях<br>По воспоминаниям [english_list(corpses)].</center>"
 
-	var/list/staff = list("PRODUCTION STAFF:")
-	var/list/staffjobs = list("Coffe Fetcher", "Cameraman", "Angry Yeller", "Chair Operator", "Choreographer", "Historical Consultant", "Costume Designer", "Chief Editor", "Executive Assistant")
+	var/list/staff = list("Продюссеры:")
+	var/list/staffjobs = list("Варщик кофе", "Фотограф", "Тот кто осуждал происходящее", "Оператор стула", "Мечтатель", "Историк", "Делал большую часть эффектов", "Главный", "Ассистент")
 	var/list/goodboys = list()
 	for(var/client/C)
 		if(!C.holder)
@@ -188,13 +188,13 @@ client
 	if(goodboys.len)
 		titles += "<center>STAFF'S GOOD BOYS:<br>[english_list(goodboys)]</center><br>"
 
-	var/disclaimer = "<br>Sponsored by [GLOB.using_map.company_name].<br>All rights reserved.<br>\
-					 This motion picture is protected under the copyright laws of the Sol Central Government<br> and other nations throughout the galaxy.<br>\
-					 Colony of First Publication: [pick("Mars", "Luna", "Earth", "Venus", "Phobos", "Ceres", "Tiamat", "Ceti Epsilon", "Eos", "Pluto", "Ouere",\
-					 "Lordania", "Kingston", "Cinu", "Yuklid V", "Lorriman", "Tersten", "Gaia")].<br>"
-	disclaimer += pick("Use for parody prohibited. PROHIBITED.", 
-					   "All stunts were performed by underpaid interns. Do NOT try at home.",
-					   "[GLOB.using_map.company_name] does not endorse behaviour depicted. Attempt at your own risk.",
+	var/disclaimer = "<br>Спонсировано [GLOB.using_map.company_name].<br>Все права защищены.<br>\
+					 Этот фильм защищен законом об авторском праве SolGov.<br> И другими законами.<br>\
+					 Колония первой публикации: [pick("Марс", "Луна", "Земля", "Венера", "Фобос", "Церис", "Тиамат", "Цети Эпсилон", "Еос", "Плутон", "Уэре",\
+					 "Лордания", "Кингстон", "Цину", "Ивклид Пять", "Лорриман", "Терстен", "Гайя")].<br>"
+	disclaimer += pick("Повторять сцены запрещено. ЗАПРЕЩЕНО.",
+					   "Все трюки выполняли малооплачиваемые стажеры. НЕ повторяйте дома.",
+					   "[GLOB.using_map.company_name] не одобряет изображенное поведение. Повторяйте сцены из фильма на свой страх и риск.",
 					   "Any unauthorized exhibition, distribution, or copying of this film or any part thereof (including soundtrack)<br>\
 						may result in an ERT being called to storm your home and take it back by force.",
 						"The story, all names, characters, and incidents portrayed in this production are fictitious. No identification with actual<br>\

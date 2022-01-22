@@ -37,24 +37,24 @@
 				var/turf/playerTurf = get_turf(Player)
 				if(evacuation_controller.round_over() && evacuation_controller.emergency_evacuation)
 					if(isStationLevel(playerTurf.z))
-						to_chat(Player, "<span class='info'><b>You managed to survive, but were marooned on [station_name()] as [Player.real_name]...</b></span>")
+						to_chat(Player, "<span class='info'><b>Ты выжил, но остался на [station_name()] под именем [Player.real_name]...</b></span>")
 					else if (isEscapeLevel(playerTurf.z))
-						to_chat(Player, "<font color='green'><b>You managed to survive the events on [station_name()] as [Player.real_name].</b></font>")
+						to_chat(Player, "<font color='green'><b>Тебе удалось пережить события на [station_name()] за [Player.real_name].</b></font>")
 					else
-						to_chat(Player, "<span class='info'><b>You managed to survive, but were marooned in the sector as [Player.real_name]...</b></span>")
+						to_chat(Player, "<span class='info'><b>Ты выжил, но остался где-то в секторе за [Player.real_name]...</b></span>")
 				else if(issilicon(Player))
-					to_chat(Player, "<font color='green'><b>You remain operational after the events on [station_name()] as [Player.real_name].</b></font>")
+					to_chat(Player, "<font color='green'><b>Ты остался в рабочем состоянии на [station_name()] за [Player.real_name].</b></font>")
 				else if (isNotStationLevel(playerTurf.z))
-					to_chat(Player, "<span class='info'><b>You managed to survive, but were marooned in the sector as [Player.real_name]...</b></span>")
+					to_chat(Player, "<span class='info'><b>Ты выжил, но оказался где-то в секторе за [Player.real_name]...</b></span>")
 				else
-					to_chat(Player, "<span class='info'><b>You got through just another workday on [station_name()] as [Player.real_name].</b></span>")
+					to_chat(Player, "<span class='info'><b>Ты закончил смену на [station_name()] за [Player.real_name].</b></span>")
 			else
 				if(isghost(Player))
 					var/mob/observer/ghost/O = Player
 					if(!O.started_as_observer)
-						to_chat(Player, "<font color='red'><b>You did not survive the events on [station_name()]...</b></font>")
+						to_chat(Player, "<font color='red'><b>Тебе не удалось пережить события на [station_name()]...</b></font>")
 				else
-					to_chat(Player, "<font color='red'><b>You did not survive the events on [station_name()]...</b></font>")
+					to_chat(Player, "<font color='red'><b>Тебе не удалось пережить события на [station_name()]...</b></font>")
 
 /datum/map/torch/roundend_summary(list/data)
 	var/desc
@@ -65,11 +65,11 @@
 	var/offship_players = data["offship_players"]
 
 	if(survivors > 0)
-		desc += "There [survivors > 1 ? "were <b>[survivors] survivors</b>" : "was <b>one survivor</b>"]"
-		desc += " (<b>[escaped_total > 0 ? escaped_total : "none"] escaped, [marooned_total] marooned</b>),"
-		data += " [offship_players > 1 ? "<b>[offship_players] off-ship players</b>" : "<b>one off-ship player</b>"]"
-		data += " and <b>[ghosts] ghosts</b>.<br>"
+		desc += "Всего [survivors > 1 ? "<b>[survivors] выживших</b>" : "<b>один выживший</b>"]"
+		desc += " (<b>[escaped_total > 0 ? escaped_total : "none"] эвакуировалось, [marooned_total] осталось</b>),"
+		data += "А так-же [offship_players > 1 ? "<b>[offship_players] играло на не экипаже</b>" : "<b>один играл на не экипаже</b>"]"
+		data += " Всего <b>[ghosts] призраков</b>.<br>"
 	else
-		desc += "There were <b>no survivors</b>, <b>[offship_players] off-ship players</b>, (<b>[ghosts] ghosts</b>)."
+		desc += "<b>Никто не выжил</b>, <b>[offship_players] играли на не экипаже</b>, (<b>[ghosts] призраков</b>)."
 
 	return desc

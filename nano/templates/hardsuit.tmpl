@@ -1,11 +1,12 @@
-<!-- 
+<!--
 Title: Integrated Hardsuit Controller
 Used In File(s): /code/modules/clothing/spacesuits/rig/rig.dm
  -->
-
+<meta charset='utf-8'>
 <style type="text/css">
+	@charset "utf-8";
 	.inlineBlock {
-		padding: 2px; 
+		padding: 2px;
 		display: inline-block;
 	}
 	.extraTopPadding {
@@ -16,7 +17,7 @@ Used In File(s): /code/modules/clothing/spacesuits/rig/rig.dm
 		margin-left: 5px;
 	}
 	.paddedBorderBlue {
-		border: 1px solid #517087; 
+		border: 1px solid #517087;
 		padding: 2px;
 	}
 	.redText {
@@ -42,10 +43,10 @@ Used In File(s): /code/modules/clothing/spacesuits/rig/rig.dm
 </style>
 
 {{if data.interfacelock || data.malf > 0}}
-	<div class='redText boldText textSpanCenter'>-- HARDSUIT INTERFACE OFFLINE --</div>
+	<div class='redText boldText textSpanCenter'>-- ИНТЕРФЕЙС ОТКЛЮЧЁН --</div>
 {{else}}
 	{{if data.aicontrol && data.ai != 1}}
-		<div class='redText boldText textSpanCenter'>-- HARDSUIT CONTROL OVERRIDDEN BY AI --</div>
+		<div class='redText boldText textSpanCenter'>-- КОНТРОЛЬ ПЕРЕХВАЧЕН --</div>
 	{{else}}
 		<div>
 			<div class='inlineBlock extraTopPadding'>
@@ -59,13 +60,13 @@ Used In File(s): /code/modules/clothing/spacesuits/rig/rig.dm
 			<div>
 				<div class='inlineBlock extraTopPadding'>
 					<div class='fixedLeft boldText'>
-						AI control:
+						Контроль ИИ:
 					</div>
 					<div class='fixedLeftWider'>
 						{{if data.aioverride}}
-							<div class='greenText boldText'>ENABLED</div>
+							<div class='greenText boldText'>ВКЛЮЧЁН</div>
 						{{else}}
-							<div class='redText boldText'>DISABLED</div>
+							<div class='redText boldText'>ВЫКЛЮЧЕН</div>
 						{{/if}}
 					</div>
 					<div class='fixedLeft'>
@@ -74,16 +75,16 @@ Used In File(s): /code/modules/clothing/spacesuits/rig/rig.dm
 				</div>
 				<div class='inlineBlock'>
 					<div class='fixedLeft boldText'>
-						Suit status:
+						Основные системы:
 					</div>
 					<div class='fixedLeftWider'>
 						{{if data.sealing == 1}}
-							<div class='orangeText boldText'>PROCESSING</div>
+							<div class='orangeText boldText'>В ПРОЦЕССЕ</div>
 						{{else}}
 							{{if data.seals == 1}}
-								<div class='redText boldText'>INACTIVE</div>
+								<div class='redText boldText'>ОТКЛЮЧЕНО</div>
 							{{else}}
-								<div class='greenText boldText'>ACTIVE</div>
+								<div class='greenText boldText'>ВКЛЮЧЕНО</div>
 							{{/if}}
 						{{/if}}
 					</div>
@@ -93,16 +94,16 @@ Used In File(s): /code/modules/clothing/spacesuits/rig/rig.dm
 				</div>
 				<div class='inlineBlock'>
 					<div class='fixedLeft boldText'>
-						Cover status:
+						Внутрений доступ:
 					</div>
 					<div class='fixedLeftWider'>
 						{{if data.emagged || !data.securitycheck}}
-							<div class='orangeText boldText'>ERROR - MAINTENANCE LOCK CONTROL OFFLINE</div>
+							<div class='orangeText boldText'>ВНИМАНИЕ - БЛОКИРОВОЧНЫЙ МЕХАНИЗМ ПОВРЕЖДЁН</div>
 						{{else}}
 							{{if data.coverlock}}
-								<div class='redText boldText'>LOCKED</div>
+								<div class='redText boldText'>ЗАБЛОКИРОВАНО</div>
 							{{else}}
-								<div class='greenText boldText'>UNLOCKED</div>
+								<div class='greenText boldText'>РАЗБЛОКИРОВАНО</div>
 							{{/if}}
 						{{/if}}
 					</div>
@@ -113,12 +114,12 @@ Used In File(s): /code/modules/clothing/spacesuits/rig/rig.dm
 			</div>
 		</div>
 
-		<h2>Suit pieces</h2>
+		<h2>Оболочка</h2>
 
 		<div>
 			<div class='inlineBlock'>
 				<div class='fixedLeft boldText'>
-					Helmet:
+					Шлем:
 				</div>
 				<div class='fixedLeftWider'>
 					{{:helper.capitalizeFirstLetter(data.helmet)}}
@@ -131,7 +132,7 @@ Used In File(s): /code/modules/clothing/spacesuits/rig/rig.dm
 			</div>
 			<div class='inlineBlock'>
 				<div class='fixedLeft boldText'>
-					Gauntlets:
+					Перчатки:
 				</div>
 				<div class='fixedLeftWider'>
 					{{:helper.capitalizeFirstLetter(data.gauntlets)}}
@@ -144,7 +145,7 @@ Used In File(s): /code/modules/clothing/spacesuits/rig/rig.dm
 			</div>
 			<div class='inlineBlock'>
 				<div class='fixedLeft boldText'>
-					Boots:
+					Ботинки:
 				</div>
 				<div class='fixedLeftWider'>
 					{{:helper.capitalizeFirstLetter(data.boots)}}
@@ -157,7 +158,7 @@ Used In File(s): /code/modules/clothing/spacesuits/rig/rig.dm
 			</div>
 			<div class='inlineBlock'>
 				<div class='fixedLeft boldText'>
-					Chestpiece:
+					Нагрудник:
 				</div>
 				<div class='fixedLeftWider'>
 					{{:helper.capitalizeFirstLetter(data.chest)}}
@@ -170,15 +171,15 @@ Used In File(s): /code/modules/clothing/spacesuits/rig/rig.dm
 			</div>
 		</div>
 
-		<h2>Life support system</h2>
+		<h2>Система Жизнеобеспечения</h2>
 		{{if data.seals == 1 || data.sealing == 1}}
-			<h3><div class = 'bad'>HARDSUIT SYSTEMS OFFLINE</div></h3>
+			<h3><div class = 'bad'>СИСТЕМА ОТКЛЮЧЁНА</div></h3>
 		{{else data.tank == 0}}
-			<h3><div class = 'bad'>INTERNAL TANK NOT FOUND</div></h3>
+			<h3><div class = 'bad'>БАЛЛОН С ГАЗОМ НЕ ОБНАРУЖЕН</div></h3>
 		{{else}}
 			<div class='inlineBlock extraTopPadding'>
 				<div class='fixedLeft boldText'>
-					Tank Pressure:
+					Давление:
 				</div>
 				<div>
 					{{:helper.displayBar(data.tankPressure, 0, 1013, (data.tankPressure > 200) ? 'good' : ((data.tankPressure > 100) ? 'average' : 'bad'))}}
@@ -187,7 +188,7 @@ Used In File(s): /code/modules/clothing/spacesuits/rig/rig.dm
 					</div>
 				</div>
 				<div class='fixedLeft boldText'>
-					Release Pressure:
+					Выпускаемое:
 				</div>
 				<div class="itemContent">
 					{{:helper.displayBar(data.releasePressure, 0, data.maxReleasePressure, (data.releasePressure >= 21) ? null : ((data.releasePressure >= 17) ? 'average' : 'bad'))}}
@@ -202,7 +203,7 @@ Used In File(s): /code/modules/clothing/spacesuits/rig/rig.dm
 					</div>
 				</div>
 				<div class='fixedLeft boldText'>
-					Release Valve:
+					Вентиль:
 				</div>
 				<div class="itemContent">
 					{{:helper.link('Open', 'unlocked', {'air_supply' : 1, 'stat' : 1}, (!data.maskConnected) ? 'disabled' : (data.valveOpen ? 'selected' : null))}}
@@ -211,15 +212,15 @@ Used In File(s): /code/modules/clothing/spacesuits/rig/rig.dm
 			</div>
 		{{/if}}
 
-		<h2>System modules</h2>
+		<h2>Модули</h2>
 		{{if data.seals == 1 || data.sealing == 1}}
-			<h3><div class = 'bad'>HARDSUIT SYSTEMS OFFLINE</div></h3>
+			<h3><div class = 'bad'>СИСТЕМА ОТКЛЮЧЕНА</div></h3>
 		{{else}}
-			<h3>Selected primary system: 
+			<h3>Основной модуль:
 				{{if data.primarysystem}}
 					{{:helper.capitalizeFirstLetter(data.primarysystem)}}
 				{{else}}
-					None
+					Нету
 				{{/if}}
 			</h3>
 			{{if data.modules}}
@@ -240,9 +241,9 @@ Used In File(s): /code/modules/clothing/spacesuits/rig/rig.dm
 									{{/if}}
 									<div class='floatLeft' style='width: 100%; clear: left'>
 										<div class='caption floatLeft average' style='width: 20%; margin: 0'>
-												Engage: {{:value.engagecost}} 
-												Activate: {{:value.activecost}} 
-												Passive: {{:value.passivecost}} 
+												Engage: {{:value.engagecost}}
+												Activate: {{:value.activecost}}
+												Passive: {{:value.passivecost}}
 										</div>
 										<div class='caption floatLeft' style='width: 25%; margin: 0'>
 												{{:value.desc}}
@@ -272,7 +273,7 @@ Used In File(s): /code/modules/clothing/spacesuits/rig/rig.dm
 								</div>
 								<div class='floatLeft' style='clear: left; margin-left: 10px; width: 100%'>
 									{{if value.charges}}
-										<div class='average boldText'>Stored charges</div>
+										<div class='average boldText'>Энергия</div>
 										{{for value.charges :itemValue:itemIndex}}
 											<div class='floatLeft' style='padding: 2px 0px'>
 												{{:helper.link(helper.capitalizeFirstLetter(itemValue.caption), null, {'interact_module' : value.index, 'module_mode' : 'select_charge_type', 'charge_type' : itemValue.index}, (itemValue.index == value.chargetype) ? 'selected' : null)}}
