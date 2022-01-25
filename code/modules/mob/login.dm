@@ -27,7 +27,7 @@
 		if(is_multikeying && !client.warned_about_multikeying)
 			client.warned_about_multikeying = 1
 			spawn(1 SECOND)
-				to_chat(src, "<b>WARNING:</b> It would seem that you are sharing connection or computer with another player. If you haven't done so already, please contact the staff via the Adminhelp verb to resolve this situation. Failure to do so may result in administrative action. You have been warned.")
+				to_chat(src, "<b>Дружище</b><br> Я заметил что с твоего АйПи есть ещё одно подключение. Обратись к админам если это не так или будет хуже. Тебя предупредили.")
 
 	if(config.login_export_addr)
 		spawn(-1)
