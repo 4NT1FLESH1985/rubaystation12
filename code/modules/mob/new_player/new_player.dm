@@ -46,7 +46,7 @@
 		output += "<meta charset='utf-8'><a href='byond://?src=\ref[src];manifest=1'>Манифест</a>"
 	output += "<meta charset='utf-8'><a href='byond://?src=\ref[src];show_preferences=1'>Настройки</a>"
 	output += "<hr>"
-	output += "<b>Playing As</b><br>"
+	output += "<b>Выбраный Персонаж</b><br>"
 	output += "<a href='byond://?src=\ref[client.prefs];load=1;details=1'>[client.prefs.real_name || "(Рандом)"]</a><br>"
 	output += client.prefs.job_high ? "[client.prefs.job_high]" : null
 	output += "<hr>"
