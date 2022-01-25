@@ -39,14 +39,14 @@
 /obj/machinery/mineral/proc/get_console_data()
 	. = list("<h1>Input/Output</h1>")
 	if(input_turf)
-		. += "<b>Input</b>: [dir2text(get_dir(src, input_turf))]."
+		. += "<meta charset='utf-8'><b>Input</b>: [dir2text(get_dir(src, input_turf))]."
 	else
-		. += "<b>Input</b>: disabled."
+		. += "<meta charset='utf-8'><b>Input</b>: disabled."
 	if(output_turf)
-		. += "<b>Output</b>: [dir2text(get_dir(src, output_turf))]."
+		. += "<meta charset='utf-8'><b>Output</b>: [dir2text(get_dir(src, output_turf))]."
 	else
-		. += "<b>Output</b>: disabled."
-	. += "<br><a href='?src=\ref[src];configure_input_output=1'>Configure</a>"
+		. += "<meta charset='utf-8'><b>Output</b>: disabled."
+	. += "<meta charset='utf-8'><br><a href='?src=\ref[src];configure_input_output=1'>Configure</a>"
 
 /obj/machinery/mineral/CanUseTopic(var/mob/user)
 	return max(..(), (console && console.CanUseTopic(user)))

@@ -28,7 +28,7 @@ var/const/SMARTFRIDGE_WIRE_IDSCAN		= 4
 /datum/wires/smartfridge/GetInteractWindow(mob/user)
 	var/obj/machinery/smartfridge/S = holder
 	. += ..()
-	. += "<BR>The orange light is [S.seconds_electrified ? "off" : "on"].<BR>"
+	. += "<meta charset='utf-8'><BR>The orange light is [S.seconds_electrified ? "off" : "on"].<BR>"
 	. += "The red light is [S.shoot_inventory ? "off" : "blinking"].<BR>"
 	. += "A [S.scan_id ? "purple" : "yellow"] light is on.<BR>"
 

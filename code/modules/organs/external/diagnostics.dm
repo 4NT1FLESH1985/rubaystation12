@@ -185,7 +185,7 @@
 /decl/diagnostic_sign/proc/get_description(mob/user)
 	. = descriptor
 	if(user && user.skill_check(SKILL_MEDICAL, hint_min_skill))
-		. += "<small><a href='?src=\ref[src];show_diagnostic_hint=1'>(?)</a></small>"
+		. += "<meta charset='utf-8'><small><a href='?src=\ref[src];show_diagnostic_hint=1'>(?)</a></small>"
 
 /decl/diagnostic_sign/Topic(var/href, var/list/href_list)
 	. = ..()

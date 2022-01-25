@@ -37,24 +37,24 @@
 
 /mob/living/bot/floorbot/GetInteractTitle()
 	. = "<head><title>Repairbot v1.0 controls</title></head>"
-	. += "<b>Automatic Floor Repairer v1.0</b>"
+	. += "<meta charset='utf-8'><b>Automatic Floor Repairer v1.0</b>"
 
 /mob/living/bot/floorbot/GetInteractStatus()
 	. = ..()
-	. += "<br>Tiles left: [amount]"
+	. += "<meta charset='utf-8'><br>Tiles left: [amount]"
 
 /mob/living/bot/floorbot/GetInteractPanel()
 	. = "Improves floors: <a href='?src=\ref[src];command=improve'>[improvefloors ? "Yes" : "No"]</a>"
-	. += "<br>Finds tiles: <a href='?src=\ref[src];command=tiles'>[eattiles ? "Yes" : "No"]</a>"
-	. += "<br>Make single pieces of metal into tiles when empty: <a href='?src=\ref[src];command=make'>[maketiles ? "Yes" : "No"]</a>"
+	. += "<meta charset='utf-8'><br>Finds tiles: <a href='?src=\ref[src];command=tiles'>[eattiles ? "Yes" : "No"]</a>"
+	. += "<meta charset='utf-8'><br>Make single pieces of metal into tiles when empty: <a href='?src=\ref[src];command=make'>[maketiles ? "Yes" : "No"]</a>"
 
 /mob/living/bot/floorbot/GetInteractMaintenance()
 	. = "Disassembly mode: "
 	switch(emagged)
 		if(0)
-			. += "<a href='?src=\ref[src];command=emag'>Off</a>"
+			. += "<meta charset='utf-8'><a href='?src=\ref[src];command=emag'>Off</a>"
 		if(1)
-			. += "<a href='?src=\ref[src];command=emag'>On (Caution)</a>"
+			. += "<meta charset='utf-8'><a href='?src=\ref[src];command=emag'>On (Caution)</a>"
 		if(2)
 			. += "ERROROROROROR-----"
 

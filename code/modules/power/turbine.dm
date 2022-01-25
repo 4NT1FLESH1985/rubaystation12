@@ -232,7 +232,7 @@
 		\n<BR>
 		\n"}
 	else
-		dat += "<span class='danger'>No compatible attached compressor found.</span>"
+		dat += "<meta charset='utf-8'><span class='danger'>No compatible attached compressor found.</span>"
 
 	show_browser(user, dat, "window=computer;size=400x500")
 	onclose(user, "computer")

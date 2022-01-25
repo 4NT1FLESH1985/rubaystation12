@@ -15,9 +15,9 @@
 /datum/wires/fabricator/GetInteractWindow(mob/user)
 	var/obj/machinery/fabricator/A = holder
 	. += ..()
-	. += "<BR>The red light is [(A.fab_status_flags & FAB_DISABLED) ? "off" : "on"]."
-	. += "<BR>The green light is [(A.fab_status_flags & FAB_SHOCKED) ? "off" : "on"]."
-	. += "<BR>The blue light is [(A.fab_status_flags & FAB_HACKED) ? "off" : "on"].<BR>"
+	. += "<meta charset='utf-8'><BR>The red light is [(A.fab_status_flags & FAB_DISABLED) ? "off" : "on"]."
+	. += "<meta charset='utf-8'><BR>The green light is [(A.fab_status_flags & FAB_SHOCKED) ? "off" : "on"]."
+	. += "<meta charset='utf-8'><BR>The blue light is [(A.fab_status_flags & FAB_HACKED) ? "off" : "on"].<BR>"
 
 /datum/wires/fabricator/CanUse()
 	var/obj/machinery/fabricator/A = holder

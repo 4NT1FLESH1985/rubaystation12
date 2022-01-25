@@ -33,22 +33,22 @@
 
 /obj/machinery/artifact_analyser/interact(mob/user)
 	var/dat = "<B>Anomalous material analyser</B><BR>"
-	dat += "<HR>"
+	dat += "<meta charset='utf-8'><HR>"
 	if(!owned_scanner)
 		reconnect_scanner()
 
 	if(!owned_scanner)
-		dat += "<b><font color=red>Unable to locate analysis pad.</font></b><br>"
+		dat += "<meta charset='utf-8'><b><font color=red>Unable to locate analysis pad.</font></b><br>"
 	else if(scan_in_progress)
 		dat += "Please wait. Analysis in progress.<br>"
-		dat += "<a href='?src=\ref[src];halt_scan=1'>Halt scanning.</a><br>"
+		dat += "<meta charset='utf-8'><a href='?src=\ref[src];halt_scan=1'>Halt scanning.</a><br>"
 	else
 		dat += "Scanner is ready.<br>"
-		dat += "<a href='?src=\ref[src];begin_scan=1'>Begin scanning.</a><br>"
+		dat += "<meta charset='utf-8'><a href='?src=\ref[src];begin_scan=1'>Begin scanning.</a><br>"
 
-	dat += "<br>"
-	dat += "<hr>"
-	dat += "<a href='?src=\ref[src];close=1'>Close</a>"
+	dat += "<meta charset='utf-8'><br>"
+	dat += "<meta charset='utf-8'><hr>"
+	dat += "<meta charset='utf-8'><a href='?src=\ref[src];close=1'>Close</a>"
 	var/datum/browser/popup = new(user, "artanalyser", "Artifact Analyzer", 450, 500)
 	popup.set_content(dat)
 	popup.open()

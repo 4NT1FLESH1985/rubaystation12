@@ -84,7 +84,7 @@
 
 /obj/item/gun/projectile/shotgun/pump/get_mechanics_info()
 	. = ..()
-	. += "<br>To pump it, click it in hand.<br>"
+	. += "<meta charset='utf-8'><br>To pump it, click it in hand.<br>"
 
 /obj/item/gun/energy/crossbow/get_antag_info()
 	. = ..()
@@ -101,12 +101,12 @@
 /obj/item/gun/magnetic/get_mechanics_info()
 	. = ..()
 	if (removable_components)
-		. += "<p>Its cell and capacitor can be removed and replaced. You can remove the components by clicking the gun with an empty hand while it's unloaded.</p>"
+		. += "<meta charset='utf-8'><p>Its cell and capacitor can be removed and replaced. You can remove the components by clicking the gun with an empty hand while it's unloaded.</p>"
 	if (load_type)
 		var/load_item = new load_type()
-		. += "<p>It accepts [load_item] as ammunition, with a maximum capacity of [load_sheet_max].</p>"
+		. += "<meta charset='utf-8'><p>It accepts [load_item] as ammunition, with a maximum capacity of [load_sheet_max].</p>"
 	if (gun_unreliable)
-		. += "<p>This weapon is unreliable and has a chance of exploding in your hands when you fire it.</p>"
+		. += "<meta charset='utf-8'><p>This weapon is unreliable and has a chance of exploding in your hands when you fire it.</p>"
 
 /datum/codex_entry/energy_weapons
 	display_name = "energy weapons"

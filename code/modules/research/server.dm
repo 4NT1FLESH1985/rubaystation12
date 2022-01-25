@@ -214,10 +214,10 @@
 				if((istype(S, /obj/machinery/r_n_d/server/centcom) && !badmin) || (ST && !AreConnectedZLevels(ST.z, T.z)))
 					continue
 				dat += "[S.name] || "
-				dat += "<A href='?src=\ref[src];access=[S.server_id]'> Access Rights</A> | "
-				dat += "<A href='?src=\ref[src];data=[S.server_id]'>Data Management</A>"
+				dat += "<meta charset='utf-8'><A href='?src=\ref[src];access=[S.server_id]'> Access Rights</A> | "
+				dat += "<meta charset='utf-8'><A href='?src=\ref[src];data=[S.server_id]'>Data Management</A>"
 				if(badmin) dat += " | <A href='?src=\ref[src];transfer=[S.server_id]'>Server-to-Server Transfer</A>"
-				dat += "<BR>"
+				dat += "<meta charset='utf-8'><BR>"
 
 		if(1) //Access rights menu
 			dat += "[temp_server.name] Access Rights<BR><BR>"
@@ -237,26 +237,26 @@
 					dat += " (Remove)</A><BR>"
 				else
 					dat += " (Add)</A><BR>"
-			dat += "<HR><A href='?src=\ref[src];main=1'>Main Menu</A>"
+			dat += "<meta charset='utf-8'><HR><A href='?src=\ref[src];main=1'>Main Menu</A>"
 
 		if(2) //Data Management menu
 			dat += "[temp_server.name] Data ManagementP<BR><BR>"
 			dat += "Known Technologies<BR>"
 			for(var/datum/tech/T in temp_server.files.known_tech)
 				dat += "* [T.name] "
-				dat += "<A href='?src=\ref[src];reset_tech=[T.id]'>(Reset)</A><BR>" //FYI, these are all strings.
+				dat += "<meta charset='utf-8'><A href='?src=\ref[src];reset_tech=[T.id]'>(Reset)</A><BR>" //FYI, these are all strings.
 			dat += "Known Designs<BR>"
 			for(var/datum/design/D in temp_server.files.known_designs)
 				dat += "* [D.name] "
-				dat += "<A href='?src=\ref[src];reset_design=[D.id]'>(Delete)</A><BR>"
-			dat += "<HR><A href='?src=\ref[src];main=1'>Main Menu</A>"
+				dat += "<meta charset='utf-8'><A href='?src=\ref[src];reset_design=[D.id]'>(Delete)</A><BR>"
+			dat += "<meta charset='utf-8'><HR><A href='?src=\ref[src];main=1'>Main Menu</A>"
 
 		if(3) //Server Data Transfer
 			dat += "[temp_server.name] Server to Server Transfer<BR><BR>"
 			dat += "Send Data to what server?<BR>"
 			for(var/obj/machinery/r_n_d/server/S in servers)
 				dat += "[S.name] <A href='?src=\ref[src];send_to=[S.server_id]'> (Transfer)</A><BR>"
-			dat += "<HR><A href='?src=\ref[src];main=1'>Main Menu</A>"
+			dat += "<meta charset='utf-8'><HR><A href='?src=\ref[src];main=1'>Main Menu</A>"
 	show_browser(user, "<TITLE>R&D Server Control</TITLE><HR>[dat]", "window=server_control;size=575x400")
 	onclose(user, "server_control")
 	return

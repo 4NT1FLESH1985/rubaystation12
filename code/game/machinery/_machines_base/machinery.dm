@@ -516,9 +516,9 @@ Class Procs:
 	if (silicon_restriction)
 		switch (silicon_restriction)
 			if (STATUS_UPDATE)
-				. += "<p>Silicons are blocked from controlling it.</p>"
+				. += "<meta charset='utf-8'><p>Silicons are blocked from controlling it.</p>"
 			if (STATUS_DISABLED || STATUS_CLOSE)
-				. += "<p>Silicons are blocked from viewing or controlling it.</p>"
+				. += "<meta charset='utf-8'><p>Silicons are blocked from viewing or controlling it.</p>"
 
 	var/power_channel_name
 	switch (initial(power_channel))
@@ -530,22 +530,22 @@ Class Procs:
 			power_channel_name = "Environment"
 		if (LOCAL)
 			power_channel_name = "Local"
-	. += "<p>By default, it draws power from the [power_channel_name] channel.</p>"
+	. += "<meta charset='utf-8'><p>By default, it draws power from the [power_channel_name] channel.</p>"
 
 	if (idle_power_usage && active_power_usage)
-		. += "<p>It draws [idle_power_usage] watts while idle, and [active_power_usage] watts while active."
+		. += "<meta charset='utf-8'><p>It draws [idle_power_usage] watts while idle, and [active_power_usage] watts while active."
 	else if (idle_power_usage)
-		. += "<p>It draws [idle_power_usage] watts while idle.</p>"
+		. += "<meta charset='utf-8'><p>It draws [idle_power_usage] watts while idle.</p>"
 	else if (active_power_usage)
-		. += "<p>It draws [active_power_usage] watts while active.</p>"
+		. += "<meta charset='utf-8'><p>It draws [active_power_usage] watts while active.</p>"
 
 	if (core_skill)
 		var/decl/hierarchy/skill/core_skill_decl = core_skill
-		. += "<p>It utilizes the [initial(core_skill_decl.name)] skill.</p>"
+		. += "<meta charset='utf-8'><p>It utilizes the [initial(core_skill_decl.name)] skill.</p>"
 
 	var/wire_mechanics = wires?.get_mechanics_info()
 	if (wire_mechanics)
-		. += "<hr><h5>Wiring</h5>[wire_mechanics]"
+		. += "<meta charset='utf-8'><hr><h5>Wiring</h5>[wire_mechanics]"
 
 // This is really pretty crap and should be overridden for specific machines.
 /obj/machinery/water_act(depth)

@@ -133,17 +133,17 @@
 	var/curText = GetInteractTitle()
 	if(curText)
 		dat += curText
-		dat += "<hr>"
+		dat += "<meta charset='utf-8'><hr>"
 
 	curText = GetInteractStatus()
 	if(curText)
 		dat += curText
-		dat += "<hr>"
+		dat += "<meta charset='utf-8'><hr>"
 
 	curText = (CanAccessPanel(user)) ? GetInteractPanel() : "The access panel is locked."
 	if(curText)
 		dat += curText
-		dat += "<hr>"
+		dat += "<meta charset='utf-8'><hr>"
 
 	curText = (CanAccessMaintenance(user)) ? GetInteractMaintenance() : "The maintenance panel is locked."
 	if(curText)
@@ -166,8 +166,8 @@
 
 /mob/living/bot/proc/GetInteractStatus()
 	. = "Status: <A href='?src=\ref[src];command=toggle'>[on ? "On" : "Off"]</A>"
-	. += "<BR>Behaviour controls are [locked ? "locked" : "unlocked"]"
-	. += "<BR>Maintenance panel is [open ? "opened" : "closed"]"
+	. += "<meta charset='utf-8'><BR>Behaviour controls are [locked ? "locked" : "unlocked"]"
+	. += "<meta charset='utf-8'><BR>Maintenance panel is [open ? "opened" : "closed"]"
 
 /mob/living/bot/proc/GetInteractPanel()
 	return

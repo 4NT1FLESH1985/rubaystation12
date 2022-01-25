@@ -254,7 +254,7 @@ GLOBAL_LIST_EMPTY(diversion_junctions)
 		else
 			dat += "Disposal handle: <B>Disengaged</B> <A href='?src=\ref[src];handle=1'>Engage</A>"
 
-		dat += "<BR><HR><A href='?src=\ref[src];eject=1'>Eject contents</A><HR>"
+		dat += "<meta charset='utf-8'><BR><HR><A href='?src=\ref[src];eject=1'>Eject contents</A><HR>"
 
 	if(mode <= 0)
 		dat += "Pump: <B>Off</B> <A href='?src=\ref[src];pump=1'>On</A><BR>"

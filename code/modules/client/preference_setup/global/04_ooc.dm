@@ -19,7 +19,7 @@
 		pref.ignored_players = list()
 
 /datum/category_item/player_setup_item/player_global/ooc/content(var/mob/user)
-	. += "<b>OOC:</b><br>"
+	. += "<meta charset='utf-8'><b>OOC:</b><br>"
 	. += "Ignored Players<br>"
 	for(var/ignored_player in pref.ignored_players)
 		. += "[ignored_player] (<a href='?src=\ref[src];unignore_player=[ignored_player]'>Unignore</a>)<br>"

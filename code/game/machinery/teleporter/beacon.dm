@@ -171,7 +171,7 @@ var/const/TELEBEACON_WIRE_SIGNALLER = 4
 
 /obj/machinery/tele_beacon/get_mechanics_info()
 	. = ..()
-	. += "<p>\The [src] can be targeted by teleporter control consoles to allow teleporter pads to send mobs and objects to this [src]'s location. \
+	. += "<meta charset='utf-8'><p>\The [src] can be targeted by teleporter control consoles to allow teleporter pads to send mobs and objects to this [src]'s location. \
 		It can only be targeted and used while \the [src] is powered and anchored (wrenched) to the floor.</p>\
 		<p>While the panel is closed:</p>\
 		<ul>\
@@ -182,7 +182,7 @@ var/const/TELEBEACON_WIRE_SIGNALLER = 4
 
 /obj/machinery/tele_beacon/get_antag_info()
 	. = ..()
-	. += "<p>If EMP'd, \the [src] will lose all established teleporter locks and will be disabled for up to 30 seconds.</p>"
+	. += "<meta charset='utf-8'><p>If EMP'd, \the [src] will lose all established teleporter locks and will be disabled for up to 30 seconds.</p>"
 
 
 /// Connects the beacon to a computer that's locking onto it. Returns TRUE on connection, FALSE if the connection fails.
@@ -290,17 +290,17 @@ var/const/TELEBEACON_WIRE_SIGNALLER = 4
 /datum/wires/tele_beacon/GetInteractWindow(mob/user)
 	var/obj/machinery/tele_beacon/tele_beacon = holder
 	. = ..()
-	. += "<ul>"
+	. += "<meta charset='utf-8'><ul>"
 	if (!tele_beacon.functioning())
-		. += "<li>The panel seems to be completely unpowered or disabled.</li>"
+		. += "<meta charset='utf-8'><li>The panel seems to be completely unpowered or disabled.</li>"
 	else
-		. += "<li>The panel is powered.</li>"
+		. += "<meta charset='utf-8'><li>The panel is powered.</li>"
 		if (user.skill_check(SKILL_ELECTRICAL, SKILL_ADEPT))
-			. += "<li>The remote relay chip is [IsIndexCut(TELEBEACON_WIRE_RELAY) ? "disconnected" : "connected"].</li>"
-			. += "<li>The connection signaller circuitry is [IsIndexCut(TELEBEACON_WIRE_SIGNALLER) ? "disconnected" : "connected"].</li>"
+			. += "<meta charset='utf-8'><li>The remote relay chip is [IsIndexCut(TELEBEACON_WIRE_RELAY) ? "disconnected" : "connected"].</li>"
+			. += "<meta charset='utf-8'><li>The connection signaller circuitry is [IsIndexCut(TELEBEACON_WIRE_SIGNALLER) ? "disconnected" : "connected"].</li>"
 		else
-			. += "<li>There are lights and wires here, but you don't know how the wiring works.</li>"
-	. += "</ul>"
+			. += "<meta charset='utf-8'><li>There are lights and wires here, but you don't know how the wiring works.</li>"
+	. += "<meta charset='utf-8'></ul>"
 
 
 /datum/wires/tele_beacon/UpdateCut(index, mended)

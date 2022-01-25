@@ -119,9 +119,9 @@
 		<tr><td><strong>Scan Results For:</strong></td><td>Name</td></tr>
 		<tr><td><strong>Scan Performed At:</strong></td><td>00:00</td></tr>
 	*/
-	dat += "<table class='block' width='95%'>"
-	dat += "<tr><td><strong>Scan Results For:</strong></td><td>[scan["name"]]</td></tr>"
-	dat += "<tr><td><strong>Scan performed at:</strong></td><td>[scan["time"]]</td></tr>"
+	dat += "<meta charset='utf-8'><table class='block' width='95%'>"
+	dat += "<meta charset='utf-8'><tr><td><strong>Scan Results For:</strong></td><td>[scan["name"]]</td></tr>"
+	dat += "<meta charset='utf-8'><tr><td><strong>Scan performed at:</strong></td><td>[scan["time"]]</td></tr>"
 
 	dat = JOINTEXT(dat)
 	return dat
@@ -138,25 +138,25 @@
 	/*
 		<tr><td><strong>Brain Activity:</strong></td><td>100%</td></tr>
 	*/
-	dat += "<tr><td><strong>Brain activity:</strong></td>"
+	dat += "<meta charset='utf-8'><tr><td><strong>Brain activity:</strong></td>"
 	switch(scan["brain_activity"])
 		if(0)
-			dat += "<td><span class='bad'>none, patient is braindead</span></td></tr>"
+			dat += "<meta charset='utf-8'><td><span class='bad'>none, patient is braindead</span></td></tr>"
 		if(-1)
-			dat += "<td><span class='average'>ERROR - Nonstandard biology</span></td></tr>"
+			dat += "<meta charset='utf-8'><td><span class='average'>ERROR - Nonstandard biology</span></td></tr>"
 		else
 			if(skill_level >= SKILL_BASIC)
 				if(scan["brain_activity"] <= 50)
-					dat += "<td><span class='bad'>[scan["brain_activity"]]%</span></td></tr>"
+					dat += "<meta charset='utf-8'><td><span class='bad'>[scan["brain_activity"]]%</span></td></tr>"
 				else if(scan["brain_activity"] <= 80)
-					dat += "<td><span class='average'>[scan["brain_activity"]]%</span></td></tr>"
+					dat += "<meta charset='utf-8'><td><span class='average'>[scan["brain_activity"]]%</span></td></tr>"
 				else
-					dat += "<td>[scan["brain_activity"]]%</td></tr>"
+					dat += "<meta charset='utf-8'><td>[scan["brain_activity"]]%</td></tr>"
 			else
 				if(scan["brain_activity"] > 0)
-					dat += "<td>there's a squiggly line here</td></tr>"
+					dat += "<meta charset='utf-8'><td>there's a squiggly line here</td></tr>"
 				else
-					dat += "<td>there's a straight line here</td></tr>"
+					dat += "<meta charset='utf-8'><td>there's a straight line here</td></tr>"
 
 	//Circulatory System
 	/*
@@ -166,26 +166,26 @@
 		<tr><td><strong>Blood Volume:</strong></td><td>560u/560u</td></tr>
 		<tr><td colspan="2" align="center"><span class='bad'>Patient in Hypovolemic Shock. Transfusion highly recommended.</span></td></tr>
 	*/
-	dat += "<tr><td><strong>Pulse rate:</strong></td>"
+	dat += "<meta charset='utf-8'><tr><td><strong>Pulse rate:</strong></td>"
 	if(scan["pulse"] == -1)
-		dat += "<td><span class='average'>ERROR - Nonstandard biology</span></td></tr>"
+		dat += "<meta charset='utf-8'><td><span class='average'>ERROR - Nonstandard biology</span></td></tr>"
 	else if(scan["pulse"] == -2)
-		dat += "<td>N/A</td></tr>"
+		dat += "<meta charset='utf-8'><td>N/A</td></tr>"
 	else if(scan["pulse"] == -3)
-		dat += "<td><span class='bad'>250+bpm</span></td></tr>"
+		dat += "<meta charset='utf-8'><td><span class='bad'>250+bpm</span></td></tr>"
 	else if(scan["pulse"] == 0)
-		dat += "<td><span class='bad'>[scan["pulse"]]bpm</span></td></tr>"
+		dat += "<meta charset='utf-8'><td><span class='bad'>[scan["pulse"]]bpm</span></td></tr>"
 	else if(scan["pulse"] >= 140)
-		dat += "<td><span class='bad'>[scan["pulse"]]bpm</span></td></tr>"
+		dat += "<meta charset='utf-8'><td><span class='bad'>[scan["pulse"]]bpm</span></td></tr>"
 	else if(scan["pulse"] >= 120)
-		dat += "<td><span class='average'>[scan["pulse"]]bpm</span></td></tr>"
+		dat += "<meta charset='utf-8'><td><span class='average'>[scan["pulse"]]bpm</span></td></tr>"
 	else
-		dat += "<td>[scan["pulse"]]bpm</td></tr>"
+		dat += "<meta charset='utf-8'><td>[scan["pulse"]]bpm</td></tr>"
 	if(skill_level >= SKILL_ADEPT)
 		if((scan["pulse"] >= 140) || (scan["pulse"] == -3))
 			dat+= "<tr><td colspan='2'><span class='bad'>Patient is tachycardic.</span></td></tr>"
 		else if(scan["pulse"] >= 120)
-			dat += "<tr><td colspan='2'><span class='average'>Patient is tachycardic.</span></td></tr>"
+			dat += "<meta charset='utf-8'><tr><td colspan='2'><span class='average'>Patient is tachycardic.</span></td></tr>"
 		else if(scan["pulse"] == 0)
 			dat+= "<tr><td colspan='2'><span class='bad'>Patient's heart is stopped.</span></td></tr>"
 		else if((scan["pulse"] > 0) && (scan["pulse"] <= 40))
@@ -193,7 +193,7 @@
 
 
 	var/ratio = scan["blood_volume"]/scan["blood_volume_max"]
-	dat += "<tr><td><strong>Blood pressure:</strong></td><td>[scan["blood_pressure"]] "
+	dat += "<meta charset='utf-8'><tr><td><strong>Blood pressure:</strong></td><td>[scan["blood_pressure"]] "
 	if(scan["blood_o2"] <= 70)
 		dat += "(<span class='bad'>[scan["blood_o2"]]% blood oxygenation</span>)</td></tr>"
 	else if(scan["blood_o2"] <= 85)
@@ -203,17 +203,17 @@
 	else
 		dat += "([scan["blood_o2"]]% blood oxygenation)</td></tr>"
 
-	dat += "<tr><td><strong>Blood volume:</strong></td><td>[scan["blood_volume"]]u/[scan["blood_volume_max"]]u</td></tr>"
+	dat += "<meta charset='utf-8'><tr><td><strong>Blood volume:</strong></td><td>[scan["blood_volume"]]u/[scan["blood_volume_max"]]u</td></tr>"
 
 	if(skill_level >= SKILL_ADEPT)
 		if(ratio <= 0.70)
-			dat += "<tr><td colspan='2'><span class='bad'>Patient is in hypovolemic shock. Transfusion highly recommended.</span></td></tr>"
+			dat += "<meta charset='utf-8'><tr><td colspan='2'><span class='bad'>Patient is in hypovolemic shock. Transfusion highly recommended.</span></td></tr>"
 
 	// Body temperature.
 	/*
 		<tr><td><strong>Body Temperature:</strong></td><td>40&deg;C (98.6&deg;F)</td></tr>
 	*/
-	dat += "<tr><td><strong>Body temperature:</strong></td><td>[scan["temperature"]-T0C]&deg;C ([scan["temperature"]*1.8-459.67]&deg;F)</td></tr>"
+	dat += "<meta charset='utf-8'><tr><td><strong>Body temperature:</strong></td><td>[scan["temperature"]-T0C]&deg;C ([scan["temperature"]*1.8-459.67]&deg;F)</td></tr>"
 
 	//Information Summary
 	/*
@@ -226,15 +226,15 @@
 		<tr><td><strong>Paralysis Summary:</strong></td><td>approx 0 seconds left</td></tr>
 	*/
 	if(skill_level >= SKILL_BASIC)
-		subdat += "<tr><td><strong>Physical Trauma:</strong></td><td>\t[get_severity(scan["trauma"],TRUE)]</td></tr>"
-		subdat += "<tr><td><strong>Burn Severity:</strong></td><td>\t[get_severity(scan["burn"],TRUE)]</td></tr>"
-		subdat += "<tr><td><strong>Systematic Organ Failure:</strong></td><td>\t[get_severity(scan["toxin"],TRUE)]</td></tr>"
-		subdat += "<tr><td><strong>Oxygen Deprivation:</strong></td><td>\t[get_severity(scan["oxygen"],TRUE)]</td></tr>"
-		subdat += "<tr><td><strong>Radiation Level:</strong></td><td>\t[get_severity(scan["radiation"]/5,TRUE)]</td></tr>"
-		subdat += "<tr><td><strong>Genetic Tissue Damage:</strong></td><td>\t[get_severity(scan["genetic"],TRUE)]</td></tr>"
+		subdat += "<meta charset='utf-8'><tr><td><strong>Physical Trauma:</strong></td><td>\t[get_severity(scan["trauma"],TRUE)]</td></tr>"
+		subdat += "<meta charset='utf-8'><tr><td><strong>Burn Severity:</strong></td><td>\t[get_severity(scan["burn"],TRUE)]</td></tr>"
+		subdat += "<meta charset='utf-8'><tr><td><strong>Systematic Organ Failure:</strong></td><td>\t[get_severity(scan["toxin"],TRUE)]</td></tr>"
+		subdat += "<meta charset='utf-8'><tr><td><strong>Oxygen Deprivation:</strong></td><td>\t[get_severity(scan["oxygen"],TRUE)]</td></tr>"
+		subdat += "<meta charset='utf-8'><tr><td><strong>Radiation Level:</strong></td><td>\t[get_severity(scan["radiation"]/5,TRUE)]</td></tr>"
+		subdat += "<meta charset='utf-8'><tr><td><strong>Genetic Tissue Damage:</strong></td><td>\t[get_severity(scan["genetic"],TRUE)]</td></tr>"
 
 		if(scan["paralysis"])
-			subdat += "<tr><td><strong>Paralysis Summary:</strong></td><td>approx. [scan["paralysis"]/4] seconds left</td></tr>"
+			subdat += "<meta charset='utf-8'><tr><td><strong>Paralysis Summary:</strong></td><td>approx. [scan["paralysis"]/4] seconds left</td></tr>"
 
 		dat += subdat
 
@@ -245,10 +245,10 @@
 			<tr><td colspan='2'><span class='bad'><center>Viral Pathogen detected in blood stream.</center></span></td></tr>
 			<tr><td colspan='2'><span class='bad'><center>Large growth detected in frontal lobe, possibly cancerous.</center></span></td></tr>
 		*/
-		dat += "<tr><td colspan = '2'>Antibody levels and immune system perfomance are at [scan["immune_system"]*100]% of baseline.</td></tr>"
+		dat += "<meta charset='utf-8'><tr><td colspan = '2'>Antibody levels and immune system perfomance are at [scan["immune_system"]*100]% of baseline.</td></tr>"
 
 		if(scan["worms"])
-			dat += "<tr><td colspan='2'><span class='bad'><center>Large growth detected in frontal lobe, possibly cancerous.</center></span></td></tr>"
+			dat += "<meta charset='utf-8'><tr><td colspan='2'><span class='bad'><center>Large growth detected in frontal lobe, possibly cancerous.</center></span></td></tr>"
 
 		//Reagent scan
 		/*
@@ -259,21 +259,21 @@
 
 		for(var/list/R in scan["reagents"])
 			if(R["scannable"])
-				subdat += "<tr><td colspan='2'>[R["quantity"]]u [R["name"]]</td></tr>"
+				subdat += "<meta charset='utf-8'><tr><td colspan='2'>[R["quantity"]]u [R["name"]]</td></tr>"
 			else
 				other_reagent = TRUE
 		if(subdat)
-			dat += "<tr><td colspan='2'>Beneficial reagents detected in subject's bloodstream:</td></tr>"
+			dat += "<meta charset='utf-8'><tr><td colspan='2'>Beneficial reagents detected in subject's bloodstream:</td></tr>"
 			dat += subdat
 		if(other_reagent)
-			dat += "<tr><td colspan='2'><span class='average'>Warning: Unknown substance detected in subject's blood.</span></td></tr>"
+			dat += "<meta charset='utf-8'><tr><td colspan='2'><span class='average'>Warning: Unknown substance detected in subject's blood.</span></td></tr>"
 
 	//summary for the medically disinclined.
 	/*
 			<tr><td colspan='2'>You see a lot of numbers and abbreviations here, but you have no clue what any of this means.</td></tr>
 	*/
 	else
-		dat += "<tr><td colspan='2'>You see a lot of numbers and abbreviations here, but you have no clue what any of it means.</td></tr>"
+		dat += "<meta charset='utf-8'><tr><td colspan='2'>You see a lot of numbers and abbreviations here, but you have no clue what any of it means.</td></tr>"
 
 	dat = JOINTEXT(dat)
 
@@ -297,8 +297,8 @@
 					<tr><td>right arm</td><td>N/A</td><td><span class='bad'>Missing</span></td></tr>
 	*/
 
-	dat += "<tr><td colspan='2'><center><table class='block' border='1' width='95%'><tr><th colspan='3'>Body Status</th></tr>"
-	dat += "<tr><th>Organ</th><th>Damage</th><th>Status</th></tr>"
+	dat += "<meta charset='utf-8'><tr><td colspan='2'><center><table class='block' border='1' width='95%'><tr><th colspan='3'>Body Status</th></tr>"
+	dat += "<meta charset='utf-8'><tr><th>Organ</th><th>Damage</th><th>Status</th></tr>"
 	subdat = list()
 
 	for(var/list/E in scan["external_organs"])
@@ -351,7 +351,7 @@
 			</center></td></tr>
 	*/
 	if(skill_level >= SKILL_BASIC)
-		dat += "<tr><th colspan='3'><center>Internal Organs</center></th></tr>"
+		dat += "<meta charset='utf-8'><tr><th colspan='3'><center>Internal Organs</center></th></tr>"
 		for(var/list/I in scan["internal_organs"])
 			var/row = list()
 			var/inflamed = I["inflamed"] || FALSE
@@ -375,15 +375,15 @@
 		dat += subdat
 	for(var/organ_name in scan["missing_organs"])
 		if(organ_name != "appendix")
-			dat += "<tr><td colspan='3'><span class='bad'>No [organ_name] detected.</span></td></tr>"
+			dat += "<meta charset='utf-8'><tr><td colspan='3'><span class='bad'>No [organ_name] detected.</span></td></tr>"
 		else
-			dat += "<tr><td colspan='3'>No [organ_name] detected.</td></tr>"
+			dat += "<meta charset='utf-8'><tr><td colspan='3'>No [organ_name] detected.</td></tr>"
 
 	if(scan["blind"])
-		dat += "<tr><td colspan='3'><span class='bad'>Cataracts detected.</span></td></tr>"
+		dat += "<meta charset='utf-8'><tr><td colspan='3'><span class='bad'>Cataracts detected.</span></td></tr>"
 	else if(scan["nearsight"])
-		dat += "<tr><td colspan='3'><span class='average'>Retinal misalignment detected.</span></td></tr>"
-	dat += "</table></center></td></tr>"
+		dat += "<meta charset='utf-8'><tr><td colspan='3'><span class='average'>Retinal misalignment detected.</span></td></tr>"
+	dat += "<meta charset='utf-8'></table></center></td></tr>"
 
 	dat = JOINTEXT(dat)
 	return dat
@@ -396,7 +396,7 @@
 	var/dat = list()
 
 	if(TT)
-		dat += "<tt>"
+		dat += "<meta charset='utf-8'><tt>"
 
 	//necessary evil, due to the limitations of nanoUI's variable length output.
 	//This allows for the display_medical_data proc to be used for non-ui things
@@ -408,7 +408,7 @@
 	dat += display_medical_data_body(scan, skill_level)
 
 	if(TT)
-		dat += "</tt>"
+		dat += "<meta charset='utf-8'></tt>"
 
 	dat = JOINTEXT(dat)
 	return dat

@@ -89,7 +89,7 @@ var/const/CHARACTER_PREFERENCE_INPUT_TITLE = "Character Preference"
 		if(PS == selected_category)
 			dat += "[PS.name] "	// TODO: Check how to properly mark a href/button selected in a classic browser window
 		else
-			dat += "<a href='?src=\ref[src];category=\ref[PS]'>[PS.name]</a> "
+			dat += "<meta charset='utf-8'><a href='?src=\ref[src];category=\ref[PS]'>[PS.name]</a> "
 	return dat
 
 /datum/category_collection/player_setup_collection/proc/content(var/mob/user)
@@ -155,9 +155,9 @@ var/const/CHARACTER_PREFERENCE_INPUT_TITLE = "Character Preference"
 	for(var/datum/category_item/player_setup_item/PI in items)
 		if(halfway && current++ >= halfway)
 			halfway = 0
-			. += "</td><td></td><td style='width:50%'>"
+			. += "<meta charset='utf-8'></td><td></td><td style='width:50%'>"
 		. += "[PI.content(user)]<br>"
-	. += "</td></tr></table>"
+	. += "<meta charset='utf-8'></td></tr></table>"
 
 /datum/category_group/player_setup_category/occupation_preferences/content(var/mob/user)
 	for(var/datum/category_item/player_setup_item/PI in items)

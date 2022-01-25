@@ -270,7 +270,7 @@ var/global/floorIsLava = 0
 
 /datum/admins/proc/PlayerNotesPage(var/filter_term)
 	var/list/dat = list()
-	dat += "<B>Player notes</B><HR>"
+	dat += "<meta charset='utf-8'><B>Player notes</B><HR>"
 	var/savefile/S=new("data/player_notes.sav")
 	var/list/note_keys
 	from_save(S, note_keys)
@@ -281,16 +281,16 @@ var/global/floorIsLava = 0
 				continue
 			note_keys -= t
 
-	dat += "<center><b>Search term:</b> <a href='?src=\ref[src];notes=set_filter'>[filter_term ? filter_term : "-----"]</a></center><hr>"
+	dat += "<meta charset='utf-8'><center><b>Search term:</b> <a href='?src=\ref[src];notes=set_filter'>[filter_term ? filter_term : "-----"]</a></center><hr>"
 
 	if(!note_keys)
 		dat += "No notes found."
 	else
-		dat += "<table>"
+		dat += "<meta charset='utf-8'><table>"
 		note_keys = sortList(note_keys)
 		for(var/t in note_keys)
-			dat += "<tr><td><a href='?src=\ref[src];notes=show;ckey=[t]'>[t]</a></td></tr>"
-		dat += "</table><br>"
+			dat += "<meta charset='utf-8'><tr><td><a href='?src=\ref[src];notes=show;ckey=[t]'>[t]</a></td></tr>"
+		dat += "<meta charset='utf-8'></table><br>"
 
 	var/datum/browser/popup = new(usr, "player_notes", "Player Notes", 400, 400)
 	popup.set_content(jointext(dat, null))
@@ -644,7 +644,7 @@ var/global/floorIsLava = 0
 		if( findtext(r,"##") )
 			r = copytext( r, 1, findtext(r,"##") )//removes the description
 		dat += text("<tr><td>[t] (<A href='?src=\ref[src];removejobban=[r]'>unban</A>)</td></tr>")
-	dat += "</table>"
+	dat += "<meta charset='utf-8'></table>"
 	show_browser(usr, dat, "window=ban;size=400x400")
 
 /datum/admins/proc/Game()
@@ -655,7 +655,7 @@ var/global/floorIsLava = 0
 		<A href='?src=\ref[src];c_mode=1'>Change Game Mode</A><br>
 		"}
 	if(SSticker.master_mode == "secret")
-		dat += "<A href='?src=\ref[src];f_secret=1'>(Force Secret Mode)</A><br>"
+		dat += "<meta charset='utf-8'><A href='?src=\ref[src];f_secret=1'>(Force Secret Mode)</A><br>"
 
 	dat += {"
 		<BR>
@@ -679,20 +679,20 @@ var/global/floorIsLava = 0
 		if(!category.can_view(usr))
 			continue
 		if(active_category == category)
-			dat += "<span class='linkOn'>[category.name]</span>"
+			dat += "<meta charset='utf-8'><span class='linkOn'>[category.name]</span>"
 		else
-			dat += "<A href='?src=\ref[src];admin_secrets_panel=\ref[category]'>[category.name]</A> "
-	dat += "<HR>"
+			dat += "<meta charset='utf-8'><A href='?src=\ref[src];admin_secrets_panel=\ref[category]'>[category.name]</A> "
+	dat += "<meta charset='utf-8'><HR>"
 
 	// If a category is selected, print its description and then options
 	if(istype(active_category) && active_category.can_view(usr))
 		if(active_category.desc)
-			dat += "<I>[active_category.desc]</I><BR>"
+			dat += "<meta charset='utf-8'><I>[active_category.desc]</I><BR>"
 		for(var/datum/admin_secret_item/item in active_category.items)
 			if(!item.can_view(usr))
 				continue
-			dat += "<A href='?src=\ref[src];admin_secrets=\ref[item]'>[item.name()]</A><BR>"
-		dat += "<BR>"
+			dat += "<meta charset='utf-8'><A href='?src=\ref[src];admin_secrets=\ref[item]'>[item.name()]</A><BR>"
+		dat += "<meta charset='utf-8'><BR>"
 
 	var/datum/browser/popup = new(usr, "secrets", "Secrets", 550, 500)
 	popup.set_content(dat)

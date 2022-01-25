@@ -4,17 +4,17 @@
 
 /datum/extension/interactive/multitool/items/cable/get_interact_window(var/obj/item/device/multitool/M, var/mob/user)
 	var/obj/item/stack/cable_coil/cable_coil = holder
-	. += "<b>Available Colors</b><br>"
-	. += "<table>"
+	. += "<meta charset='utf-8'><b>Available Colors</b><br>"
+	. += "<meta charset='utf-8'><table>"
 	for(var/cable_color in GLOB.possible_cable_colours)
-		. += "<tr>"
-		. += "<td>[cable_color]</td>"
+		. += "<meta charset='utf-8'><tr>"
+		. += "<meta charset='utf-8'><td>[cable_color]</td>"
 		if(cable_coil.color == GLOB.possible_cable_colours[cable_color])
-			. += "<td>Selected</td>"
+			. += "<meta charset='utf-8'><td>Selected</td>"
 		else
-			. += "<td><a href='?src=\ref[src];select_color=[cable_color]'>Select</a></td>"
-		. += "</tr>"
-	. += "</table>"
+			. += "<meta charset='utf-8'><td><a href='?src=\ref[src];select_color=[cable_color]'>Select</a></td>"
+		. += "<meta charset='utf-8'></tr>"
+	. += "<meta charset='utf-8'></table>"
 
 /datum/extension/interactive/multitool/items/cable/on_topic(href, href_list, user)
 	var/obj/item/stack/cable_coil/cable_coil = holder

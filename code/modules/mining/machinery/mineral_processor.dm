@@ -146,7 +146,7 @@
 		else
 			status_string = "<font color='red'>not processing</font>"
 		result += "<tr><td>[line]</td><td><a href='?src=\ref[src];toggle_smelting=[ore]'>[status_string]</a></td></tr>"
-	. += "<table>[result]</table>"
+	. += "<meta charset='utf-8'><table>[result]</table>"
 	. += "Currently displaying [report_all_ores ? "all ore types" : "only available ore types"]. <A href='?src=\ref[src];toggle_ores=1'>[report_all_ores ? "Show less" : "Show more"]</a>"
 	. += "The ore processor is currently <A href='?src=\ref[src];toggle_power=1'>[(active ? "enabled" : "disabled")].</a>"
 

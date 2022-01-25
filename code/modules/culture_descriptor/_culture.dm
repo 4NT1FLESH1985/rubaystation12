@@ -57,22 +57,22 @@
 #define COLLAPSED_CULTURE_BLURB_LEN 48
 /decl/cultural_info/proc/get_description(var/header, var/append, var/verbose = TRUE)
 	var/list/dat = list()
-	dat += "<table padding='8px'><tr>"
-	dat += "<td width='260px'>"
+	dat += "<meta charset='utf-8'><table padding='8px'><tr>"
+	dat += "<meta charset='utf-8'><td width='260px'>"
 	dat += "[header ? header : "<b>[desc_type]:</b>[name]"]<br>"
 	if(verbose)
-		dat += "<small>"
+		dat += "<meta charset='utf-8'><small>"
 		dat += "[jointext(get_text_details(), "<br>")]"
-		dat += "</small>"
-	dat += "</td><td width>"
+		dat += "<meta charset='utf-8'></small>"
+	dat += "<meta charset='utf-8'></td><td width>"
 	if(verbose || length(get_text_body()) <= COLLAPSED_CULTURE_BLURB_LEN)
 		dat += "[get_text_body()]"
 	else
 		dat += "[copytext(get_text_body(), 1, COLLAPSED_CULTURE_BLURB_LEN)] \[...\]"
-	dat += "</td>"
+	dat += "<meta charset='utf-8'></td>"
 	if(append)
-		dat += "<td width = '100px'>[append]</td>"
-	dat += "</tr></table>"
+		dat += "<meta charset='utf-8'><td width = '100px'>[append]</td>"
+	dat += "<meta charset='utf-8'></tr></table>"
 	return jointext(dat, null)
 #undef COLLAPSED_CULTURE_BLURB_LEN
 
@@ -83,11 +83,11 @@
 	. = list()
 	var/list/spoken_langs = get_spoken_languages()
 	if(LAZYLEN(spoken_langs))
-		. += "<b>Language(s):</b> [english_list(spoken_langs)]."
+		. += "<meta charset='utf-8'><b>Language(s):</b> [english_list(spoken_langs)]."
 	if(LAZYLEN(secondary_langs))
-		. += "<b>Optional language(s):</b> [english_list(secondary_langs)]."
+		. += "<meta charset='utf-8'><b>Optional language(s):</b> [english_list(secondary_langs)]."
 	if(!isnull(economic_power))
-		. += "<b>Economic power:</b> [round(100 * economic_power)]%"
+		. += "<meta charset='utf-8'><b>Economic power:</b> [round(100 * economic_power)]%"
 
 /decl/cultural_info/proc/get_spoken_languages()
 	. = list()

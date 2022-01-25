@@ -75,7 +75,7 @@ var/const/OVERMAP_SPEED_CONSTANT = (1 SECOND)
 /obj/effect/overmap/visitable/ship/get_scan_data(mob/user)
 	. = ..()
 	if(!is_still())
-		. += "<br>Heading: [get_heading_angle()], speed [get_speed() * 1000]"
+		. += "<meta charset='utf-8'><br>Heading: [get_heading_angle()], speed [get_speed() * 1000]"
 
 //Projected acceleration based on information from engines
 /obj/effect/overmap/visitable/ship/proc/get_acceleration()

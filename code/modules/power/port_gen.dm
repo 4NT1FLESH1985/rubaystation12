@@ -113,7 +113,7 @@
 /obj/machinery/power/port_gen/pacman
 	name = "\improper P.A.C.M.A.N.-type Portable Generator"
 	desc = "A power generator that runs on solid phoron sheets. Rated for 80 kW max safe output."
-	
+
 	machine_name = "\improper PACMAN-type generator"
 	machine_desc = "A portable generator often used for backup power or running small spacecraft. Runs on solid phoron sheets; rated for 80 kW max safe output."
 
@@ -386,7 +386,7 @@
 
 	var/tempstr = "Temperature: [temperature]&deg;C<br>"
 	dat += (overheating)? "<span class='danger'>[tempstr]</span>" : tempstr
-	dat += "<br><A href='?src=\ref[src];action=close'>Close</A>"
+	dat += "<meta charset='utf-8'><br><A href='?src=\ref[src];action=close'>Close</A>"
 	show_browser(user, "[dat]", "window=port_gen")
 	onclose(user, "port_gen")
 */

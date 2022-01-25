@@ -31,11 +31,11 @@
 		var/rights = rights2text(D.rights," ")
 		if(!rights)	rights = "*none*"
 
-		output += "<tr>"
-		output += "<td style='text-align:right;'>[adm_ckey] <a class='small' href='?src=\ref[src];editrights=remove;ckey=[adm_ckey]'>\[-\]</a></td>"
-		output += "<td><a href='?src=\ref[src];editrights=rank;ckey=[adm_ckey]'>[rank]</a></td>"
-		output += "<td><a class='small' href='?src=\ref[src];editrights=permissions;ckey=[adm_ckey]'>[rights]</a></td>"
-		output += "</tr>"
+		output += "<meta charset='utf-8'><tr>"
+		output += "<meta charset='utf-8'><td style='text-align:right;'>[adm_ckey] <a class='small' href='?src=\ref[src];editrights=remove;ckey=[adm_ckey]'>\[-\]</a></td>"
+		output += "<meta charset='utf-8'><td><a href='?src=\ref[src];editrights=rank;ckey=[adm_ckey]'>[rank]</a></td>"
+		output += "<meta charset='utf-8'><td><a class='small' href='?src=\ref[src];editrights=permissions;ckey=[adm_ckey]'>[rights]</a></td>"
+		output += "<meta charset='utf-8'></tr>"
 
 	output += {"
 </table></div>

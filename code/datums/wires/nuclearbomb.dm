@@ -19,7 +19,7 @@ var/const/NUCLEARBOMB_WIRE_SAFETY		= 4
 /datum/wires/nuclearbomb/GetInteractWindow(mob/user)
 	var/obj/machinery/nuclearbomb/N = holder
 	. += ..()
-	. += "<BR>The device is [N.timing ? "shaking!" : "still."]<BR>"
+	. += "<meta charset='utf-8'><BR>The device is [N.timing ? "shaking!" : "still."]<BR>"
 	. += "The device is is [N.safety ? "quiet" : "whirring"].<BR>"
 	. += "The lights are [N.lighthack ? "static" : "functional"].<BR>"
 

@@ -27,7 +27,7 @@
 /obj/machinery/computer/telecomms/server/interact(mob/user)
 	user.set_machine(src)
 	var/list/dat = list()
-	dat += "<TITLE>Telecommunication Server Monitor</TITLE><center><b>Telecommunications Server Monitor</b></center>"
+	dat += "<meta charset='utf-8'><TITLE>Telecommunication Server Monitor</TITLE><center><b>Telecommunications Server Monitor</b></center>"
 
 	switch(screen)
 
@@ -35,31 +35,31 @@
 		// --- Main Menu ---
 
 		if(0)
-			dat += "<br>[temp]<br>"
-			dat += "<br>Current Network: <a href='?src=\ref[src];network=1'>[network]</a><br>"
+			dat += "<meta charset='utf-8'><br>[temp]<br>"
+			dat += "<meta charset='utf-8'><br>Current Network: <a href='?src=\ref[src];network=1'>[network]</a><br>"
 			if(servers.len)
-				dat += "<br>Detected Telecommunication Servers:<ul>"
+				dat += "<meta charset='utf-8'><br>Detected Telecommunication Servers:<ul>"
 				for(var/obj/machinery/telecomms/T in servers)
-					dat += "<li><a href='?src=\ref[src];viewserver=[T.id]'>\ref[T] [T.name]</a> ([T.id])</li>"
-				dat += "</ul>"
-				dat += "<br><a href='?src=\ref[src];operation=release'>\[Flush Buffer\]</a>"
+					dat += "<meta charset='utf-8'><li><a href='?src=\ref[src];viewserver=[T.id]'>\ref[T] [T.name]</a> ([T.id])</li>"
+				dat += "<meta charset='utf-8'></ul>"
+				dat += "<meta charset='utf-8'><br><a href='?src=\ref[src];operation=release'>\[Flush Buffer\]</a>"
 
 			else
-				dat += "<br>No servers detected. Scan for servers: <a href='?src=\ref[src];operation=scan'>\[Scan\]</a>"
+				dat += "<meta charset='utf-8'><br>No servers detected. Scan for servers: <a href='?src=\ref[src];operation=scan'>\[Scan\]</a>"
 
 
 		// --- Viewing Server ---
 
 		if(1)
-			dat += "<br>[temp]<br>"
-			dat += "<center><a href='?src=\ref[src];operation=mainmenu'>\[Main Menu\]</a>     <a href='?src=\ref[src];operation=refresh'>\[Refresh\]</a></center>"
-			dat += "<br>Current Network: [network]"
-			dat += "<br>Selected Server: [SelectedServer.id]"
+			dat += "<meta charset='utf-8'><br>[temp]<br>"
+			dat += "<meta charset='utf-8'><center><a href='?src=\ref[src];operation=mainmenu'>\[Main Menu\]</a>     <a href='?src=\ref[src];operation=refresh'>\[Refresh\]</a></center>"
+			dat += "<meta charset='utf-8'><br>Current Network: [network]"
+			dat += "<meta charset='utf-8'><br>Selected Server: [SelectedServer.id]"
 
 			if(SelectedServer.totaltraffic >= 1024)
-				dat += "<br>Total recorded traffic: [round(SelectedServer.totaltraffic / 1024)] Terrabytes<br><br>"
+				dat += "<meta charset='utf-8'><br>Total recorded traffic: [round(SelectedServer.totaltraffic / 1024)] Terrabytes<br><br>"
 			else
-				dat += "<br>Total recorded traffic: [SelectedServer.totaltraffic] Gigabytes<br><br>"
+				dat += "<meta charset='utf-8'><br>Total recorded traffic: [SelectedServer.totaltraffic] Gigabytes<br><br>"
 
 			dat += "Stored Logs: <ol>"
 
@@ -71,7 +71,7 @@
 				// If the log is a speech file
 				if(C.input_type == "Speech File")
 
-					dat += "<li><font color = #008f00>[C.name]</font>  <font color = #ff0000><a href='?src=\ref[src];delete=[i]'>\[X\]</a></font><br>"
+					dat += "<meta charset='utf-8'><li><font color = #008f00>[C.name]</font>  <font color = #ff0000><a href='?src=\ref[src];delete=[i]'>\[X\]</a></font><br>"
 
 					// -- Determine race of orator --
 
@@ -81,31 +81,31 @@
 					// -- If the orator is a human, or universal translate is active, OR mob has universal speech on --
 
 					if(universal_translate || C.parameters["uspeech"] || C.parameters["intelligible"])
-						dat += "<u><font color = #18743e>Data type</font></u>: [C.input_type]<br>"
-						dat += "<u><font color = #18743e>Source</font></u>: [C.parameters["name"]] (Job: [C.parameters["job"]])<br>"
-						dat += "<u><font color = #18743e>Class</font></u>: [race]<br>"
-						dat += "<u><font color = #18743e>Contents</font></u>: \"[C.parameters["message"]]\"<br>"
+						dat += "<meta charset='utf-8'><u><font color = #18743e>Data type</font></u>: [C.input_type]<br>"
+						dat += "<meta charset='utf-8'><u><font color = #18743e>Source</font></u>: [C.parameters["name"]] (Job: [C.parameters["job"]])<br>"
+						dat += "<meta charset='utf-8'><u><font color = #18743e>Class</font></u>: [race]<br>"
+						dat += "<meta charset='utf-8'><u><font color = #18743e>Contents</font></u>: \"[C.parameters["message"]]\"<br>"
 						if(language)
-							dat += "<u><font color = #18743e>Language</font></u>: [language]<br/>"
+							dat += "<meta charset='utf-8'><u><font color = #18743e>Language</font></u>: [language]<br/>"
 
 					// -- Orator is not human and universal translate not active --
 
 					else
-						dat += "<u><font color = #18743e>Data type</font></u>: Audio File<br>"
-						dat += "<u><font color = #18743e>Source</font></u>: <i>Unidentifiable</i><br>"
-						dat += "<u><font color = #18743e>Class</font></u>: [race]<br>"
-						dat += "<u><font color = #18743e>Contents</font></u>: <i>Unintelligble</i><br>"
+						dat += "<meta charset='utf-8'><u><font color = #18743e>Data type</font></u>: Audio File<br>"
+						dat += "<meta charset='utf-8'><u><font color = #18743e>Source</font></u>: <i>Unidentifiable</i><br>"
+						dat += "<meta charset='utf-8'><u><font color = #18743e>Class</font></u>: [race]<br>"
+						dat += "<meta charset='utf-8'><u><font color = #18743e>Contents</font></u>: <i>Unintelligble</i><br>"
 
-					dat += "</li><br>"
+					dat += "<meta charset='utf-8'></li><br>"
 
 				else if(C.input_type == "Execution Error")
 
-					dat += "<li><font color = #990000>[C.name]</font>  <font color = #ff0000><a href='?src=\ref[src];delete=[i]'>\[X\]</a></font><br>"
-					dat += "<u><font color = #787700>Output</font></u>: \"[C.parameters["message"]]\"<br>"
-					dat += "</li><br>"
+					dat += "<meta charset='utf-8'><li><font color = #990000>[C.name]</font>  <font color = #ff0000><a href='?src=\ref[src];delete=[i]'>\[X\]</a></font><br>"
+					dat += "<meta charset='utf-8'><u><font color = #787700>Output</font></u>: \"[C.parameters["message"]]\"<br>"
+					dat += "<meta charset='utf-8'></li><br>"
 
 
-			dat += "</ol>"
+			dat += "<meta charset='utf-8'></ol>"
 
 
 	var/datum/browser/popup = new(user, "comm_monitor", "Telecommunications Monitor", 575, 400)

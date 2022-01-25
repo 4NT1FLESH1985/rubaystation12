@@ -30,34 +30,34 @@
 	if (!force && !SScharacter_setup.initialized)
 		return
 	var/list/output = list()
-	output += "<meta charset='utf-8'><div align='center'>"
+	output += "<meta charset='utf-8'><meta charset='utf-8'><div align='center'>"
 	if (config.wiki_url || config.rules_url || config.lore_url)
 		var/player_age = client?.player_age
 		if (isnum(player_age) && player_age < 7)
-			output += "<meta charset='utf-8'><b>Привет! Посети эти следующие ссылки если ты впервые или нужно вспомнить: </b><br>"
+			output += "<meta charset='utf-8'><meta charset='utf-8'><b>Привет! Посети эти следующие ссылки если ты впервые или нужно вспомнить: </b><br>"
 		if (config.wiki_url)
-			output += "<a href='byond://?src=\ref[src];show_wiki=1'>Вики</a>"
+			output += "<meta charset='utf-8'><a href='byond://?src=\ref[src];show_wiki=1'>Вики</a>"
 		if (config.rules_url)
-			output += "<a href='byond://?src=\ref[src];show_rules=1'>Правила</a>"
+			output += "<meta charset='utf-8'><a href='byond://?src=\ref[src];show_rules=1'>Правила</a>"
 		if (config.lore_url)
-			output += "<a href='byond://?src=\ref[src];show_lore=1'>Лор</a>"
+			output += "<meta charset='utf-8'><a href='byond://?src=\ref[src];show_lore=1'>Лор</a>"
+	output += "<meta charset='utf-8'><meta charset='utf-8'><hr>"
+	if (GAME_STATE > RUNLEVEL_LOBBY)
+		output += "<meta charset='utf-8'><meta charset='utf-8'><a href='byond://?src=\ref[src];manifest=1'>Манифест</a>"
+	output += "<meta charset='utf-8'><meta charset='utf-8'><a href='byond://?src=\ref[src];show_preferences=1'>Настройки</a>"
 	output += "<meta charset='utf-8'><hr>"
-	if (GAME_STATE > RUNLEVEL_LOBBY)
-		output += "<meta charset='utf-8'><a href='byond://?src=\ref[src];manifest=1'>Манифест</a>"
-	output += "<meta charset='utf-8'><a href='byond://?src=\ref[src];show_preferences=1'>Настройки</a>"
-	output += "<hr>"
-	output += "<b>Выбраный Персонаж</b><br>"
-	output += "<a href='byond://?src=\ref[client.prefs];load=1;details=1'>[client.prefs.real_name || "(Рандом)"]</a><br>"
+	output += "<meta charset='utf-8'><b>Выбраный Персонаж</b><br>"
+	output += "<meta charset='utf-8'><a href='byond://?src=\ref[client.prefs];load=1;details=1'>[client.prefs.real_name || "(Рандом)"]</a><br>"
 	output += client.prefs.job_high ? "[client.prefs.job_high]" : null
-	output += "<hr>"
-	output += "<a href='byond://?src=\ref[src];observe=1'>Наблюдать</a>"
+	output += "<meta charset='utf-8'><hr>"
+	output += "<meta charset='utf-8'><a href='byond://?src=\ref[src];observe=1'>Наблюдать</a>"
 	if (GAME_STATE > RUNLEVEL_LOBBY)
-		output += "<a href='byond://?src=\ref[src];late_join=1'>Войти</a>"
+		output += "<meta charset='utf-8'><a href='byond://?src=\ref[src];late_join=1'>Войти</a>"
 	else
-		output += "<a [ready?"class='linkOn'":""] href='byond://?src=\ref[src];ready=[!ready]'>Готов</a>"
-	output += "<hr>"
-	output += "<i>[GLOB.using_map.get_map_info()||"No information available for the current map."]</i>"
-	output += "</div>"
+		output += "<meta charset='utf-8'><a [ready?"class='linkOn'":""] href='byond://?src=\ref[src];ready=[!ready]'>Готов</a>"
+	output += "<meta charset='utf-8'><hr>"
+	output += "<meta charset='utf-8'><i>[GLOB.using_map.get_map_info()||"No information available for the current map."]</i>"
+	output += "<meta charset='utf-8'></div>"
 	panel = new (src, "Welcome","<meta charset='utf-8'>Добро пожаловать на [GLOB.using_map.full_name]", 560, 340, src)
 	panel.set_window_options("can_close=0")
 	panel.set_content(output.Join())
@@ -307,9 +307,9 @@
 
 	var/list/dat = list()
 	dat += "Выберите из следующих открытых/действительных профессий:<br>"
-	dat += "<a href='byond://?src=\ref[src];invalid_jobs=1'>[show_invalid_jobs ? "Hide":"Show"] unavailable jobs.</a><br>"
-	dat += "<table>"
-	dat += "<tr><td colspan = 3><b>[GLOB.using_map.station_name]:</b></td></tr>"
+	dat += "<meta charset='utf-8'><a href='byond://?src=\ref[src];invalid_jobs=1'>[show_invalid_jobs ? "Hide":"Show"] unavailable jobs.</a><br>"
+	dat += "<meta charset='utf-8'><table>"
+	dat += "<meta charset='utf-8'><tr><td colspan = 3><b>[GLOB.using_map.station_name]:</b></td></tr>"
 
 	// TORCH JOBS
 	var/list/job_summaries
@@ -325,14 +325,14 @@
 	if(LAZYLEN(job_summaries))
 		dat += job_summaries
 	else
-		dat += "<tr><td>Нету доступных профессий.</td></tr>"
+		dat += "<meta charset='utf-8'><tr><td>Нету доступных профессий.</td></tr>"
 	// END TORCH JOBS
 
 	// SUBMAP JOBS
 	for(var/thing in SSmapping.submaps)
 		var/datum/submap/submap = thing
 		if(submap && submap.available())
-			dat += "<tr><td colspan = 3><b>[submap.name] ([submap.archetype.descriptor]):</b></td></tr>"
+			dat += "<meta charset='utf-8'><tr><td colspan = 3><b>[submap.name] ([submap.archetype.descriptor]):</b></td></tr>"
 			job_summaries = list()
 			for(var/otherthing in submap.jobs)
 				var/datum/job/job = submap.jobs[otherthing]
@@ -349,12 +349,12 @@
 				dat += "Нету доступных профессий."
 	// END SUBMAP JOBS
 
-	dat += "</table></center>"
+	dat += "<meta charset='utf-8'></table></center>"
 	if(LAZYLEN(hidden_reasons))
 		var/list/additional_dat = list("<br><b>Некоторые роли были скрыты из этого списка по следующим причинам:</b><br>")
 		for(var/raisin in hidden_reasons)
 			additional_dat += "[raisin]<br>"
-		additional_dat += "<br>"
+		additional_dat += "<meta charset='utf-8'><br>"
 		dat = additional_dat + dat
 	dat = header + dat
 	show_browser(src, jointext(dat, null), "window=latechoices;size=450x640;can_close=1")

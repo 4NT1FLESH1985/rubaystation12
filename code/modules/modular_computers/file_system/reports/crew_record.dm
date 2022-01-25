@@ -151,14 +151,14 @@ GLOBAL_VAR_INIT(arrest_security_status, "Arrest")
 // Not visually that nice, but it gets the work done, feel free to tweak it visually
 /proc/record_to_html(var/datum/computer_file/report/crew_record/CR, var/access)
 	var/dat = "<tt><H2>RECORD DATABASE DATA DUMP</H2><i>Generated on: [stationdate2text()] [stationtime2text()]</i><br>******************************<br>"
-	dat += "<table>"
+	dat += "<meta charset='utf-8'><table>"
 	for(var/datum/report_field/F in CR.fields)
 		if(F.verify_access(access))
-			dat += "<tr><td><b>[F.display_name()]</b>"
+			dat += "<meta charset='utf-8'><tr><td><b>[F.display_name()]</b>"
 			if(F.needs_big_box)
-				dat += "<tr>"
-			dat += "<td>[F.get_value()]"
-	dat += "</tt>"
+				dat += "<meta charset='utf-8'><tr>"
+			dat += "<meta charset='utf-8'><td>[F.get_value()]"
+	dat += "<meta charset='utf-8'></tt>"
 	return dat
 
 /proc/get_crewmember_record(var/name)

@@ -73,31 +73,31 @@ GLOBAL_LIST_EMPTY(adminfaxes)	//cache for faxes that have been sent to admins
 	dat += "Confirm Identity: <a href='byond://?src=\ref[src];scan=1'>[scan_name]</a><br>"
 
 	if(authenticated)
-		dat += "<a href='byond://?src=\ref[src];logout=1'>{Log Out}</a>"
+		dat += "<meta charset='utf-8'><a href='byond://?src=\ref[src];logout=1'>{Log Out}</a>"
 	else
-		dat += "<a href='byond://?src=\ref[src];auth=1'>{Log In}</a>"
+		dat += "<meta charset='utf-8'><a href='byond://?src=\ref[src];auth=1'>{Log In}</a>"
 
-	dat += "<hr>"
+	dat += "<meta charset='utf-8'><hr>"
 
 	if(authenticated)
-		dat += "<b>Logged in to:</b> [GLOB.using_map.boss_name] Quantum Entanglement Network<br><br>"
+		dat += "<meta charset='utf-8'><b>Logged in to:</b> [GLOB.using_map.boss_name] Quantum Entanglement Network<br><br>"
 
 		if(copyitem)
-			dat += "<a href='byond://?src=\ref[src];remove=1'>Remove Item</a><br><br>"
+			dat += "<meta charset='utf-8'><a href='byond://?src=\ref[src];remove=1'>Remove Item</a><br><br>"
 
 			if(sendcooldown)
-				dat += "<b>Transmitter arrays realigning. Please stand by.</b><br>"
+				dat += "<meta charset='utf-8'><b>Transmitter arrays realigning. Please stand by.</b><br>"
 
 			else
 
-				dat += "<a href='byond://?src=\ref[src];send=1'>Send</a><br>"
-				dat += "<b>Currently sending:</b> [copyitem.name]<br>"
-				dat += "<b>Sending to:</b> <a href='byond://?src=\ref[src];dept=1'>[destination ? destination : "Nobody"]</a><br>"
+				dat += "<meta charset='utf-8'><a href='byond://?src=\ref[src];send=1'>Send</a><br>"
+				dat += "<meta charset='utf-8'><b>Currently sending:</b> [copyitem.name]<br>"
+				dat += "<meta charset='utf-8'><b>Sending to:</b> <a href='byond://?src=\ref[src];dept=1'>[destination ? destination : "Nobody"]</a><br>"
 
 		else
 			if(sendcooldown)
 				dat += "Please insert paper to send via secure connection.<br><br>"
-				dat += "<b>Transmitter arrays realigning. Please stand by.</b><br>"
+				dat += "<meta charset='utf-8'><b>Transmitter arrays realigning. Please stand by.</b><br>"
 			else
 				dat += "Please insert paper to send via secure connection.<br><br>"
 
@@ -105,7 +105,7 @@ GLOBAL_LIST_EMPTY(adminfaxes)	//cache for faxes that have been sent to admins
 		dat += "Proper authentication is required to use this device.<br><br>"
 
 		if(copyitem)
-			dat += "<a href ='byond://?src=\ref[src];remove=1'>Remove Item</a><br>"
+			dat += "<meta charset='utf-8'><a href ='byond://?src=\ref[src];remove=1'>Remove Item</a><br>"
 
 	show_browser(user, dat, "window=copier")
 	onclose(user, "copier")

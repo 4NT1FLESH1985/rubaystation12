@@ -127,14 +127,14 @@
 	if(!user || !user.client)
 		return
 
-	dat += "<style>div.var { padding: 5px; } div.var:nth-child(even) { background-color: #555; }</style>"
+	dat += "<meta charset='utf-8'><style>div.var { padding: 5px; } div.var:nth-child(even) { background-color: #555; }</style>"
 	for(var/datum/D in user.client.watched_variables)
-		dat += "<h1>[make_view_variables_value(D)]</h1>"
+		dat += "<meta charset='utf-8'><h1>[make_view_variables_value(D)]</h1>"
 		for(var/v in user.client.watched_variables[D])
-			dat += "<div class='var'>"
+			dat += "<meta charset='utf-8'><div class='var'>"
 			dat += "(<a href='?_src_=vars;datumunwatch=\ref[D];varnameunwatch=[v]'>X</a>) "
 			dat += "[D.make_view_variables_variable_entry(v, D.get_variable_value(v), 1)] [v] = [make_view_variables_value(D.get_variable_value(v), v)]"
-			dat += "</div>"
+			dat += "<meta charset='utf-8'></div>"
 
 	..(jointext(dat, null))
 

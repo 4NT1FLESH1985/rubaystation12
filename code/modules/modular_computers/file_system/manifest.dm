@@ -85,11 +85,11 @@
 	for(var/list/department in dept_data)
 		var/list/names = department["names"]
 		if(names.len > 0)
-			dat += "<tr><th colspan=3>[department["header"]]</th></tr>"
+			dat += "<meta charset='utf-8'><tr><th colspan=3>[department["header"]]</th></tr>"
 			for(var/name in names)
-				dat += "<tr class='candystripe'><td>[mil_ranks[name]][name]</td><td>[names[name]]</td><td>[isactive[name]]</td></tr>"
+				dat += "<meta charset='utf-8'><tr class='candystripe'><td>[mil_ranks[name]][name]</td><td>[names[name]]</td><td>[isactive[name]]</td></tr>"
 
-	dat += "</table>"
+	dat += "<meta charset='utf-8'></table>"
 	dat = replacetext(dat, "\n", "") // so it can be placed on paper correctly
 	dat = replacetext(dat, "\t", "")
 	return dat

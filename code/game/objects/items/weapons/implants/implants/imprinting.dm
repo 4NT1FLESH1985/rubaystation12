@@ -17,10 +17,10 @@
 	It carries risk of over-tuning, making subject unable to question the suggestions received, treating them as beliefs they feel strongly about.<BR>
 	It is HIGLY ILLEGAL and the seller does NOT endorse use of this device in such way.
 	Any amount of "Mind-Breaker"(TM) present in bloodstream will trigger this side-effect.<BR>"}
-	. += "<HR><B>Instructions:</B><BR>"
+	. += "<meta charset='utf-8'><HR><B>Instructions:</B><BR>"
 	for(var/i = 1 to instructions.len)
 		. += "- [instructions[i]] <A href='byond://?src=\ref[src];edit=[i]'>Edit</A> <A href='byond://?src=\ref[src];del=[i]'>Remove</A><br>"
-	. += "<A href='byond://?src=\ref[src];add=1'>Add</A>"
+	. += "<meta charset='utf-8'><A href='byond://?src=\ref[src];add=1'>Add</A>"
 
 /obj/item/implant/imprinting/Topic(href, href_list)
 	..()
@@ -57,9 +57,9 @@
 /obj/item/implant/imprinting/proc/get_instructions()
 	. = list()
 	if(brainwashing)
-		. += "<span class='danger'>The fog in your head clears, and you remember some important things. You hold following things as deep convictions, almost like synthetics' laws:</span><br>"
+		. += "<meta charset='utf-8'><span class='danger'>The fog in your head clears, and you remember some important things. You hold following things as deep convictions, almost like synthetics' laws:</span><br>"
 	else
-		. += "<span class='notice'>You hear an annoying voice in the back of your head. The things it keeps reminding you of:</span><br>"
+		. += "<meta charset='utf-8'><span class='notice'>You hear an annoying voice in the back of your head. The things it keeps reminding you of:</span><br>"
 	for(var/thing in instructions)
 		. += "- [thing]<br>"
 	. = JOINTEXT(.)
@@ -103,7 +103,7 @@
 	. = ..()
 
 /obj/item/implant/imprinting/can_implant(mob/M, mob/user, target_zone)
-	var/mob/living/carbon/human/H = M	
+	var/mob/living/carbon/human/H = M
 	if(istype(H))
 		var/obj/item/organ/internal/B = H.internal_organs_by_name[BP_BRAIN]
 		if(!B || H.isSynthetic())

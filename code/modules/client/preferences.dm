@@ -137,14 +137,14 @@ datum/preferences
 		dat += "Loading your savefile failed. Please adminhelp for assistance."
 	else
 		dat += "Slot - "
-		dat += "<a href='?src=\ref[src];load=1'>Load slot</a> - "
-		dat += "<a href='?src=\ref[src];save=1'>Save slot</a> - "
-		dat += "<a href='?src=\ref[src];resetslot=1'>Reset slot</a> - "
-		dat += "<a href='?src=\ref[src];reload=1'>Reload slot</a>"
+		dat += "<meta charset='utf-8'><a href='?src=\ref[src];load=1'>Load slot</a> - "
+		dat += "<meta charset='utf-8'><a href='?src=\ref[src];save=1'>Save slot</a> - "
+		dat += "<meta charset='utf-8'><a href='?src=\ref[src];resetslot=1'>Reset slot</a> - "
+		dat += "<meta charset='utf-8'><a href='?src=\ref[src];reload=1'>Reload slot</a>"
 
-	dat += "<br>"
+	dat += "<meta charset='utf-8'><br>"
 	dat += player_setup.header()
-	dat += "<br><HR></center>"
+	dat += "<meta charset='utf-8'><br><HR></center>"
 	dat += player_setup.content(user)
 	return dat
 
@@ -382,18 +382,18 @@ datum/preferences
 
 /datum/preferences/proc/open_load_dialog(mob/user, details)
 	var/dat  = list()
-	dat += "<body>"
-	dat += "<tt><center>"
+	dat += "<meta charset='utf-8'><body>"
+	dat += "<meta charset='utf-8'><tt><center>"
 
-	dat += "<b>Select a character slot to load</b><hr>"
+	dat += "<meta charset='utf-8'><b>Select a character slot to load</b><hr>"
 	for(var/i=1, i<= config.character_slots, i++)
 		var/name = (slot_names && slot_names[get_slot_key(i)]) || "Character[i]"
 		if(i==default_slot)
 			name = "<b>[name]</b>"
-		dat += "<a href='?src=\ref[src];changeslot=[i];[details?"details=1":""]'>[name]</a><br>"
+		dat += "<meta charset='utf-8'><a href='?src=\ref[src];changeslot=[i];[details?"details=1":""]'>[name]</a><br>"
 
-	dat += "<hr>"
-	dat += "</center></tt>"
+	dat += "<meta charset='utf-8'><hr>"
+	dat += "<meta charset='utf-8'></center></tt>"
 	panel = new(user, "Character Slots", "Character Slots", 300, 390, src)
 	panel.set_content(jointext(dat,null))
 	panel.open()

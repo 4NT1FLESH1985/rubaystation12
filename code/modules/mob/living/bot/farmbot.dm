@@ -35,11 +35,11 @@
 
 /mob/living/bot/farmbot/GetInteractTitle()
 	. = "<head><title>Farmbot controls</title></head>"
-	. += "<b>Automatic Hyrdoponic Assisting Unit v1.0</b>"
+	. += "<meta charset='utf-8'><b>Automatic Hyrdoponic Assisting Unit v1.0</b>"
 
 /mob/living/bot/farmbot/GetInteractStatus()
 	. = ..()
-	. += "<br>Water tank: "
+	. += "<meta charset='utf-8'><br>Water tank: "
 	if(tank)
 		. += "[tank.reagents.total_volume]/[tank.reagents.maximum_volume]"
 	else
@@ -47,19 +47,19 @@
 
 /mob/living/bot/farmbot/GetInteractPanel()
 	. = "Water plants : <a href='?src=\ref[src];command=water'>[waters_trays ? "Yes" : "No"]</a>"
-	. += "<br>Refill watertank : <a href='?src=\ref[src];command=refill'>[refills_water ? "Yes" : "No"]</a>"
-	. += "<br>Weed plants: <a href='?src=\ref[src];command=weed'>[uproots_weeds ? "Yes" : "No"]</a>"
-	. += "<br>Replace fertilizer: <a href='?src=\ref[src];command=replacenutri'>[replaces_nutriment ? "Yes" : "No"]</a>"
-	. += "<br>Collect produce: <a href='?src=\ref[src];command=collect'>[collects_produce ? "Yes" : "No"]</a>"
-	. += "<br>Remove dead plants: <a href='?src=\ref[src];command=removedead'>[removes_dead ? "Yes" : "No"]</a>"
+	. += "<meta charset='utf-8'><br>Refill watertank : <a href='?src=\ref[src];command=refill'>[refills_water ? "Yes" : "No"]</a>"
+	. += "<meta charset='utf-8'><br>Weed plants: <a href='?src=\ref[src];command=weed'>[uproots_weeds ? "Yes" : "No"]</a>"
+	. += "<meta charset='utf-8'><br>Replace fertilizer: <a href='?src=\ref[src];command=replacenutri'>[replaces_nutriment ? "Yes" : "No"]</a>"
+	. += "<meta charset='utf-8'><br>Collect produce: <a href='?src=\ref[src];command=collect'>[collects_produce ? "Yes" : "No"]</a>"
+	. += "<meta charset='utf-8'><br>Remove dead plants: <a href='?src=\ref[src];command=removedead'>[removes_dead ? "Yes" : "No"]</a>"
 
 /mob/living/bot/farmbot/GetInteractMaintenance()
 	. = "Plant identifier status: "
 	switch(emagged)
 		if(0)
-			. += "<a href='?src=\ref[src];command=emag'>Normal</a>"
+			. += "<meta charset='utf-8'><a href='?src=\ref[src];command=emag'>Normal</a>"
 		if(1)
-			. += "<a href='?src=\ref[src];command=emag'>Scrambled (DANGER)</a>"
+			. += "<meta charset='utf-8'><a href='?src=\ref[src];command=emag'>Scrambled (DANGER)</a>"
 		if(2)
 			. += "ERROROROROROR-----"
 

@@ -20,7 +20,7 @@
 
 /datum/category_item/player_setup_item/background/languages/content()
 	. = list()
-	. += "<b>Languages</b><br>"
+	. += "<meta charset='utf-8'><b>Languages</b><br>"
 	var/list/show_langs = get_language_text()
 	if(LAZYLEN(show_langs))
 		for(var/lang in show_langs)

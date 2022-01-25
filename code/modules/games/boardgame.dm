@@ -75,14 +75,14 @@ obj/item/board/attackby(obj/item/I as obj, mob/user as mob)
 	stagger = 0 //so we can have the checkerboard effect
 	for(i=0, i<64, i++)
 		if(i%8 == 0)
-			dat += "<tr>"
+			dat += "<meta charset='utf-8'><tr>"
 			stagger = !stagger
 		if(selected == i)
-			dat += "<td class='selected'"
+			dat += "<meta charset='utf-8'><td class='selected'"
 		else if((i + stagger)%2 == 0)
-			dat += "<td class='dark'"
+			dat += "<meta charset='utf-8'><td class='dark'"
 		else
-			dat += "<td class='light'"
+			dat += "<meta charset='utf-8'><td class='light'"
 
 		if(board["[i]"])
 			var/obj/item/I = board["[i]"]
@@ -91,13 +91,13 @@ obj/item/board/attackby(obj/item/I as obj, mob/user as mob)
 		else
 			dat+= ">"
 		if(!isobserver(user))
-			dat += "<a href='?src=\ref[src];select=[i];person=\ref[user]'></a>"
-		dat += "</td>"
+			dat += "<meta charset='utf-8'><a href='?src=\ref[src];select=[i];person=\ref[user]'></a>"
+		dat += "<meta charset='utf-8'></td>"
 
-	dat += "</table>"
+	dat += "<meta charset='utf-8'></table>"
 
 	if(selected >= 0 && !isobserver(user))
-		dat += "<br><A href='?src=\ref[src];remove=0'>Remove Selected Piece</A>"
+		dat += "<meta charset='utf-8'><br><A href='?src=\ref[src];remove=0'>Remove Selected Piece</A>"
 	show_browser(user, jointext(dat, null),"window=boardgame;size=430x500") // 50px * 8 squares + 30 margin
 	onclose(usr, "boardgame")
 

@@ -737,65 +737,65 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 		header = "<center><h2>[name]</h2></center><hr/>"
 	var/dat = list()
 	dat += "[header]"
-	dat += "<table padding='8px'>"
-	dat += "<tr>"
-	dat += "<td width = 400>"
+	dat += "<meta charset='utf-8'><table padding='8px'>"
+	dat += "<meta charset='utf-8'><tr>"
+	dat += "<meta charset='utf-8'><td width = 400>"
 	if(verbose || length(description) <= MAX_DESC_LEN)
 		dat += "[description]"
 	else
 		dat += "[copytext(description, 1, MAX_DESC_LEN)] \[...\]"
 	if(append)
-		dat += "<br>[append]"
-	dat += "</td>"
+		dat += "<meta charset='utf-8'><br>[append]"
+	dat += "<meta charset='utf-8'></td>"
 	if((!skip_photo && preview_icon) || !skip_detail)
-		dat += "<td width = 200 align='center'>"
+		dat += "<meta charset='utf-8'><td width = 200 align='center'>"
 		if(!skip_photo && preview_icon)
 			send_rsc(usr, icon(icon = preview_icon, icon_state = ""), "species_preview_[name].png")
-			dat += "<img src='species_preview_[name].png' width='64px' height='64px'><br/><br/>"
+			dat += "<meta charset='utf-8'><img src='species_preview_[name].png' width='64px' height='64px'><br/><br/>"
 		if(!skip_detail)
-			dat += "<small>"
+			dat += "<meta charset='utf-8'><small>"
 			if(spawn_flags & SPECIES_CAN_JOIN)
-				dat += "</br><b>Often present among humans.</b>"
+				dat += "<meta charset='utf-8'></br><b>Often present among humans.</b>"
 			if(spawn_flags & SPECIES_IS_WHITELISTED)
-				dat += "</br><b>Whitelist restricted.</b>"
+				dat += "<meta charset='utf-8'></br><b>Whitelist restricted.</b>"
 			if(!has_organ[BP_HEART])
-				dat += "</br><b>Does not have blood.</b>"
+				dat += "<meta charset='utf-8'></br><b>Does not have blood.</b>"
 			if(!has_organ[breathing_organ])
-				dat += "</br><b>Does not breathe.</b>"
+				dat += "<meta charset='utf-8'></br><b>Does not breathe.</b>"
 			if(species_flags & SPECIES_FLAG_NO_SCAN)
-				dat += "</br><b>Does not have DNA.</b>"
+				dat += "<meta charset='utf-8'></br><b>Does not have DNA.</b>"
 			if(species_flags & SPECIES_FLAG_NO_PAIN)
-				dat += "</br><b>Does not feel pain.</b>"
+				dat += "<meta charset='utf-8'></br><b>Does not feel pain.</b>"
 			if(species_flags & SPECIES_FLAG_NO_MINOR_CUT)
-				dat += "</br><b>Has thick skin/scales.</b>"
+				dat += "<meta charset='utf-8'></br><b>Has thick skin/scales.</b>"
 			if(species_flags & SPECIES_FLAG_NO_SLIP)
-				dat += "</br><b>Has excellent traction.</b>"
+				dat += "<meta charset='utf-8'></br><b>Has excellent traction.</b>"
 			if(species_flags & SPECIES_FLAG_NO_POISON)
-				dat += "</br><b>Immune to most poisons.</b>"
+				dat += "<meta charset='utf-8'></br><b>Immune to most poisons.</b>"
 			if(appearance_flags & HAS_A_SKIN_TONE)
-				dat += "</br><b>Has a variety of skin tones.</b>"
+				dat += "<meta charset='utf-8'></br><b>Has a variety of skin tones.</b>"
 			if(appearance_flags & HAS_SKIN_COLOR)
-				dat += "</br><b>Has a variety of skin colours.</b>"
+				dat += "<meta charset='utf-8'></br><b>Has a variety of skin colours.</b>"
 			if(appearance_flags & HAS_EYE_COLOR)
-				dat += "</br><b>Has a variety of eye colours.</b>"
+				dat += "<meta charset='utf-8'></br><b>Has a variety of eye colours.</b>"
 			if(species_flags & SPECIES_FLAG_IS_PLANT)
-				dat += "</br><b>Has a plantlike physiology.</b>"
+				dat += "<meta charset='utf-8'></br><b>Has a plantlike physiology.</b>"
 			if(slowdown)
-				dat += "</br><b>Moves [slowdown > 0 ? "slower" : "faster"] than most.</b>"
+				dat += "<meta charset='utf-8'></br><b>Moves [slowdown > 0 ? "slower" : "faster"] than most.</b>"
 			for(var/kind in damage_types)
 				if(damage_types[kind] > 1)
-					dat += "</br><b>Vulnerable to [kind].</b>"
+					dat += "<meta charset='utf-8'></br><b>Vulnerable to [kind].</b>"
 				else if(damage_types[kind] < 1)
-					dat += "</br><b>Resistant to [kind].</b>"
+					dat += "<meta charset='utf-8'></br><b>Resistant to [kind].</b>"
 			if(has_organ[breathing_organ])
-				dat += "</br><b>They breathe [gas_data.name[breath_type]].</b>"
-				dat += "</br><b>They exhale [gas_data.name[exhale_type]].</b>"
+				dat += "<meta charset='utf-8'></br><b>They breathe [gas_data.name[breath_type]].</b>"
+				dat += "<meta charset='utf-8'></br><b>They exhale [gas_data.name[exhale_type]].</b>"
 			if(LAZYLEN(poison_types))
-				dat += "</br><b>[capitalize(english_list(poison_types))] [LAZYLEN(poison_types) == 1 ? "is" : "are"] poisonous to them.</b>"
-			dat += "</small>"
-		dat += "</td>"
-	dat += "</tr>"
-	dat += "</table><hr/>"
+				dat += "<meta charset='utf-8'></br><b>[capitalize(english_list(poison_types))] [LAZYLEN(poison_types) == 1 ? "is" : "are"] poisonous to them.</b>"
+			dat += "<meta charset='utf-8'></small>"
+		dat += "<meta charset='utf-8'></td>"
+	dat += "<meta charset='utf-8'></tr>"
+	dat += "<meta charset='utf-8'></table><hr/>"
 	return jointext(dat, null)
 
 /mob/living/carbon/human/verb/check_species()

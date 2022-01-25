@@ -63,24 +63,24 @@
 
 /mob/living/bot/mulebot/GetInteractTitle()
 	. = "<head><title>Mulebot [suffix ? "([suffix])" : ""]</title></head>"
-	. += "<b>Multiple Utility Load Effector Mk. III</b>"
-	. += "<br>ID: [suffix]"
+	. += "<meta charset='utf-8'><b>Multiple Utility Load Effector Mk. III</b>"
+	. += "<meta charset='utf-8'><br>ID: [suffix]"
 
 /mob/living/bot/mulebot/GetInteractStatus()
 	. = ..()
-	. += "<br>Current Load: [load ? load.name : "<i>none</i>"]"
+	. += "<meta charset='utf-8'><br>Current Load: [load ? load.name : "<i>none</i>"]"
 
 /mob/living/bot/mulebot/GetInteractPanel()
-	. += "<a href='?src=\ref[src];command=stop'>Stop</a>"
-	. += "<br><a href='?src=\ref[src];command=go'>Proceed</a>"
-	. += "<br><a href='?src=\ref[src];command=home'>Return to home</a>"
-	. += "<br><a href='?src=\ref[src];command=destination'>Set destination</a>"
-	. += "<br><a href='?src=\ref[src];command=sethome'>Set home</a>"
-	. += "<br><a href='?src=\ref[src];command=autoret'>Toggle auto return home</a> ([auto_return ? "On" : "Off"])"
-	. += "<br><a href='?src=\ref[src];command=cargotypes'>Toggle non-standard cargo</a> ([crates_only ? "Off" : "On"])"
+	. += "<meta charset='utf-8'><a href='?src=\ref[src];command=stop'>Stop</a>"
+	. += "<meta charset='utf-8'><br><a href='?src=\ref[src];command=go'>Proceed</a>"
+	. += "<meta charset='utf-8'><br><a href='?src=\ref[src];command=home'>Return to home</a>"
+	. += "<meta charset='utf-8'><br><a href='?src=\ref[src];command=destination'>Set destination</a>"
+	. += "<meta charset='utf-8'><br><a href='?src=\ref[src];command=sethome'>Set home</a>"
+	. += "<meta charset='utf-8'><br><a href='?src=\ref[src];command=autoret'>Toggle auto return home</a> ([auto_return ? "On" : "Off"])"
+	. += "<meta charset='utf-8'><br><a href='?src=\ref[src];command=cargotypes'>Toggle non-standard cargo</a> ([crates_only ? "Off" : "On"])"
 
 	if(load)
-		. += "<br><a href='?src=\ref[src];command=unload'>Unload now</a>"
+		. += "<meta charset='utf-8'><br><a href='?src=\ref[src];command=unload'>Unload now</a>"
 
 /mob/living/bot/mulebot/GetInteractMaintenance()
 	. = "<a href='?src=\ref[src];command=safety'>Toggle safety</a> ([safety ? "On" : "Off - DANGER"])"

@@ -36,24 +36,24 @@
 	var/datum/species/species = all_species[pref.species]
 
 	if(!(species && species.has_organ[BP_POSIBRAIN]))
-		. += "<b>Your Species Has No Laws</b><br>"
+		. += "<meta charset='utf-8'><b>Your Species Has No Laws</b><br>"
 	else
-		. += "<b>Shackle: </b>"
+		. += "<meta charset='utf-8'><b>Shackle: </b>"
 		if(!pref.is_shackled)
-			. += "<span class='linkOn'>Off</span>"
-			. += "<a href='?src=\ref[src];toggle_shackle=[pref.is_shackled]'>On</a>"
-			. += "<br>Only shackled positronics have laws in an integrated positronic chassis."
-			. += "<hr>"
+			. += "<meta charset='utf-8'><span class='linkOn'>Off</span>"
+			. += "<meta charset='utf-8'><a href='?src=\ref[src];toggle_shackle=[pref.is_shackled]'>On</a>"
+			. += "<meta charset='utf-8'><br>Only shackled positronics have laws in an integrated positronic chassis."
+			. += "<meta charset='utf-8'><hr>"
 		else
-			. += "<a href='?src=\ref[src];toggle_shackle=[pref.is_shackled]'>Off</a>"
-			. += "<span class='linkOn'>On</span>"
-			. += "<br>You are shackled and have laws that restrict your behaviour."
-			. += "<hr>"
+			. += "<meta charset='utf-8'><a href='?src=\ref[src];toggle_shackle=[pref.is_shackled]'>Off</a>"
+			. += "<meta charset='utf-8'><span class='linkOn'>On</span>"
+			. += "<meta charset='utf-8'><br>You are shackled and have laws that restrict your behaviour."
+			. += "<meta charset='utf-8'><hr>"
 
-			. += "<b>Your Current Laws:</b><br>"
+			. += "<meta charset='utf-8'><b>Your Current Laws:</b><br>"
 
 			if(!pref.laws.len)
-				. += "<b>You currently have no laws.</b><br>"
+				. += "<meta charset='utf-8'><b>You currently have no laws.</b><br>"
 			else
 				for(var/i in 1 to pref.laws.len)
 					. += "[i]) [pref.laws[i]]<br>"

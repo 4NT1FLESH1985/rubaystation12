@@ -24,7 +24,7 @@ var/const/SUIT_STORAGE_WIRE_LOCKED		= 4
 /datum/wires/suit_storage_unit/GetInteractWindow(mob/user)
 	var/obj/machinery/suit_cycler/S = holder
 	. += ..()
-	. += "<BR>The orange light is [S.electrified ? "off" : "on"].<BR>"
+	. += "<meta charset='utf-8'><BR>The orange light is [S.electrified ? "off" : "on"].<BR>"
 	. += "The red light is [S.safeties ? "off" : "blinking"].<BR>"
 	. += "The yellow light is [S.locked ? "on" : "off"].<BR>"
 

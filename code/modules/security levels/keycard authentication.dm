@@ -59,31 +59,31 @@
 	var/dat = "<h1>Keycard Authentication Device</h1>"
 
 	dat += "This device is used to trigger some high security events. It requires the simultaneous swipe of two high-level ID cards."
-	dat += "<br><hr><br>"
+	dat += "<meta charset='utf-8'><br><hr><br>"
 
 	if(screen == 1)
 		dat += "Select an event to trigger:<ul>"
 
 		var/decl/security_state/security_state = decls_repository.get_decl(GLOB.using_map.security_state)
 		if(security_state.current_security_level == security_state.severe_security_level)
-			dat += "<li>Cannot modify the alert level at this time: [security_state.severe_security_level.name] engaged.</li>"
+			dat += "<meta charset='utf-8'><li>Cannot modify the alert level at this time: [security_state.severe_security_level.name] engaged.</li>"
 		else
 			if(security_state.current_security_level == security_state.high_security_level)
-				dat += "<li><A href='?src=\ref[src];triggerevent=Revert alert'>Disengage [security_state.high_security_level.name]</A></li>"
+				dat += "<meta charset='utf-8'><li><A href='?src=\ref[src];triggerevent=Revert alert'>Disengage [security_state.high_security_level.name]</A></li>"
 			else
-				dat += "<li><A href='?src=\ref[src];triggerevent=Red alert'>Engage [security_state.high_security_level.name]</A></li>"
+				dat += "<meta charset='utf-8'><li><A href='?src=\ref[src];triggerevent=Red alert'>Engage [security_state.high_security_level.name]</A></li>"
 
 		if(!config.ert_admin_call_only)
-			dat += "<li><A href='?src=\ref[src];triggerevent=Emergency Response Team'>Emergency Response Team</A></li>"
+			dat += "<meta charset='utf-8'><li><A href='?src=\ref[src];triggerevent=Emergency Response Team'>Emergency Response Team</A></li>"
 
-		dat += "<li><A href='?src=\ref[src];triggerevent=Grant Emergency Maintenance Access'>Grant Emergency Maintenance Access</A></li>"
-		dat += "<li><A href='?src=\ref[src];triggerevent=Revoke Emergency Maintenance Access'>Revoke Emergency Maintenance Access</A></li>"
-		dat += "<li><A href='?src=\ref[src];triggerevent=Grant Nuclear Authorization Code'>Grant Nuclear Authorization Code</A></li>"
-		dat += "</ul>"
+		dat += "<meta charset='utf-8'><li><A href='?src=\ref[src];triggerevent=Grant Emergency Maintenance Access'>Grant Emergency Maintenance Access</A></li>"
+		dat += "<meta charset='utf-8'><li><A href='?src=\ref[src];triggerevent=Revoke Emergency Maintenance Access'>Revoke Emergency Maintenance Access</A></li>"
+		dat += "<meta charset='utf-8'><li><A href='?src=\ref[src];triggerevent=Grant Nuclear Authorization Code'>Grant Nuclear Authorization Code</A></li>"
+		dat += "<meta charset='utf-8'></ul>"
 		show_browser(user, dat, "window=keycard_auth;size=500x250")
 	if(screen == 2)
 		dat += "Please swipe your card to authorize the following event: <b>[event]</b>"
-		dat += "<p><A href='?src=\ref[src];reset=1'>Back</A>"
+		dat += "<meta charset='utf-8'><p><A href='?src=\ref[src];reset=1'>Back</A>"
 		show_browser(user, dat, "window=keycard_auth;size=500x250")
 	return
 

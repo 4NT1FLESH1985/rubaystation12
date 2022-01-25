@@ -197,33 +197,33 @@
 	user.set_machine(src)
 
 	var/dat = list()
-	dat += "<HEAD><TITLE>Suit Cycler Interface</TITLE></HEAD>"
+	dat += "<meta charset='utf-8'><HEAD><TITLE>Suit Cycler Interface</TITLE></HEAD>"
 
 	if(active)
 		dat+= "<br><font color='red'><B>The [model_text ? "[model_text] " : ""]suit cycler is currently in use. Please wait...</b></font>"
 
 	else if(locked)
-		dat += "<br><font color='red'><B>The [model_text ? "[model_text] " : ""]suit cycler is currently locked. Please contact your system administrator.</b></font>"
+		dat += "<meta charset='utf-8'><br><font color='red'><B>The [model_text ? "[model_text] " : ""]suit cycler is currently locked. Please contact your system administrator.</b></font>"
 		if(allowed(user))
-			dat += "<br><a href='?src=\ref[src];toggle_lock=1'>\[unlock unit\]</a>"
+			dat += "<meta charset='utf-8'><br><a href='?src=\ref[src];toggle_lock=1'>\[unlock unit\]</a>"
 	else
-		dat += "<h1>Suit cycler</h1>"
-		dat += "<B>Welcome to the [model_text ? "[model_text] " : ""]suit cycler control panel. <a href='?src=\ref[src];toggle_lock=1'>\[lock unit\]</a></B><HR>"
+		dat += "<meta charset='utf-8'><h1>Suit cycler</h1>"
+		dat += "<meta charset='utf-8'><B>Welcome to the [model_text ? "[model_text] " : ""]suit cycler control panel. <a href='?src=\ref[src];toggle_lock=1'>\[lock unit\]</a></B><HR>"
 
-		dat += "<h2>Maintenance</h2>"
-		dat += "<b>Helmet: </b> [helmet ? "\the [helmet]" : "no helmet stored" ]. <A href='?src=\ref[src];eject_helmet=1'>\[eject\]</a><br/>"
-		dat += "<b>Suit: </b> [suit ? "\the [suit]" : "no suit stored" ]. <A href='?src=\ref[src];eject_suit=1'>\[eject\]</a>"
+		dat += "<meta charset='utf-8'><h2>Maintenance</h2>"
+		dat += "<meta charset='utf-8'><b>Helmet: </b> [helmet ? "\the [helmet]" : "no helmet stored" ]. <A href='?src=\ref[src];eject_helmet=1'>\[eject\]</a><br/>"
+		dat += "<meta charset='utf-8'><b>Suit: </b> [suit ? "\the [suit]" : "no suit stored" ]. <A href='?src=\ref[src];eject_suit=1'>\[eject\]</a>"
 
 		if(can_repair && suit && istype(suit))
 			dat += "[(suit.damage ? " <A href='?src=\ref[src];repair_suit=1'>\[repair\]</a>" : "")]"
 
-		dat += "<br/><b>UV decontamination systems:</b> <font color = '[emagged ? "red'>SYSTEM ERROR" : "green'>READY"]</font><br>"
+		dat += "<meta charset='utf-8'><br/><b>UV decontamination systems:</b> <font color = '[emagged ? "red'>SYSTEM ERROR" : "green'>READY"]</font><br>"
 		dat += "Output level: [radiation_level]<br>"
-		dat += "<A href='?src=\ref[src];select_rad_level=1'>\[select power level\]</a> <A href='?src=\ref[src];begin_decontamination=1'>\[begin decontamination cycle\]</a><br><hr>"
+		dat += "<meta charset='utf-8'><A href='?src=\ref[src];select_rad_level=1'>\[select power level\]</a> <A href='?src=\ref[src];begin_decontamination=1'>\[begin decontamination cycle\]</a><br><hr>"
 
-		dat += "<h2>Customisation</h2>"
-		dat += "<b>Target product:</b> <A href='?src=\ref[src];select_department=1'>[target_modification.name]</a>, <A href='?src=\ref[src];select_species=1'>[target_species]</a>."
-		dat += "<A href='?src=\ref[src];apply_paintjob=1'><br>\[apply customisation routine\]</a><br><hr>"
+		dat += "<meta charset='utf-8'><h2>Customisation</h2>"
+		dat += "<meta charset='utf-8'><b>Target product:</b> <A href='?src=\ref[src];select_department=1'>[target_modification.name]</a>, <A href='?src=\ref[src];select_species=1'>[target_species]</a>."
+		dat += "<meta charset='utf-8'><A href='?src=\ref[src];apply_paintjob=1'><br>\[apply customisation routine\]</a><br><hr>"
 
 	show_browser(user, JOINTEXT(dat), "window=suit_cycler")
 	onclose(user, "suit_cycler")

@@ -420,7 +420,7 @@
 	. = ..()
 
 	if (allow_slow_dump)
-		. += "<p>The contents of \the [src] can be dumped out onto the ground. \
+		. += "<meta charset='utf-8'><p>The contents of \the [src] can be dumped out onto the ground. \
 			Dumping the contents requires you to stand still briefly, but will then place all the items within \the [src] onto the ground where you're standing. \
 			It can be slower than removing a few items manually, however can be convenient if there are a large quantity of items that may be tedious to remove.</p>\
 			<p>To dump out \the [src]:</p>\

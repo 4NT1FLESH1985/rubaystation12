@@ -25,22 +25,22 @@
 			return
 		user.set_machine(src)
 		var/dat
-		dat += "<B>Prisoner Implant Manager System</B><BR>"
+		dat += "<meta charset='utf-8'><B>Prisoner Implant Manager System</B><BR>"
 		if(screen == 0)
-			dat += "<HR><A href='?src=\ref[src];lock=1'>Unlock Console</A>"
+			dat += "<meta charset='utf-8'><HR><A href='?src=\ref[src];lock=1'>Unlock Console</A>"
 		else if(screen == 1)
-			dat += "<HR>Chemical Implants<BR>"
+			dat += "<meta charset='utf-8'><HR>Chemical Implants<BR>"
 			var/turf/Tr = null
 			for(var/obj/item/implant/chem/C in world)
 				Tr = get_turf(C)
 				if((Tr) && !AreConnectedZLevels(Tr.z, src.z))	continue // Out of range
 				if(!C.implanted) continue
 				dat += "[C.imp_in.name] | Remaining Units: [C.reagents.total_volume] | Inject: "
-				dat += "<A href='?src=\ref[src];inject1=\ref[C]'>(<font color=red>(1)</font>)</A>"
-				dat += "<A href='?src=\ref[src];inject5=\ref[C]'>(<font color=red>(5)</font>)</A>"
-				dat += "<A href='?src=\ref[src];inject10=\ref[C]'>(<font color=red>(10)</font>)</A><BR>"
+				dat += "<meta charset='utf-8'><A href='?src=\ref[src];inject1=\ref[C]'>(<font color=red>(1)</font>)</A>"
+				dat += "<meta charset='utf-8'><A href='?src=\ref[src];inject5=\ref[C]'>(<font color=red>(5)</font>)</A>"
+				dat += "<meta charset='utf-8'><A href='?src=\ref[src];inject10=\ref[C]'>(<font color=red>(10)</font>)</A><BR>"
 				dat += "********************************<BR>"
-			dat += "<HR>Tracking Implants<BR>"
+			dat += "<meta charset='utf-8'><HR>Tracking Implants<BR>"
 			for(var/obj/item/implant/tracking/T in world)
 				Tr = get_turf(T)
 				if((Tr) && !AreConnectedZLevels(Tr.z, src.z))	continue // Out of range
@@ -53,9 +53,9 @@
 				if(T.malfunction)
 					loc_display = pick(teleportlocs)
 				dat += "ID: [T.id] | Location: [loc_display]<BR>"
-				dat += "<A href='?src=\ref[src];warn=\ref[T]'>(<font color=red><i>Message Holder</i></font>)</A> |<BR>"
+				dat += "<meta charset='utf-8'><A href='?src=\ref[src];warn=\ref[T]'>(<font color=red><i>Message Holder</i></font>)</A> |<BR>"
 				dat += "********************************<BR>"
-			dat += "<HR><A href='?src=\ref[src];lock=1'>Lock Console</A>"
+			dat += "<meta charset='utf-8'><HR><A href='?src=\ref[src];lock=1'>Lock Console</A>"
 
 		show_browser(user, dat, "window=computer;size=400x500")
 		onclose(user, "computer")

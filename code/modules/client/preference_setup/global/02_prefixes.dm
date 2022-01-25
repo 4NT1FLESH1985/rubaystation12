@@ -45,28 +45,28 @@
 	reset_duplicate_keys()
 
 /datum/category_item/player_setup_item/player_global/prefixes/content(var/mob/user)
-	. += "<b>Prefix Keys:</b><br>"
-	. += "<table>"
+	. += "<meta charset='utf-8'><b>Prefix Keys:</b><br>"
+	. += "<meta charset='utf-8'><table>"
 	for(var/prefix_name in prefix_by_name)
 		var/decl/prefix/prefix_instance = prefix_by_name[prefix_name]
 		var/current_prefix = pref.prefix_keys_by_type[prefix_instance.type]
 
-		. += "<tr><td>[prefix_instance.name]</td><td>[pref.prefix_keys_by_type[prefix_instance.type]]</td><td>"
+		. += "<meta charset='utf-8'><tr><td>[prefix_instance.name]</td><td>[pref.prefix_keys_by_type[prefix_instance.type]]</td><td>"
 
 		if(prefix_instance.is_locked)
-			. += "<span class='linkOff'>Change</span>"
+			. += "<meta charset='utf-8'><span class='linkOff'>Change</span>"
 		else
 
-			. += "<a href='?src=\ref[src];change_prefix=\ref[prefix_instance]'>Change</a>"
+			. += "<meta charset='utf-8'><a href='?src=\ref[src];change_prefix=\ref[prefix_instance]'>Change</a>"
 
-		. += "</td><td>"
+		. += "<meta charset='utf-8'></td><td>"
 
 		if(prefix_instance.is_locked || current_prefix == prefix_instance.default_key)
-			. += "<span class='linkOff'>Reset</span>"
+			. += "<meta charset='utf-8'><span class='linkOff'>Reset</span>"
 		else
-			. += "<a href='?src=\ref[src];reset_prefix=\ref[prefix_instance]'>Reset</a>"
-		. += "</td></tr>"
-	. += "</table>"
+			. += "<meta charset='utf-8'><a href='?src=\ref[src];reset_prefix=\ref[prefix_instance]'>Reset</a>"
+		. += "<meta charset='utf-8'></td></tr>"
+	. += "<meta charset='utf-8'></table>"
 
 /datum/category_item/player_setup_item/player_global/prefixes/OnTopic(var/href, var/list/href_list, var/mob/user)
 	if(href_list["change_prefix"])

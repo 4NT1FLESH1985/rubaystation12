@@ -163,9 +163,9 @@
 					</td>
 				</table>
 			"}
-		dat += "<br>"
+		dat += "<meta charset='utf-8'><br>"
 		if(radio)
-			dat += "<b>Radio Uplink</b>"
+			dat += "<meta charset='utf-8'><b>Radio Uplink</b>"
 			dat += {"
 				<table class="request">
 					<tr>
@@ -184,8 +184,8 @@
 				<br>
 			"}
 		else //</font></font>
-			dat += "<b>Radio Uplink</b><br>"
-			dat += "<font color=red><i>Radio firmware not loaded. Please install a pAI personality to load firmware.</i></font><br>"
+			dat += "<meta charset='utf-8'><b>Radio Uplink</b><br>"
+			dat += "<meta charset='utf-8'><font color=red><i>Radio firmware not loaded. Please install a pAI personality to load firmware.</i></font><br>"
 		dat += {"
 			<table>
 				<td class="button_red"><a href='byond://?src=\ref[src];wipe=1' class='button'>Wipe current pAI personality</a>

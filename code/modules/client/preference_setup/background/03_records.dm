@@ -35,7 +35,7 @@
 /datum/category_item/player_setup_item/background/records/content(mob/user)
 	. = list()
 
-	. += "<br><b>Records</b>:"
+	. += "<meta charset='utf-8'><br><b>Records</b>:"
 	if (jobban_isbanned(user, "Records"))
 		. += "[SPAN_WARNING("You are banned from using character records.")]"
 	else
@@ -45,7 +45,7 @@
 		.+= UIBUTTON("set_security_records", TextPreview(pref.sec_record, 40), "Security")
 		.+= UIBUTTON("set_memory", TextPreview(pref.memory, 40), "Memory")
 
-	. += "<br><b>Other</b>:"
+	. += "<meta charset='utf-8'><br><b>Other</b>:"
 	var/set_addr_button = UIBUTTON("set_email_addr", pref.email_addr ? pref.email_addr : "(default)", "Email Address")
 	var/list/branches = pref.for_each_selected_branch(CALLBACK(src, .proc/allow_email_branch_check))
 	for (var/name in branches)

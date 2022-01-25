@@ -193,57 +193,57 @@
 
 	var/dat = "<center><h1>Seed storage contents</h1></center>"
 	if (piles.len == 0)
-		dat += "<font color='red'>No seeds</font>"
+		dat += "<meta charset='utf-8'><font color='red'>No seeds</font>"
 	else
-		dat += "<table style='text-align:center;border-style:solid;border-width:1px;padding:4px'><tr><td>Name</td>"
-		dat += "<td>Variety</td>"
+		dat += "<meta charset='utf-8'><table style='text-align:center;border-style:solid;border-width:1px;padding:4px'><tr><td>Name</td>"
+		dat += "<meta charset='utf-8'><td>Variety</td>"
 		if ("stats" in scanner)
-			dat += "<td>E</td><td>Y</td><td>M</td><td>Pr</td><td>Pt</td><td>Harvest</td>"
+			dat += "<meta charset='utf-8'><td>E</td><td>Y</td><td>M</td><td>Pr</td><td>Pt</td><td>Harvest</td>"
 		if ("temperature" in scanner)
-			dat += "<td>Temp</td>"
+			dat += "<meta charset='utf-8'><td>Temp</td>"
 		if ("light" in scanner)
-			dat += "<td>Light</td>"
+			dat += "<meta charset='utf-8'><td>Light</td>"
 		if ("soil" in scanner)
-			dat += "<td>Nutri</td><td>Water</td>"
-		dat += "<td>Notes</td><td>Amount</td><td></td></tr>"
+			dat += "<meta charset='utf-8'><td>Nutri</td><td>Water</td>"
+		dat += "<meta charset='utf-8'><td>Notes</td><td>Amount</td><td></td></tr>"
 		for (var/datum/seed_pile/S in piles)
 			var/datum/seed/seed = S.seed_type
 			if(!seed)
 				continue
-			dat += "<tr>"
-			dat += "<td>[seed.seed_name]</td>"
-			dat += "<td>#[seed.uid]</td>"
+			dat += "<meta charset='utf-8'><tr>"
+			dat += "<meta charset='utf-8'><td>[seed.seed_name]</td>"
+			dat += "<meta charset='utf-8'><td>#[seed.uid]</td>"
 			if ("stats" in scanner)
-				dat += "<td>[seed.get_trait(TRAIT_ENDURANCE)]</td><td>[seed.get_trait(TRAIT_YIELD)]</td><td>[seed.get_trait(TRAIT_MATURATION)]</td><td>[seed.get_trait(TRAIT_PRODUCTION)]</td><td>[seed.get_trait(TRAIT_POTENCY)]</td>"
+				dat += "<meta charset='utf-8'><td>[seed.get_trait(TRAIT_ENDURANCE)]</td><td>[seed.get_trait(TRAIT_YIELD)]</td><td>[seed.get_trait(TRAIT_MATURATION)]</td><td>[seed.get_trait(TRAIT_PRODUCTION)]</td><td>[seed.get_trait(TRAIT_POTENCY)]</td>"
 				if(seed.get_trait(TRAIT_HARVEST_REPEAT))
-					dat += "<td>Multiple</td>"
+					dat += "<meta charset='utf-8'><td>Multiple</td>"
 				else
-					dat += "<td>Single</td>"
+					dat += "<meta charset='utf-8'><td>Single</td>"
 			if ("temperature" in scanner)
-				dat += "<td>[seed.get_trait(TRAIT_IDEAL_HEAT)] K</td>"
+				dat += "<meta charset='utf-8'><td>[seed.get_trait(TRAIT_IDEAL_HEAT)] K</td>"
 			if ("light" in scanner)
-				dat += "<td>[seed.get_trait(TRAIT_IDEAL_LIGHT)] L</td>"
+				dat += "<meta charset='utf-8'><td>[seed.get_trait(TRAIT_IDEAL_LIGHT)] L</td>"
 			if ("soil" in scanner)
 				if(seed.get_trait(TRAIT_REQUIRES_NUTRIENTS))
 					if(seed.get_trait(TRAIT_NUTRIENT_CONSUMPTION) < 0.05)
-						dat += "<td>Low</td>"
+						dat += "<meta charset='utf-8'><td>Low</td>"
 					else if(seed.get_trait(TRAIT_NUTRIENT_CONSUMPTION) > 0.2)
-						dat += "<td>High</td>"
+						dat += "<meta charset='utf-8'><td>High</td>"
 					else
-						dat += "<td>Norm</td>"
+						dat += "<meta charset='utf-8'><td>Norm</td>"
 				else
-					dat += "<td>No</td>"
+					dat += "<meta charset='utf-8'><td>No</td>"
 				if(seed.get_trait(TRAIT_REQUIRES_WATER))
 					if(seed.get_trait(TRAIT_WATER_CONSUMPTION) < 1)
-						dat += "<td>Low</td>"
+						dat += "<meta charset='utf-8'><td>Low</td>"
 					else if(seed.get_trait(TRAIT_WATER_CONSUMPTION) > 5)
-						dat += "<td>High</td>"
+						dat += "<meta charset='utf-8'><td>High</td>"
 					else
-						dat += "<td>Norm</td>"
+						dat += "<meta charset='utf-8'><td>Norm</td>"
 				else
-					dat += "<td>No</td>"
+					dat += "<meta charset='utf-8'><td>No</td>"
 
-			dat += "<td>"
+			dat += "<meta charset='utf-8'><td>"
 			switch(seed.get_trait(TRAIT_CARNIVOROUS))
 				if(1)
 					dat += "CARN "
@@ -290,11 +290,11 @@
 					dat += "TEMP- "
 			if(seed.get_trait(TRAIT_BIOLUM))
 				dat += "LUM "
-			dat += "</td>"
-			dat += "<td>[S.amount]</td>"
-			dat += "<td><a href='byond://?src=\ref[src];task=vend;id=[S.ID]'>Vend</a> <a href='byond://?src=\ref[src];task=purge;id=[S.ID]'>Purge</a></td>"
-			dat += "</tr>"
-		dat += "</table>"
+			dat += "<meta charset='utf-8'></td>"
+			dat += "<meta charset='utf-8'><td>[S.amount]</td>"
+			dat += "<meta charset='utf-8'><td><a href='byond://?src=\ref[src];task=vend;id=[S.ID]'>Vend</a> <a href='byond://?src=\ref[src];task=purge;id=[S.ID]'>Purge</a></td>"
+			dat += "<meta charset='utf-8'></tr>"
+		dat += "<meta charset='utf-8'></table>"
 
 	show_browser(user, dat, "window=seedstorage;size=800x500")
 	onclose(user, "seedstorage")

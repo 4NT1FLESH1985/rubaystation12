@@ -154,12 +154,12 @@
 
 	if(key)
 		if(include_link && C)
-			. += "<a href='?priv_msg=\ref[C];ticket=\ref[ticket]'>"
+			. += "<meta charset='utf-8'><a href='?priv_msg=\ref[C];ticket=\ref[ticket]'>"
 
 		. += key
 
 		if(include_link)
-			if(C)	. += "</a>"
+			if(C)	. += "<meta charset='utf-8'></a>"
 			else	. += " (DC)"
 	else
 		. += "*no key*"

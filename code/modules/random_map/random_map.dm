@@ -113,7 +113,7 @@ var/global/list/map_count = list()
 			var/current_cell = get_map_cell(x,y)
 			if(current_cell)
 				dat += get_map_char(map[current_cell])
-		dat += "<br>"
+		dat += "<meta charset='utf-8'><br>"
 	to_chat(user, "[dat]+------+</code>")
 
 /datum/random_map/proc/set_map_size()

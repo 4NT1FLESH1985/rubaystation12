@@ -143,9 +143,9 @@ proc/get_open_ticket_by_client(var/datum/client_lite/owner)
 					else
 						status = "Closed by timeout"
 					color = "#cc2222"
-			ticket_dat += "<li style='padding-bottom:10px;color:[color]'>"
+			ticket_dat += "<meta charset='utf-8'><li style='padding-bottom:10px;color:[color]'>"
 			if(open_ticket && open_ticket == ticket)
-				ticket_dat += "<i>"
+				ticket_dat += "<meta charset='utf-8'><i>"
 			ticket_dat += "Ticket #[id] - [ticket.owner.key_name(0)] [owner_client ? "" : "(DC)"]<br />[status]<br /><a href='byond://?src=\ref[src];action=view;ticket=\ref[ticket]'>VIEW</a>"
 			if(open)
 				ticket_dat += " - <a href='byond://?src=\ref[src];action=pm;ticket=\ref[ticket]'>PM</a>"
@@ -159,27 +159,27 @@ proc/get_open_ticket_by_client(var/datum/client_lite/owner)
 					ref_mob = "\ref[owner_client.mob]"
 				ticket_dat += " - <A HREF='?_src_=holder;adminmoreinfo=[ref_mob]'>?</A> - <A HREF='?_src_=holder;adminplayeropts=[ref_mob]'>PP</A> - <A HREF='?_src_=vars;Vars=[ref_mob]'>VV</A> - <A HREF='?_src_=holder;narrateto=[ref_mob]'>DN</A>[owner_client ? "- [admin_jump_link(owner_client, src)]" : ""]"
 			if(open_ticket && open_ticket == ticket)
-				ticket_dat += "</i>"
-			ticket_dat += "</li>"
+				ticket_dat += "<meta charset='utf-8'></i>"
+			ticket_dat += "<meta charset='utf-8'></li>"
 
 	if(ticket_dat.len)
-		dat += "<br /><div style='width:50%;float:left;'><p><b>Available tickets:</b></p><ul>[jointext(ticket_dat, null)]</ul></div>"
+		dat += "<meta charset='utf-8'><br /><div style='width:50%;float:left;'><p><b>Available tickets:</b></p><ul>[jointext(ticket_dat, null)]</ul></div>"
 
 		if(open_ticket)
-			dat += "<div style='width:50%;float:left;'><p><b>\[<a href='byond://?src=\ref[src];action=unview;'>X</a>\] Messages for ticket #[open_ticket.id]:</b></p>"
+			dat += "<meta charset='utf-8'><div style='width:50%;float:left;'><p><b>\[<a href='byond://?src=\ref[src];action=unview;'>X</a>\] Messages for ticket #[open_ticket.id]:</b></p>"
 
 			var/list/msg_dat = list()
 			for(var/datum/ticket_msg/msg in open_ticket.msgs)
 				var/msg_to = msg.msg_to ? msg.msg_to : "Adminhelp"
-				msg_dat += "<li>\[[msg.time_stamp]\] [msg.msg_from] -> [msg_to]: [C.holder ? generate_ahelp_key_words(C.mob, msg.msg) : msg.msg]</li>"
+				msg_dat += "<meta charset='utf-8'><li>\[[msg.time_stamp]\] [msg.msg_from] -> [msg_to]: [C.holder ? generate_ahelp_key_words(C.mob, msg.msg) : msg.msg]</li>"
 
 			if(msg_dat.len)
-				dat += "<ul>[jointext(msg_dat, null)]</ul></div>"
+				dat += "<meta charset='utf-8'><ul>[jointext(msg_dat, null)]</ul></div>"
 			else
-				dat += "<p>No messages to display.</p></div>"
+				dat += "<meta charset='utf-8'><p>No messages to display.</p></div>"
 	else
-		dat += "<p>No tickets to display.</p>"
-	dat += "</body></html>"
+		dat += "<meta charset='utf-8'><p>No tickets to display.</p>"
+	dat += "<meta charset='utf-8'></body></html>"
 
 	return jointext(dat, null)
 

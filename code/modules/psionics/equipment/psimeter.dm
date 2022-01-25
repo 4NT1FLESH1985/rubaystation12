@@ -29,14 +29,14 @@
 	if(LAZYLEN(last_assay))
 		dat = last_assay
 	else
-		dat += "<h2>TELESTO Mark I Psi-Meter</h2><hr><table border = 1 width = 100%><tr><td colspan = 2><b>Candidates</b></td></tr>"
+		dat += "<meta charset='utf-8'><h2>TELESTO Mark I Psi-Meter</h2><hr><table border = 1 width = 100%><tr><td colspan = 2><b>Candidates</b></td></tr>"
 		var/found
 		for(var/mob/living/H in range(1, src))
 			found = TRUE
-			dat += "<tr><td>[H.name]</td><td><a href='?src=\ref[src];assay=\ref[H]'>Conduct Assay</a>"
+			dat += "<meta charset='utf-8'><tr><td>[H.name]</td><td><a href='?src=\ref[src];assay=\ref[H]'>Conduct Assay</a>"
 		if(!found)
-			dat += "<tr><td colspan = 2>No candidates found.</td></tr>"
-		dat += "<table>"
+			dat += "<meta charset='utf-8'><tr><td colspan = 2>No candidates found.</td></tr>"
+		dat += "<meta charset='utf-8'><table>"
 
 	var/datum/browser/popup = new(user, "psi_assay_\ref[src]", "Psi-Assay")
 	popup.set_content(jointext(dat,null))

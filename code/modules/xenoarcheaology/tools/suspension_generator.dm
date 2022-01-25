@@ -46,14 +46,14 @@
 			colour = "green"
 		else if(percent > 33)
 			colour = "orange"
-		dat += "<b>Energy cell</b>: <font color='[colour]'>[percent]%</font><br>"
+		dat += "<meta charset='utf-8'><b>Energy cell</b>: <font color='[colour]'>[percent]%</font><br>"
 	else
-		dat += "<b>Energy cell</b>: None<br>"
-	dat += "<b><A href='?src=\ref[src];toggle_field=1'>[suspension_field ? "Disable" : "Enable"] field</a></b><br>"
-	dat += "<hr>"
-	dat += "<hr>"
-	dat += "<font style='color: cyan;'><b>Always wear safety gear and consult a field manual before operation.</b></font><br>"
-	dat += "<A href='?src=\ref[src];close=1'>Close console</A>"
+		dat += "<meta charset='utf-8'><b>Energy cell</b>: None<br>"
+	dat += "<meta charset='utf-8'><b><A href='?src=\ref[src];toggle_field=1'>[suspension_field ? "Disable" : "Enable"] field</a></b><br>"
+	dat += "<meta charset='utf-8'><hr>"
+	dat += "<meta charset='utf-8'><hr>"
+	dat += "<meta charset='utf-8'><font style='color: cyan;'><b>Always wear safety gear and consult a field manual before operation.</b></font><br>"
+	dat += "<meta charset='utf-8'><A href='?src=\ref[src];close=1'>Close console</A>"
 	var/datum/browser/popup = new(user, "suspension", "Suspension Generator", 500, 400)
 	popup.set_content(dat)
 	popup.open()

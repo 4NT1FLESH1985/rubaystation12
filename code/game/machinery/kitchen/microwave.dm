@@ -13,7 +13,7 @@
 	construct_state = /decl/machine_construction/default/panel_closed
 	uncreated_component_parts = null
 	stat_immune = 0
-	
+
 	machine_name = "microwave"
 	machine_desc = "Required for preparing any dish more complicated than a slice of bread. In the future, <i>everything</i> is microwaved."
 
@@ -244,17 +244,17 @@
 	user.set_machine(src)
 	var/dat = list()
 	if(broken > 0)
-		dat += "<TT><b><i>This microwave is very broken. You'll need to fix it before you can use it again.</i></b></TT>"
+		dat += "<meta charset='utf-8'><TT><b><i>This microwave is very broken. You'll need to fix it before you can use it again.</i></b></TT>"
 	else if(operating)
-		dat += "<TT>Microwaving in progress!<BR>Please wait...!</TT>"
+		dat += "<meta charset='utf-8'><TT>Microwaving in progress!<BR>Please wait...!</TT>"
 	else if(dirtiness == 100)
-		dat += "<TT><b><i>This microwave is covered in muck. You'll need to wipe it down or clean it out before you can use it again.</i></b></TT>"
+		dat += "<meta charset='utf-8'><TT><b><i>This microwave is covered in muck. You'll need to wipe it down or clean it out before you can use it again.</i></b></TT>"
 	else
 		playsound(loc, 'sound/machines/pda_click.ogg', 50, 1)
 		if (!LAZYLEN(ingredients) && !reagents.reagent_list.len)
-			dat += "<B>The microwave is empty.</B>"
+			dat += "<meta charset='utf-8'><B>The microwave is empty.</B>"
 		else
-			dat += "<b>Ingredients:</b><br>"
+			dat += "<meta charset='utf-8'><b>Ingredients:</b><br>"
 			var/list/items_counts = new
 			var/list/items_measures = new
 			var/list/items_measures_p = new
@@ -280,12 +280,12 @@
 			for (var/O in items_counts)
 				var/N = items_counts[O]
 				if (!(O in items_measures))
-					dat += "<B>[capitalize(O)]:</B> [N] [lowertext(O)]\s"
+					dat += "<meta charset='utf-8'><B>[capitalize(O)]:</B> [N] [lowertext(O)]\s"
 				else
 					if (N==1)
-						dat += "<B>[capitalize(O)]:</B> [N] [items_measures[O]]"
+						dat += "<meta charset='utf-8'><B>[capitalize(O)]:</B> [N] [items_measures[O]]"
 					else
-						dat += "<B>[capitalize(O)]:</B> [N] [items_measures_p[O]]"
+						dat += "<meta charset='utf-8'><B>[capitalize(O)]:</B> [N] [items_measures_p[O]]"
 
 			for (var/datum/reagent/R in reagents.reagent_list)
 				var/display_name = R.name
@@ -293,9 +293,9 @@
 					display_name = "Hotsauce"
 				if (R.type == /datum/reagent/frostoil)
 					display_name = "Coldsauce"
-				dat += "<B>[display_name]:</B> [R.volume] unit\s"
+				dat += "<meta charset='utf-8'><B>[display_name]:</B> [R.volume] unit\s"
 
-		dat += "<HR><BR><A href='?src=\ref[src];action=cook'>Turn on!<BR><A href='?src=\ref[src];action=dispose'>Eject ingredients!"
+		dat += "<meta charset='utf-8'><HR><BR><A href='?src=\ref[src];action=cook'>Turn on!<BR><A href='?src=\ref[src];action=dispose'>Eject ingredients!"
 
 	show_browser(user, "<HEAD><TITLE>Microwave Controls</TITLE></HEAD><TT>[jointext(dat,"<br>")]</TT>", "window=microwave")
 	onclose(user, "microwave")

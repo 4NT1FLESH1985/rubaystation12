@@ -53,7 +53,7 @@
 /obj/machinery/telecomms/dismantle()
 	for(var/obj/x in (contents - component_parts))
 		x.dropInto(loc)
-	. = ..()	
+	. = ..()
 
 // This should all be a multitool extension, but outside the scope of current rework.
 /obj/machinery/telecomms/CanUseTopic(mob/user)
@@ -73,34 +73,34 @@
 
 	user.set_machine(src)
 	var/list/dat = list()
-	dat += "<font face = \"Courier\"><HEAD><TITLE>[src.name]</TITLE></HEAD><center><H3>[src.name] Access</H3></center>"
-	dat += "<br>[temp]<br>"
-	dat += "<br>Power Status: <a href='?src=\ref[src];input=toggle'>[src.toggled ? "On" : "Off"]</a>"
+	dat += "<meta charset='utf-8'><font face = \"Courier\"><HEAD><TITLE>[src.name]</TITLE></HEAD><center><H3>[src.name] Access</H3></center>"
+	dat += "<meta charset='utf-8'><br>[temp]<br>"
+	dat += "<meta charset='utf-8'><br>Power Status: <a href='?src=\ref[src];input=toggle'>[src.toggled ? "On" : "Off"]</a>"
 	if(overloaded_for)
-		dat += "<br><br>WARNING: Ion interference detected. System will automatically recover in [overloaded_for*2] seconds. <a href='?src=\ref[src];input=resetoverload'>Reset manually</a><br>"
+		dat += "<meta charset='utf-8'><br><br>WARNING: Ion interference detected. System will automatically recover in [overloaded_for*2] seconds. <a href='?src=\ref[src];input=resetoverload'>Reset manually</a><br>"
 	if(on && toggled)
 		if(id != "" && id)
-			dat += "<br>Identification String: <a href='?src=\ref[src];input=id'>[id]</a>"
+			dat += "<meta charset='utf-8'><br>Identification String: <a href='?src=\ref[src];input=id'>[id]</a>"
 		else
-			dat += "<br>Identification String: <a href='?src=\ref[src];input=id'>NULL</a>"
-		dat += "<br>Network: <a href='?src=\ref[src];input=network'>[network]</a>"
-		dat += "<br>Prefabrication: [autolinkers.len ? "TRUE" : "FALSE"]"
-		if(hide) dat += "<br>Shadow Link: ACTIVE</a>"
+			dat += "<meta charset='utf-8'><br>Identification String: <a href='?src=\ref[src];input=id'>NULL</a>"
+		dat += "<meta charset='utf-8'><br>Network: <a href='?src=\ref[src];input=network'>[network]</a>"
+		dat += "<meta charset='utf-8'><br>Prefabrication: [autolinkers.len ? "TRUE" : "FALSE"]"
+		if(hide) dat += "<meta charset='utf-8'><br>Shadow Link: ACTIVE</a>"
 
 		//Show additional options for certain machines.
 		dat += Options_Menu()
 
-		dat += "<br>Linked Network Entities: <ol>"
+		dat += "<meta charset='utf-8'><br>Linked Network Entities: <ol>"
 
 		var/i = 0
 		for(var/obj/machinery/telecomms/T in links)
 			i++
 			if(T.hide && !src.hide)
 				continue
-			dat += "<li>\ref[T] [T.name] ([T.id])  <a href='?src=\ref[src];unlink=[i]'>\[X\]</a></li>"
-		dat += "</ol>"
+			dat += "<meta charset='utf-8'><li>\ref[T] [T.name] ([T.id])  <a href='?src=\ref[src];unlink=[i]'>\[X\]</a></li>"
+		dat += "<meta charset='utf-8'></ol>"
 
-		dat += "<br>Filtering Frequencies: "
+		dat += "<meta charset='utf-8'><br>Filtering Frequencies: "
 
 		i = 0
 		if(length(freq_listening))
@@ -113,29 +113,29 @@
 		else
 			dat += "NONE"
 
-		dat += "<br>  <a href='?src=\ref[src];input=freq'>\[Add Filter\]</a>"
+		dat += "<meta charset='utf-8'><br>  <a href='?src=\ref[src];input=freq'>\[Add Filter\]</a>"
 
-		dat += "<br><br>Channel Tagging Rules: <ol>"
+		dat += "<meta charset='utf-8'><br><br>Channel Tagging Rules: <ol>"
 
 		if(length(channel_tags))
 			for(var/list/rule in channel_tags)
 				dat +="<li>[format_frequency(rule[1])] -> [rule[2]] ([rule[3]]) <a href='?src=\ref[src];deletetagrule=[rule[1]]'>\[X\]</a></li>"
 
-		dat += "</ol>"
-		dat += "<a href='?src=\ref[src];input=tagrule'>\[Add Rule\]</a>"
+		dat += "<meta charset='utf-8'></ol>"
+		dat += "<meta charset='utf-8'><a href='?src=\ref[src];input=tagrule'>\[Add Rule\]</a>"
 
-		dat += "<hr>"
+		dat += "<meta charset='utf-8'><hr>"
 
 		if(P)
 			var/obj/machinery/telecomms/device = P.get_buffer()
 			if(istype(device))
-				dat += "<br><br>MULTITOOL BUFFER: [device] ([device.id]) <a href='?src=\ref[src];link=1'>\[Link\]</a> <a href='?src=\ref[src];flush=1'>\[Flush\]"
+				dat += "<meta charset='utf-8'><br><br>MULTITOOL BUFFER: [device] ([device.id]) <a href='?src=\ref[src];link=1'>\[Link\]</a> <a href='?src=\ref[src];flush=1'>\[Flush\]"
 			else
-				dat += "<br><br>MULTITOOL BUFFER: <a href='?src=\ref[src];buffer=1'>\[Add Machine\]</a>"
+				dat += "<meta charset='utf-8'><br><br>MULTITOOL BUFFER: <a href='?src=\ref[src];buffer=1'>\[Add Machine\]</a>"
 
-	dat += "</font>"
+	dat += "<meta charset='utf-8'></font>"
 	temp = ""
-	
+
 	var/datum/browser/popup = new(user, "tcommmachine", "Telecommunications Machine Configuration Panel", 520, 600)
 	popup.set_content(JOINTEXT(dat))
 	popup.open()

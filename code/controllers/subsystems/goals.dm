@@ -53,7 +53,7 @@ SUBSYSTEM_DEF(goals)
 	. = list()
 	for(var/thing in departments)
 		var/datum/department/dept = departments[thing]
-		. += "<b>[dept.name] had the following shift goals:</b>"
+		. += "<meta charset='utf-8'><b>[dept.name] had the following shift goals:</b>"
 		. += dept.summarize_goals(show_success = TRUE)
 	if(LAZYLEN(.))
 		. = "<br>[jointext(., "<br>")]"

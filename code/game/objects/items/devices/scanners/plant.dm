@@ -54,26 +54,26 @@
 	var/list/dat = list()
 
 	var/form_title = "[grown_seed.seed_name] (#[grown_seed.uid])"
-	dat += "<h3>Plant data for [form_title]</h3>"
+	dat += "<meta charset='utf-8'><h3>Plant data for [form_title]</h3>"
 
-	dat += "<h2>General Data</h2>"
+	dat += "<meta charset='utf-8'><h2>General Data</h2>"
 
-	dat += "<table>"
-	dat += "<tr><td><b>Endurance</b></td><td>[grown_seed.get_trait(TRAIT_ENDURANCE)]</td></tr>"
-	dat += "<tr><td><b>Yield</b></td><td>[grown_seed.get_trait(TRAIT_YIELD)]</td></tr>"
-	dat += "<tr><td><b>Maturation time</b></td><td>[grown_seed.get_trait(TRAIT_MATURATION)]</td></tr>"
-	dat += "<tr><td><b>Production time</b></td><td>[grown_seed.get_trait(TRAIT_PRODUCTION)]</td></tr>"
-	dat += "<tr><td><b>Potency</b></td><td>[grown_seed.get_trait(TRAIT_POTENCY)]</td></tr>"
-	dat += "</table>"
+	dat += "<meta charset='utf-8'><table>"
+	dat += "<meta charset='utf-8'><tr><td><b>Endurance</b></td><td>[grown_seed.get_trait(TRAIT_ENDURANCE)]</td></tr>"
+	dat += "<meta charset='utf-8'><tr><td><b>Yield</b></td><td>[grown_seed.get_trait(TRAIT_YIELD)]</td></tr>"
+	dat += "<meta charset='utf-8'><tr><td><b>Maturation time</b></td><td>[grown_seed.get_trait(TRAIT_MATURATION)]</td></tr>"
+	dat += "<meta charset='utf-8'><tr><td><b>Production time</b></td><td>[grown_seed.get_trait(TRAIT_PRODUCTION)]</td></tr>"
+	dat += "<meta charset='utf-8'><tr><td><b>Potency</b></td><td>[grown_seed.get_trait(TRAIT_POTENCY)]</td></tr>"
+	dat += "<meta charset='utf-8'></table>"
 
 	if(grown_reagents && grown_reagents.reagent_list && grown_reagents.reagent_list.len)
-		dat += "<h2>Reagent Data</h2>"
+		dat += "<meta charset='utf-8'><h2>Reagent Data</h2>"
 
-		dat += "<br>This sample contains: "
+		dat += "<meta charset='utf-8'><br>This sample contains: "
 		for(var/datum/reagent/R in grown_reagents.reagent_list)
-			dat += "<br>- [R.name], [grown_reagents.get_reagent_amount(R.type)] unit(s)"
+			dat += "<meta charset='utf-8'><br>- [R.name], [grown_reagents.get_reagent_amount(R.type)] unit(s)"
 
-	dat += "<h2>Other Data</h2>"
+	dat += "<meta charset='utf-8'><h2>Other Data</h2>"
 
 	if(grown_seed.get_trait(TRAIT_HARVEST_REPEAT))
 		dat += "This plant can be harvested repeatedly.<br>"
@@ -105,78 +105,78 @@
 	dat += "It thrives in a temperature of [grown_seed.get_trait(TRAIT_IDEAL_HEAT)] Kelvin."
 
 	if(grown_seed.get_trait(TRAIT_LOWKPA_TOLERANCE) < 20)
-		dat += "<br>It is well adapted to low pressure levels."
+		dat += "<meta charset='utf-8'><br>It is well adapted to low pressure levels."
 	if(grown_seed.get_trait(TRAIT_HIGHKPA_TOLERANCE) > 220)
-		dat += "<br>It is well adapted to high pressure levels."
+		dat += "<meta charset='utf-8'><br>It is well adapted to high pressure levels."
 
 	if(grown_seed.get_trait(TRAIT_HEAT_TOLERANCE) > 30)
-		dat += "<br>It is well adapted to a range of temperatures."
+		dat += "<meta charset='utf-8'><br>It is well adapted to a range of temperatures."
 	else if(grown_seed.get_trait(TRAIT_HEAT_TOLERANCE) < 10)
-		dat += "<br>It is very sensitive to temperature shifts."
+		dat += "<meta charset='utf-8'><br>It is very sensitive to temperature shifts."
 
-	dat += "<br>It thrives in a light level of [grown_seed.get_trait(TRAIT_IDEAL_LIGHT)] lumen[grown_seed.get_trait(TRAIT_IDEAL_LIGHT) == 1 ? "" : "s"]."
+	dat += "<meta charset='utf-8'><br>It thrives in a light level of [grown_seed.get_trait(TRAIT_IDEAL_LIGHT)] lumen[grown_seed.get_trait(TRAIT_IDEAL_LIGHT) == 1 ? "" : "s"]."
 
 	if(grown_seed.get_trait(TRAIT_LIGHT_TOLERANCE) > 10)
-		dat += "<br>It is well adapted to a range of light levels."
+		dat += "<meta charset='utf-8'><br>It is well adapted to a range of light levels."
 	else if(grown_seed.get_trait(TRAIT_LIGHT_TOLERANCE) < 3)
-		dat += "<br>It is very sensitive to light level shifts."
+		dat += "<meta charset='utf-8'><br>It is very sensitive to light level shifts."
 
 	if(grown_seed.get_trait(TRAIT_TOXINS_TOLERANCE) < 3)
-		dat += "<br>It is highly sensitive to toxins."
+		dat += "<meta charset='utf-8'><br>It is highly sensitive to toxins."
 	else if(grown_seed.get_trait(TRAIT_TOXINS_TOLERANCE) > 6)
-		dat += "<br>It is remarkably resistant to toxins."
+		dat += "<meta charset='utf-8'><br>It is remarkably resistant to toxins."
 
 	if(grown_seed.get_trait(TRAIT_PEST_TOLERANCE) < 3)
-		dat += "<br>It is highly sensitive to pests."
+		dat += "<meta charset='utf-8'><br>It is highly sensitive to pests."
 	else if(grown_seed.get_trait(TRAIT_PEST_TOLERANCE) > 6)
-		dat += "<br>It is remarkably resistant to pests."
+		dat += "<meta charset='utf-8'><br>It is remarkably resistant to pests."
 
 	if(grown_seed.get_trait(TRAIT_WEED_TOLERANCE) < 3)
-		dat += "<br>It is highly sensitive to weeds."
+		dat += "<meta charset='utf-8'><br>It is highly sensitive to weeds."
 	else if(grown_seed.get_trait(TRAIT_WEED_TOLERANCE) > 6)
-		dat += "<br>It is remarkably resistant to weeds."
+		dat += "<meta charset='utf-8'><br>It is remarkably resistant to weeds."
 
 	switch(grown_seed.get_trait(TRAIT_SPREAD))
 		if(1)
-			dat += "<br>It is able to be planted outside of a tray."
+			dat += "<meta charset='utf-8'><br>It is able to be planted outside of a tray."
 		if(2)
-			dat += "<br>It is a robust and vigorous vine that will spread rapidly."
+			dat += "<meta charset='utf-8'><br>It is a robust and vigorous vine that will spread rapidly."
 
 	switch(grown_seed.get_trait(TRAIT_CARNIVOROUS))
 		if(1)
-			dat += "<br>It is carnivorous and will eat tray pests for sustenance."
+			dat += "<meta charset='utf-8'><br>It is carnivorous and will eat tray pests for sustenance."
 		if(2)
 			dat	+= "<br>It is carnivorous and poses a significant threat to living things around it."
 
 	if(grown_seed.get_trait(TRAIT_PARASITE))
-		dat += "<br>It is capable of parisitizing and gaining sustenance from tray weeds."
+		dat += "<meta charset='utf-8'><br>It is capable of parisitizing and gaining sustenance from tray weeds."
 	if(grown_seed.get_trait(TRAIT_ALTER_TEMP))
-		dat += "<br>It will periodically alter the local temperature by [grown_seed.get_trait(TRAIT_ALTER_TEMP)] degrees Kelvin."
+		dat += "<meta charset='utf-8'><br>It will periodically alter the local temperature by [grown_seed.get_trait(TRAIT_ALTER_TEMP)] degrees Kelvin."
 
 	if(grown_seed.get_trait(TRAIT_BIOLUM))
-		dat += "<br>It is [grown_seed.get_trait(TRAIT_BIOLUM_COLOUR)  ? "<font color='[grown_seed.get_trait(TRAIT_BIOLUM_COLOUR)]'>bio-luminescent</font>" : "bio-luminescent"]."
+		dat += "<meta charset='utf-8'><br>It is [grown_seed.get_trait(TRAIT_BIOLUM_COLOUR)  ? "<font color='[grown_seed.get_trait(TRAIT_BIOLUM_COLOUR)]'>bio-luminescent</font>" : "bio-luminescent"]."
 
 	if(grown_seed.get_trait(TRAIT_PRODUCES_POWER))
-		dat += "<br>The fruit will function as a battery if prepared appropriately."
+		dat += "<meta charset='utf-8'><br>The fruit will function as a battery if prepared appropriately."
 
 	if(grown_seed.get_trait(TRAIT_STINGS))
-		dat += "<br>The fruit is covered in stinging spines."
+		dat += "<meta charset='utf-8'><br>The fruit is covered in stinging spines."
 
 	if(grown_seed.get_trait(TRAIT_JUICY) == 1)
-		dat += "<br>The fruit is soft-skinned and juicy."
+		dat += "<meta charset='utf-8'><br>The fruit is soft-skinned and juicy."
 	else if(grown_seed.get_trait(TRAIT_JUICY) == 2)
-		dat += "<br>The fruit is excessively juicy."
+		dat += "<meta charset='utf-8'><br>The fruit is excessively juicy."
 
 	if(grown_seed.get_trait(TRAIT_EXPLOSIVE))
-		dat += "<br>The fruit is internally unstable."
+		dat += "<meta charset='utf-8'><br>The fruit is internally unstable."
 
 	if(grown_seed.get_trait(TRAIT_TELEPORTING))
-		dat += "<br>The fruit is temporal/spatially unstable."
+		dat += "<meta charset='utf-8'><br>The fruit is temporal/spatially unstable."
 
 	if(grown_seed.get_trait(TRAIT_EXUDE_GASSES))
-		dat += "<br>It will release gas into the environment."
+		dat += "<meta charset='utf-8'><br>It will release gas into the environment."
 
 	if(grown_seed.get_trait(TRAIT_CONSUME_GASSES))
-		dat += "<br>It will remove gas from the environment."
+		dat += "<meta charset='utf-8'><br>It will remove gas from the environment."
 
 	return JOINTEXT(dat)

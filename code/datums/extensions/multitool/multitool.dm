@@ -23,7 +23,7 @@
 	close_browser(user, "window=multitool")
 
 /datum/extension/interactive/multitool/proc/buffer(var/obj/item/device/multitool/multitool)
-	. += "<b>Buffer Memory:</b><br>"
+	. += "<meta charset='utf-8'><b>Buffer Memory:</b><br>"
 	var/buffer_name = multitool.get_buffer_name()
 	if(buffer_name)
 		. += "[buffer_name] <a href='?src=\ref[src];send=\ref[multitool.buffer_object]'>Send</a> <a href='?src=\ref[src];purge=1'>Purge</a><br>"

@@ -32,47 +32,47 @@
 
 /datum/category_item/player_setup_item/antagonism/candidacy/content(var/mob/user)
 	. = list()
-	. += "<b>Special Role Availability:</b><br>"
-	. += "<table>"
+	. += "<meta charset='utf-8'><b>Special Role Availability:</b><br>"
+	. += "<meta charset='utf-8'><table>"
 	var/list/all_antag_types = GLOB.all_antag_types_
 	for(var/antag_type in all_antag_types)
 		var/datum/antagonist/antag = all_antag_types[antag_type]
-		. += "<tr><td>[antag.role_text]: </td><td>"
+		. += "<meta charset='utf-8'><tr><td>[antag.role_text]: </td><td>"
 		if(jobban_isbanned(preference_mob(), antag.id) || (antag.id == MODE_MALFUNCTION && jobban_isbanned(preference_mob(), "AI")))
-			. += "<span class='danger'>\[BANNED\]</span><br>"
+			. += "<meta charset='utf-8'><span class='danger'>\[BANNED\]</span><br>"
 		else if(antag.id in pref.be_special_role)
-			. += "<span class='linkOn'>High</span> <a href='?src=\ref[src];add_maybe=[antag.id]'>Low</a> <a href='?src=\ref[src];del_special=[antag.id]'>Never</a></br>"
+			. += "<meta charset='utf-8'><span class='linkOn'>High</span> <a href='?src=\ref[src];add_maybe=[antag.id]'>Low</a> <a href='?src=\ref[src];del_special=[antag.id]'>Never</a></br>"
 		else if(antag.id in pref.may_be_special_role)
-			. += "<a href='?src=\ref[src];add_special=[antag.id]'>High</a> <span class='linkOn'>Low</span> <a href='?src=\ref[src];del_special=[antag.id]'>Never</a></br>"
+			. += "<meta charset='utf-8'><a href='?src=\ref[src];add_special=[antag.id]'>High</a> <span class='linkOn'>Low</span> <a href='?src=\ref[src];del_special=[antag.id]'>Never</a></br>"
 		else
-			. += "<a href='?src=\ref[src];add_special=[antag.id]'>High</a> <a href='?src=\ref[src];add_maybe=[antag.id]'>Low</a> <span class='linkOn'>Never</span></br>"
+			. += "<meta charset='utf-8'><a href='?src=\ref[src];add_special=[antag.id]'>High</a> <a href='?src=\ref[src];add_maybe=[antag.id]'>Low</a> <span class='linkOn'>Never</span></br>"
 
-		. += "</td></tr>"
-	. += "</table>"
-	. += "<b>Ghost Role Availability:</b>"
-	. += "<table>"
+		. += "<meta charset='utf-8'></td></tr>"
+	. += "<meta charset='utf-8'></table>"
+	. += "<meta charset='utf-8'><b>Ghost Role Availability:</b>"
+	. += "<meta charset='utf-8'><table>"
 	var/list/ghost_traps = get_ghost_traps()
 	for(var/ghost_trap_key in ghost_traps)
 		var/datum/ghosttrap/ghost_trap = ghost_traps[ghost_trap_key]
 		if(!ghost_trap.list_as_special_role)
 			continue
 
-		. += "<tr><td>[(ghost_trap.ghost_trap_role)]: </td><td>"
+		. += "<meta charset='utf-8'><tr><td>[(ghost_trap.ghost_trap_role)]: </td><td>"
 		if(banned_from_ghost_role(preference_mob(), ghost_trap))
-			. += "<span class='danger'>\[BANNED\]</span><br>"
+			. += "<meta charset='utf-8'><span class='danger'>\[BANNED\]</span><br>"
 		else if (!ghost_trap.assess_whitelist(user))
 			var/datum/species/S = new ghost_trap.species_whitelist()
 			. += "[SPAN_DANGER("\[WHITELIST RESTRICTED - [S]\]")]<br />"
 		else if(ghost_trap.pref_check in pref.be_special_role)
-			. += "<span class='linkOn'>High</span> <a href='?src=\ref[src];add_maybe=[ghost_trap.pref_check]'>Low</a> <a href='?src=\ref[src];del_special=[ghost_trap.pref_check]'>Never</a></br>"
+			. += "<meta charset='utf-8'><span class='linkOn'>High</span> <a href='?src=\ref[src];add_maybe=[ghost_trap.pref_check]'>Low</a> <a href='?src=\ref[src];del_special=[ghost_trap.pref_check]'>Never</a></br>"
 		else if(ghost_trap.pref_check in pref.may_be_special_role)
-			. += "<a href='?src=\ref[src];add_special=[ghost_trap.pref_check]'>High</a> <span class='linkOn'>Low</span> <a href='?src=\ref[src];del_special=[ghost_trap.pref_check]'>Never</a></br>"
+			. += "<meta charset='utf-8'><a href='?src=\ref[src];add_special=[ghost_trap.pref_check]'>High</a> <span class='linkOn'>Low</span> <a href='?src=\ref[src];del_special=[ghost_trap.pref_check]'>Never</a></br>"
 		else
-			. += "<a href='?src=\ref[src];add_special=[ghost_trap.pref_check]'>High</a> <a href='?src=\ref[src];add_maybe=[ghost_trap.pref_check]'>Low</a> <span class='linkOn'>Never</span></br>"
+			. += "<meta charset='utf-8'><a href='?src=\ref[src];add_special=[ghost_trap.pref_check]'>High</a> <a href='?src=\ref[src];add_maybe=[ghost_trap.pref_check]'>Low</a> <span class='linkOn'>Never</span></br>"
 
-		. += "</td></tr>"
-	. += "<tr><td>Select All: </td><td><a href='?src=\ref[src];select_all=2'>High</a> <a href='?src=\ref[src];select_all=1'>Low</a> <a href='?src=\ref[src];select_all=0'>Never</a></td></tr>"
-	. += "</table>"
+		. += "<meta charset='utf-8'></td></tr>"
+	. += "<meta charset='utf-8'><tr><td>Select All: </td><td><a href='?src=\ref[src];select_all=2'>High</a> <a href='?src=\ref[src];select_all=1'>Low</a> <a href='?src=\ref[src];select_all=0'>Never</a></td></tr>"
+	. += "<meta charset='utf-8'></table>"
 	. = jointext(.,null)
 
 /datum/category_item/player_setup_item/proc/banned_from_ghost_role(var/mob, var/datum/ghosttrap/ghost_trap)

@@ -8,9 +8,9 @@
 /decl/cultural_info/location/get_text_details()
 	. = list()
 	if(!isnull(capital))
-		. += "<b>Capital:</b> [capital]."
+		. += "<meta charset='utf-8'><b>Capital:</b> [capital]."
 	if(!isnull(ruling_body))
-		. += "<b>Territory:</b> [ruling_body]."
+		. += "<meta charset='utf-8'><b>Territory:</b> [ruling_body]."
 	if(!isnull(distance))
-		. += "<b>Distance from Sol:</b> [distance]."
+		. += "<meta charset='utf-8'><b>Distance from Sol:</b> [distance]."
 	. += ..()

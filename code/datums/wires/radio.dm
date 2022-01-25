@@ -21,7 +21,7 @@ var/const/WIRE_TRANSMIT = 4
 	var/obj/item/device/radio/R = holder
 	. += ..()
 	if(R.cell)
-		. += "<BR><A href='?src=\ref[R];remove_cell=1'>Remove cell</A><BR>"
+		. += "<meta charset='utf-8'><BR><A href='?src=\ref[R];remove_cell=1'>Remove cell</A><BR>"
 
 /datum/wires/radio/UpdatePulsed(var/index)
 	var/obj/item/device/radio/R = holder

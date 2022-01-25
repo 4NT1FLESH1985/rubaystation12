@@ -355,7 +355,7 @@ var/list/datum/power/changeling/powerinstances = list()
 	"}
 
 	//body tag start + onload and onkeypress (onkeyup) javascript event calls
-	dat += "<body onload='selectTextField(); updateSearch();' onkeyup='updateSearch();'>"
+	dat += "<meta charset='utf-8'><body onload='selectTextField(); updateSearch();' onkeyup='updateSearch();'>"
 
 	//title + search bar
 	dat += {"

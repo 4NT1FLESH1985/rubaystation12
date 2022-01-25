@@ -48,9 +48,9 @@
 	var/id = H.GetIdCard()
 
 	var/dat = list()
-	dat += "<b>Underwear</b><br><hr>"
+	dat += "<meta charset='utf-8'><b>Underwear</b><br><hr>"
 	dat += "You may claim [id ? length(GLOB.underwear.categories) - LAZYACCESS(amount_of_underwear_by_id_card, id) : 0] more article\s this shift.<br><br>"
-	dat += "<b>Available Categories</b><br><hr>"
+	dat += "<meta charset='utf-8'><b>Available Categories</b><br><hr>"
 	for(var/datum/category_group/underwear/UWC in GLOB.underwear.categories)
 		dat += "[UWC.name] <a href='?src=\ref[src];select_underwear=[UWC.name]'>(Select)</a><br>"
 	dat = jointext(dat,null)

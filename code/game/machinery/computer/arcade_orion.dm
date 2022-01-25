@@ -157,18 +157,18 @@
 			dat = "<center><h1>[event_title]</h1>[event_desc]<br><br>Distance to next port: [distance]<br><b>[event_info]</b><br></center><br>[event_actions]"
 		if(ORION_VIEW_SUPPLIES)
 			dat  = "<center><h1>Supplies</h1>View your supplies or buy more when at a spaceport.</center><BR>"
-			dat += "<center>You have [supplies["6"]] [GLOB.using_map.local_currency_name].</center>"
+			dat += "<meta charset='utf-8'><center>You have [supplies["6"]] [GLOB.using_map.local_currency_name].</center>"
 			for(var/i=1; i<6; i++)
 				var/amm = (i>3?10:1)
 				dat += "[supplies["[i]"]] [supply_name["[i]"]][event==ORION_TRAIL_SPACEPORT ? ", <a href='?src=\ref[src];buy=[i]'>buy [amm] for [supply_cost["[i]"]]T</a>" : ""]<BR>"
 				if(supplies["[i]"] >= amm && event == ORION_TRAIL_SPACEPORT)
-					dat += "<a href='?src=\ref[src];sell=[i]'>sell [amm] for [supply_cost["[i]"]]T</a><br>"
+					dat += "<meta charset='utf-8'><a href='?src=\ref[src];sell=[i]'>sell [amm] for [supply_cost["[i]"]]T</a><br>"
 		if(ORION_VIEW_CREW)
 			dat = "<center><h1>Crew</h1>View the status of your crew.</center>"
 			for(var/i=1;i<=settlers.len;i++)
 				dat += "[settlers[i]] <a href='?src=\ref[src];kill=[i]'>Kill</a><br>"
 
-	dat += "<br><P ALIGN=Right>View:<BR>"
+	dat += "<meta charset='utf-8'><br><P ALIGN=Right>View:<BR>"
 	dat += "[view==ORION_VIEW_MAIN ? "" : "<a href='?src=\ref[src];continue=1'>"]Main[view==ORION_VIEW_MAIN ? "" : "</a>"]<BR>"
 	dat += "[view==ORION_VIEW_SUPPLIES ? "" : "<a href='?src=\ref[src];supplies=1'>"]Supplies[view==ORION_VIEW_SUPPLIES ? "" : "</a>"]<BR>"
 	dat += "[view==ORION_VIEW_CREW ? "" : "<a href='?src=\ref[src];crew=1'>"]Crew[view==ORION_VIEW_CREW ? "" : "</a>"]</P>"

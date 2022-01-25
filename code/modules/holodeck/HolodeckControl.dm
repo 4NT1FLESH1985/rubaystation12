@@ -42,7 +42,7 @@
 	user.set_machine(src)
 	var/dat
 
-	dat += "<B>Holodeck Control System</B><BR>"
+	dat += "<meta charset='utf-8'><B>Holodeck Control System</B><BR>"
 	if(!islocked)
 		dat += "Holodeck is <A href='?src=\ref[src];togglehololock=1'><font color=green>(UNLOCKED)</font></A><BR>"
 	else
@@ -51,46 +51,46 @@
 		onclose(user, "computer")
 		return
 
-	dat += "<HR>Current Loaded Programs:<BR>"
+	dat += "<meta charset='utf-8'><HR>Current Loaded Programs:<BR>"
 
 	if(!linkedholodeck)
-		dat += "<span class='danger'>Warning: Unable to locate holodeck.<br></span>"
+		dat += "<meta charset='utf-8'><span class='danger'>Warning: Unable to locate holodeck.<br></span>"
 		show_browser(user, dat, "window=computer;size=400x500")
 		onclose(user, "computer")
 		return
 
 	if(!supported_programs.len)
-		dat += "<span class='danger'>Warning: No supported holo-programs loaded.<br></span>"
+		dat += "<meta charset='utf-8'><span class='danger'>Warning: No supported holo-programs loaded.<br></span>"
 		show_browser(user, dat, "window=computer;size=400x500")
 		onclose(user, "computer")
 		return
 
 	for(var/prog in supported_programs)
-		dat += "<A href='?src=\ref[src];program=[supported_programs[prog]]'>([prog])</A><BR>"
+		dat += "<meta charset='utf-8'><A href='?src=\ref[src];program=[supported_programs[prog]]'>([prog])</A><BR>"
 
-	dat += "<BR>"
-	dat += "<A href='?src=\ref[src];program=turnoff'>(Turn Off)</A><BR>"
+	dat += "<meta charset='utf-8'><BR>"
+	dat += "<meta charset='utf-8'><A href='?src=\ref[src];program=turnoff'>(Turn Off)</A><BR>"
 
-	dat += "<BR>"
+	dat += "<meta charset='utf-8'><BR>"
 	dat += "Please ensure that only holographic weapons are used in the holodeck if a combat simulation has been loaded.<BR>"
 
 	if(issilicon(user))
-		dat += "<BR>"
+		dat += "<meta charset='utf-8'><BR>"
 		if(safety_disabled)
 			if (emagged)
-				dat += "<font color=red><b>ERROR</b>: Cannot re-enable Safety Protocols.</font><BR>"
+				dat += "<meta charset='utf-8'><font color=red><b>ERROR</b>: Cannot re-enable Safety Protocols.</font><BR>"
 			else
-				dat += "<A href='?src=\ref[src];AIoverride=1'>(<font color=green>Re-Enable Safety Protocols?</font>)</A><BR>"
+				dat += "<meta charset='utf-8'><A href='?src=\ref[src];AIoverride=1'>(<font color=green>Re-Enable Safety Protocols?</font>)</A><BR>"
 		else
-			dat += "<A href='?src=\ref[src];AIoverride=1'>(<font color=red>Override Safety Protocols?</font>)</A><BR>"
+			dat += "<meta charset='utf-8'><A href='?src=\ref[src];AIoverride=1'>(<font color=red>Override Safety Protocols?</font>)</A><BR>"
 
-	dat += "<BR>"
+	dat += "<meta charset='utf-8'><BR>"
 
 	if(safety_disabled)
 		for(var/prog in restricted_programs)
-			dat += "<A href='?src=\ref[src];program=[restricted_programs[prog]]'>(<font color=red>Begin [prog]</font>)</A><BR>"
+			dat += "<meta charset='utf-8'><A href='?src=\ref[src];program=[restricted_programs[prog]]'>(<font color=red>Begin [prog]</font>)</A><BR>"
 			dat += "Ensure the holodeck is empty before testing.<BR>"
-			dat += "<BR>"
+			dat += "<meta charset='utf-8'><BR>"
 		dat += "Safety Protocols are <font color=red> DISABLED </font><BR>"
 	else
 		dat += "Safety Protocols are <font color=green> ENABLED </font><BR>"

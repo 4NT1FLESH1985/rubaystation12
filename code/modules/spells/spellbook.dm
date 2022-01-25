@@ -102,8 +102,8 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 		dat = "[temp]<br><a href='byond://?src=\ref[src];temp=1'>Return</a>"
 	else
 		dat = "<center><h3>[spellbook.title]</h3><i>[spellbook.title_desc]</i><br>You have [uses] spell slot[uses > 1 ? "s" : ""] left.</center><br>"
-		dat += "<center><font color='#ff33cc'>Requires Wizard Garb</font><br><font color='#ff6600'>Selectable Target</font><br><font color='#33cc33'>Spell Charge Type: Recharge, Sacrifice, Charges</font></center><br>"
-		dat += "<center><b>To use a contract, first bind it to your soul, then give it to someone to sign. This will bind their soul to you.</b></center><br>"
+		dat += "<meta charset='utf-8'><center><font color='#ff33cc'>Requires Wizard Garb</font><br><font color='#ff6600'>Selectable Target</font><br><font color='#33cc33'>Spell Charge Type: Recharge, Sacrifice, Charges</font></center><br>"
+		dat += "<meta charset='utf-8'><center><b>To use a contract, first bind it to your soul, then give it to someone to sign. This will bind their soul to you.</b></center><br>"
 		for(var/i in 1 to spellbook.spells.len)
 			var/name = "" //name of target
 			var/desc = "" //description of target
@@ -133,24 +133,24 @@ var/list/artefact_feedback = list(/obj/structure/closet/wizard/armor = 		"HS",
 					if(Sp_CHARGES)
 						type = "C"
 				info += "<font color='#33cc33'>[type]</font>"
-			dat += "<A href='byond://?src=\ref[src];path=\ref[spellbook.spells[i]]'>[name]</a>"
+			dat += "<meta charset='utf-8'><A href='byond://?src=\ref[src];path=\ref[spellbook.spells[i]]'>[name]</a>"
 			if(length(info))
 				dat += " ([info])"
 			dat += " ([spellbook.spells[spellbook.spells[i]]] spell slot[spellbook.spells[spellbook.spells[i]] > 1 ? "s" : "" ])"
 			if(spellbook.book_flags & CAN_MAKE_CONTRACTS)
 				dat += " <A href='byond://?src=\ref[src];path=\ref[spellbook.spells[i]];contract=1;'>Make Contract</a>"
-			dat += "<br><i>[desc]</i><br><br>"
-		dat += "<br>"
-		dat += "<center><A href='byond://?src=\ref[src];reset=1'>Re-memorize your spellbook.</a></center>"
+			dat += "<meta charset='utf-8'><br><i>[desc]</i><br><br>"
+		dat += "<meta charset='utf-8'><br>"
+		dat += "<meta charset='utf-8'><center><A href='byond://?src=\ref[src];reset=1'>Re-memorize your spellbook.</a></center>"
 		if(spellbook.book_flags & INVESTABLE)
 			if(investing_time)
-				dat += "<center><b>Currently investing in a slot...</b></center>"
+				dat += "<meta charset='utf-8'><center><b>Currently investing in a slot...</b></center>"
 			else
-				dat += "<center><A href='byond://?src=\ref[src];invest=1'>Invest a Spell Slot</a><br><i>Investing a spellpoint will return two spellpoints back in 15 minutes.<br>Some say a sacrifice could even shorten the time...</i></center>"
+				dat += "<meta charset='utf-8'><center><A href='byond://?src=\ref[src];invest=1'>Invest a Spell Slot</a><br><i>Investing a spellpoint will return two spellpoints back in 15 minutes.<br>Some say a sacrifice could even shorten the time...</i></center>"
 		if(!(spellbook.book_flags & NOREVERT))
-			dat += "<center><A href='byond://?src=\ref[src];book=1'>Choose different spellbook.</a></center>"
+			dat += "<meta charset='utf-8'><center><A href='byond://?src=\ref[src];book=1'>Choose different spellbook.</a></center>"
 		if(!(spellbook.book_flags & NO_LOCKING))
-			dat += "<center><A href='byond://?src=\ref[src];lock=1'>[spellbook.book_flags & LOCKED ? "Unlock" : "Lock"] the spellbook.</a></center>"
+			dat += "<meta charset='utf-8'><center><A href='byond://?src=\ref[src];lock=1'>[spellbook.book_flags & LOCKED ? "Unlock" : "Lock"] the spellbook.</a></center>"
 	show_browser(user, dat,"window=spellbook")
 
 /obj/item/spellbook/CanUseTopic(var/mob/living/carbon/human/H)

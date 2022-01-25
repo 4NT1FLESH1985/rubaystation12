@@ -473,7 +473,7 @@
 	for(var/i=1, i < timestamp.len, i++)
 		var/time = "\[[time2text(timestamp[i]*10,"mm:ss")]\]"
 		output += "[time]<br><a href='?src=\ref[src];cut_after=[i]'>-----CUT------</a><br>"
-	output += "</center>"
+	output += "<meta charset='utf-8'></center>"
 
 	var/datum/browser/popup = new(user, "tape_cutting", "Cutting tape", 170, 600)
 	popup.set_content(jointext(output,null))

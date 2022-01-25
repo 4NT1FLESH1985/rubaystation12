@@ -125,17 +125,17 @@ var/list/gear_datums = list()
 	var/fcolor =  "#3366cc"
 	if(total_cost < config.max_gear_cost)
 		fcolor = "#e67300"
-	. += "<table align = 'center' width = 100%>"
-	. += "<tr><td colspan=3><center>"
-	. += "<a href='?src=\ref[src];prev_slot=1'>\<=</a><b><font color = '[fcolor]'>\[[pref.gear_slot]\]</font> </b><a href='?src=\ref[src];next_slot=1'>=\></a>"
+	. += "<meta charset='utf-8'><table align = 'center' width = 100%>"
+	. += "<meta charset='utf-8'><tr><td colspan=3><center>"
+	. += "<meta charset='utf-8'><a href='?src=\ref[src];prev_slot=1'>\<=</a><b><font color = '[fcolor]'>\[[pref.gear_slot]\]</font> </b><a href='?src=\ref[src];next_slot=1'>=\></a>"
 
 	if(config.max_gear_cost < INFINITY)
-		. += "<b><font color = '[fcolor]'>[total_cost]/[config.max_gear_cost]</font> loadout points spent.</b>"
+		. += "<meta charset='utf-8'><b><font color = '[fcolor]'>[total_cost]/[config.max_gear_cost]</font> loadout points spent.</b>"
 
-	. += "<a href='?src=\ref[src];clear_loadout=1'>Clear Loadout</a>"
-	. += "<a href='?src=\ref[src];toggle_hiding=1'>[hide_unavailable_gear ? "Show all" : "Hide unavailable"]</a></center></td></tr>"
+	. += "<meta charset='utf-8'><a href='?src=\ref[src];clear_loadout=1'>Clear Loadout</a>"
+	. += "<meta charset='utf-8'><a href='?src=\ref[src];toggle_hiding=1'>[hide_unavailable_gear ? "Show all" : "Hide unavailable"]</a></center></td></tr>"
 
-	. += "<tr><td colspan=3><center><b>"
+	. += "<meta charset='utf-8'><tr><td colspan=3><center><b>"
 	var/firstcat = 1
 	for(var/category in loadout_categories)
 
@@ -159,12 +159,12 @@ var/list/gear_datums = list()
 			else
 				. += " <a href='?src=\ref[src];select_category=[category]'>[category] - 0</a> "
 
-	. += "</b></center></td></tr>"
+	. += "<meta charset='utf-8'></b></center></td></tr>"
 
 	var/datum/loadout_category/LC = loadout_categories[current_tab]
-	. += "<tr><td colspan=3><hr></td></tr>"
-	. += "<tr><td colspan=3><b><center>[LC.category]</center></b></td></tr>"
-	. += "<tr><td colspan=3><hr></td></tr>"
+	. += "<meta charset='utf-8'><tr><td colspan=3><hr></td></tr>"
+	. += "<meta charset='utf-8'><tr><td colspan=3><b><center>[LC.category]</center></b></td></tr>"
+	. += "<meta charset='utf-8'><tr><td colspan=3><hr></td></tr>"
 	var/jobs = list()
 	for(var/job_title in (pref.job_medium|pref.job_low|pref.job_high))
 		var/datum/job/J = SSjobs.get_by_title(job_title)
@@ -247,7 +247,7 @@ var/list/gear_datums = list()
 			entry += "</td></tr>"
 		if(!hide_unavailable_gear || allowed || ticked)
 			. += entry
-	. += "</table>"
+	. += "<meta charset='utf-8'></table>"
 	. = jointext(.,null)
 
 /datum/category_item/player_setup_item/loadout/proc/get_gear_metadata(var/datum/gear/G, var/readonly)

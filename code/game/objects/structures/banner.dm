@@ -65,5 +65,5 @@
 
 /obj/structure/banner/get_mechanics_info()
 	. = ..()
-	. += "<p>A Chaplain can change the banner's display by clicking on it with an empty hand. Only characters that joined the round as a chaplain can do this.</p>"
-	. += "<p>The banner can be rolled up or unfurled by using the 'Toggle Banner' verb in the Object tab or the right-click menu while adjacent to the banner.</p>"
+	. += "<meta charset='utf-8'><p>A Chaplain can change the banner's display by clicking on it with an empty hand. Only characters that joined the round as a chaplain can do this.</p>"
+	. += "<meta charset='utf-8'><p>The banner can be rolled up or unfurled by using the 'Toggle Banner' verb in the Object tab or the right-click menu while adjacent to the banner.</p>"

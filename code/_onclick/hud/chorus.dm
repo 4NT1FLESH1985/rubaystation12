@@ -124,9 +124,9 @@
 		if(i == 4)
 			break
 		if(i == 2)
-			dat += "</td></tr><tr><td>"
-		dat += "</td><td>"
-	dat += "</td></tr></table></center></p>"
+			dat += "<meta charset='utf-8'></td></tr><tr><td>"
+		dat += "<meta charset='utf-8'></td><td>"
+	dat += "<meta charset='utf-8'></td></tr></table></center></p>"
 	maptext = jointext(dat,null)
 
 /obj/screen/chorus_cancel_building

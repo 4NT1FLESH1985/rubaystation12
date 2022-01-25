@@ -20,19 +20,19 @@
 /obj/machinery/computer/drone_control/interact(mob/user)
 	user.set_machine(src)
 	var/dat
-	dat += "<B>Maintenance Units</B><BR>"
+	dat += "<meta charset='utf-8'><B>Maintenance Units</B><BR>"
 
 	for(var/mob/living/silicon/robot/drone/D in world)
 		if(D.z != src.z)
 			continue
-		dat += "<BR>[D.real_name] ([D.stat == 2 ? "<font color='red'>INACTIVE</FONT>" : "<font color='green'>ACTIVE</FONT>"])"
-		dat += "<font dize = 9><BR>Cell charge: [D.cell.charge]/[D.cell.maxcharge]."
-		dat += "<BR>Currently located in: [get_area(D)]."
-		dat += "<BR><A href='?src=\ref[src];resync=\ref[D]'>Resync</A> | <A href='?src=\ref[src];shutdown=\ref[D]'>Shutdown</A></font>"
+		dat += "<meta charset='utf-8'><BR>[D.real_name] ([D.stat == 2 ? "<font color='red'>INACTIVE</FONT>" : "<font color='green'>ACTIVE</FONT>"])"
+		dat += "<meta charset='utf-8'><font dize = 9><BR>Cell charge: [D.cell.charge]/[D.cell.maxcharge]."
+		dat += "<meta charset='utf-8'><BR>Currently located in: [get_area(D)]."
+		dat += "<meta charset='utf-8'><BR><A href='?src=\ref[src];resync=\ref[D]'>Resync</A> | <A href='?src=\ref[src];shutdown=\ref[D]'>Shutdown</A></font>"
 
-	dat += "<BR><BR><B>Request drone presence in area:</B> <A href='?src=\ref[src];setarea=1'>[drone_call_area]</A> (<A href='?src=\ref[src];ping=1'>Send ping</A>)"
+	dat += "<meta charset='utf-8'><BR><BR><B>Request drone presence in area:</B> <A href='?src=\ref[src];setarea=1'>[drone_call_area]</A> (<A href='?src=\ref[src];ping=1'>Send ping</A>)"
 
-	dat += "<BR><BR><B>Drone fabricator</B>: "
+	dat += "<meta charset='utf-8'><BR><BR><B>Drone fabricator</B>: "
 	dat += "[dronefab ? "<A href='?src=\ref[src];toggle_fab=1'>[(dronefab.produce_drones && !(dronefab.stat & NOPOWER)) ? "ACTIVE" : "INACTIVE"]</A>" : "<font color='red'><b>FABRICATOR NOT DETECTED.</b></font> (<A href='?src=\ref[src];search_fab=1'>search</a>)"]"
 	show_browser(user, dat, "window=computer;size=400x500")
 	onclose(user, "computer")

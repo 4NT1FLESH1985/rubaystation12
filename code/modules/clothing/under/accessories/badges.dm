@@ -11,7 +11,7 @@
 
 /obj/item/clothing/accessory/badge/get_lore_info()
 	. = ..()
-	. += "<br>Denotes affiliation to <l>[badge_string]</l>."
+	. += "<meta charset='utf-8'><br>Denotes affiliation to <l>[badge_string]</l>."
 
 
 /obj/item/clothing/accessory/badge/proc/set_name(new_name)

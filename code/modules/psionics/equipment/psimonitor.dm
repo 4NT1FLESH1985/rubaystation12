@@ -72,38 +72,38 @@
 /obj/machinery/psi_monitor/interact(var/mob/user)
 
 	var/list/dat = list()
-	dat += "<h1>Psi Dampener Monitor</h1>"
+	dat += "<meta charset='utf-8'><h1>Psi Dampener Monitor</h1>"
 	if(authorized)
-		dat += "<b>[authorized]</b> <a href='?src=\ref[src];logout=1'>Logout</a>"
+		dat += "<meta charset='utf-8'><b>[authorized]</b> <a href='?src=\ref[src];logout=1'>Logout</a>"
 	else
-		dat += "<a href='?src=\ref[src];login=1'>Login</a>"
+		dat += "<meta charset='utf-8'><a href='?src=\ref[src];login=1'>Login</a>"
 
-	dat += "<h2>Active Psionic Dampeners</h2><hr>"
-	dat += "<center><table>"
-	dat += "<tr><td><b>Operant</b></td><td><b>System load</b></td><td><b>Mode</b></td></tr>"
+	dat += "<meta charset='utf-8'><h2>Active Psionic Dampeners</h2><hr>"
+	dat += "<meta charset='utf-8'><center><table>"
+	dat += "<meta charset='utf-8'><tr><td><b>Operant</b></td><td><b>System load</b></td><td><b>Mode</b></td></tr>"
 	for(var/thing in SSpsi.psi_dampeners)
 		var/obj/item/implant/psi_control/implant = thing
 		if(!implant.imp_in)
 			continue
-		dat += "<tr><td>[implant.imp_in.name]</td>"
+		dat += "<meta charset='utf-8'><tr><td>[implant.imp_in.name]</td>"
 		if(implant.malfunction)
-			dat += "<td>ERROR</td><td>ERROR</td>"
+			dat += "<meta charset='utf-8'><td>ERROR</td><td>ERROR</td>"
 		else
-			dat += "<td>[implant.overload]%</td><td>[authorized ? "<a href='?src=\ref[src];change_mode=\ref[implant]'>[implant.psi_mode]</a>" : "[implant.psi_mode]"]</td>"
-		dat += "</tr>"
-	dat += "</table><hr></center>"
+			dat += "<meta charset='utf-8'><td>[implant.overload]%</td><td>[authorized ? "<a href='?src=\ref[src];change_mode=\ref[implant]'>[implant.psi_mode]</a>" : "[implant.psi_mode]"]</td>"
+		dat += "<meta charset='utf-8'></tr>"
+	dat += "<meta charset='utf-8'></table><hr></center>"
 
 	if(show_violations)
-		dat += "<h2>Psionic Control Violations <a href='?src=\ref[src];show_violations=0'>-</a></h2><hr><center><table>"
+		dat += "<meta charset='utf-8'><h2>Psionic Control Violations <a href='?src=\ref[src];show_violations=0'>-</a></h2><hr><center><table>"
 		if(psi_violations.len)
 			for(var/i =  1 to psi_violations.len)
 				var/entry = psi_violations[i]
-				dat += "<tr><td><br>[entry]</td><td>[authorized ? "<a href='?src=\ref[src];remove_violation=[i]'>Remove</a>" : ""]</td></tr>"
+				dat += "<meta charset='utf-8'><tr><td><br>[entry]</td><td>[authorized ? "<a href='?src=\ref[src];remove_violation=[i]'>Remove</a>" : ""]</td></tr>"
 		else
-			dat += "<tr><td colspan = 2>None reported.</td></tr>"
-		dat += "</table></center><hr>"
+			dat += "<meta charset='utf-8'><tr><td colspan = 2>None reported.</td></tr>"
+		dat += "<meta charset='utf-8'></table></center><hr>"
 	else
-		dat += "<h2>Psionic Control Violations <a href='?src=\ref[src];show_violations=1'>+</a></h2><hr>"
+		dat += "<meta charset='utf-8'><h2>Psionic Control Violations <a href='?src=\ref[src];show_violations=1'>+</a></h2><hr>"
 
 	var/datum/browser/popup = new(user, "psi_monitor_\ref[src]", "Psi-Monitor")
 	popup.set_content(jointext(dat,null))

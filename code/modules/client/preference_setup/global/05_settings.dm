@@ -46,8 +46,8 @@
 
 /datum/category_item/player_setup_item/player_global/settings/content(var/mob/user)
 	. = list()
-	. += "<b>Preferences</b><br>"
-	. += "<table>"
+	. += "<meta charset='utf-8'><b>Preferences</b><br>"
+	. += "<meta charset='utf-8'><table>"
 
 	var/mob/pref_mob = preference_mob()
 	for(var/cp in get_client_preferences())
@@ -56,16 +56,16 @@
 		if(!client_pref.may_set(pref_mob))
 			continue
 
-		. += "<tr><td>[client_pref.description]: </td>"
+		. += "<meta charset='utf-8'><tr><td>[client_pref.description]: </td>"
 
 		var/selected_option = pref_mob.get_preference_value(client_pref.key)
 		for(var/option in client_pref.options)
 			var/is_selected = selected_option == option
-			. += "<td><a class='[is_selected ? "linkOn" : ""]' href='?src=\ref[src];pref=[client_pref.key];value=[option]'><b>[option]</b></a>"
+			. += "<meta charset='utf-8'><td><a class='[is_selected ? "linkOn" : ""]' href='?src=\ref[src];pref=[client_pref.key];value=[option]'><b>[option]</b></a>"
 
-		. += "</tr>"
+		. += "<meta charset='utf-8'></tr>"
 
-	. += "</table>"
+	. += "<meta charset='utf-8'></table>"
 
 	return jointext(., "")
 

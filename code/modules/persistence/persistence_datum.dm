@@ -115,10 +115,10 @@
 
 /datum/persistent/proc/GetAdminSummary(var/mob/user, var/can_modify)
 	. = list("<tr><td colspan = 4><b>[capitalize(name)]</b></td></tr>")
-	. += "<tr><td colspan = 4><hr></td></tr>"
+	. += "<meta charset='utf-8'><tr><td colspan = 4><hr></td></tr>"
 	for(var/thing in SSpersistence.tracking_values[type])
-		. += "<tr>[GetAdminDataStringFor(thing, can_modify, user)]</tr>"
-	. += "<tr><td colspan = 4><hr></td></tr>"
+		. += "<meta charset='utf-8'><tr>[GetAdminDataStringFor(thing, can_modify, user)]</tr>"
+	. += "<meta charset='utf-8'><tr><td colspan = 4><hr></td></tr>"
 
 /datum/persistent/proc/GetAdminDataStringFor(var/thing, var/can_modify, var/mob/user)
 	if(can_modify)

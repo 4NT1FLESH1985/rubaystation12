@@ -48,9 +48,9 @@
 		if (istype(story) && story.img)
 			send_rsc(usr, story.img, "tmp_photo.png")
 			var/output = "<html><meta charset='utf-8'><head><title>photo - [story.author]</title></head>"
-			output += "<body style='overflow:hidden; margin:0; text-align:center'>"
-			output += "<img src='tmp_photo.png' width='192' style='-ms-interpolation-mode:nearest-neighbor' />"
-			output += "</body></html>"
+			output += "<meta charset='utf-8'><body style='overflow:hidden; margin:0; text-align:center'>"
+			output += "<meta charset='utf-8'><img src='tmp_photo.png' width='192' style='-ms-interpolation-mode:nearest-neighbor' />"
+			output += "<meta charset='utf-8'></body></html>"
 			show_browser(usr, output, "window=book; size=192x192]")
 		return TRUE
 

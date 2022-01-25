@@ -55,31 +55,31 @@
 
 datum/announcement/proc/FormMessage(message as text, message_title as text)
 	. = "<h2 class='alert'>[message_title]</h2>"
-	. += "<br><span class='alert'>[message]</span>"
+	. += "<meta charset='utf-8'><br><span class='alert'>[message]</span>"
 	if (announcer)
-		. += "<br><span class='alert'> -[html_encode(announcer)]</span>"
+		. += "<meta charset='utf-8'><br><span class='alert'> -[html_encode(announcer)]</span>"
 
 datum/announcement/minor/FormMessage(message as text, message_title as text)
 	. = "<b>[message]</b>"
 
 datum/announcement/priority/FormMessage(message as text, message_title as text)
 	. = "<h1 class='alert'>[message_title]</h1>"
-	. += "<br><span class='alert'>[message]</span>"
+	. += "<meta charset='utf-8'><br><span class='alert'>[message]</span>"
 	if(announcer)
-		. += "<br><span class='alert'> -[html_encode(announcer)]</span>"
-	. += "<br>"
+		. += "<meta charset='utf-8'><br><span class='alert'> -[html_encode(announcer)]</span>"
+	. += "<meta charset='utf-8'><br>"
 
 datum/announcement/priority/command/FormMessage(message as text, message_title as text)
 	. = "<h1 class='alert'>[GLOB.using_map.boss_name] Update</h1>"
 	if (message_title)
-		. += "<br><h2 class='alert'>[message_title]</h2>"
+		. += "<meta charset='utf-8'><br><h2 class='alert'>[message_title]</h2>"
 
-	. += "<br><span class='alert'>[message]</span><br>"
-	. += "<br>"
+	. += "<meta charset='utf-8'><br><span class='alert'>[message]</span><br>"
+	. += "<meta charset='utf-8'><br>"
 
 datum/announcement/priority/security/FormMessage(message as text, message_title as text)
 	. = "<font size=4 color='red'>[message_title]</font>"
-	. += "<br><font color='red'>[message]</font>"
+	. += "<meta charset='utf-8'><br><font color='red'>[message]</font>"
 
 datum/announcement/proc/NewsCast(message as text, message_title as text, zlevels)
 	if(!newscast)

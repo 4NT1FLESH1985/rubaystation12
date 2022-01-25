@@ -111,8 +111,8 @@ var/global/vs_control/vsc = new
 			vw = vars[ch]
 			if("[ch]_DESC" in vars) vw_desc = vars["[ch]_DESC"]
 			if("[ch]_NAME" in vars) vw_name = vars["[ch]_NAME"]
-		dat += "<b>[vw_name] = [vw]</b> <A href='?src=\ref[src];changevar=[ch]'>\[Change\]</A><br>"
-		dat += "<i>[vw_desc]</i><br><br>"
+		dat += "<meta charset='utf-8'><b>[vw_name] = [vw]</b> <A href='?src=\ref[src];changevar=[ch]'>\[Change\]</A><br>"
+		dat += "<meta charset='utf-8'><i>[vw_desc]</i><br><br>"
 	show_browser(user, dat,"window=settings")
 
 /vs_control/Topic(href,href_list)

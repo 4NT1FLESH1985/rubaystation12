@@ -54,23 +54,23 @@
 			dat += "Device active.<br>"
 
 		dat += "[inserted_battery] inserted, anomaly ID: [(inserted_battery.battery_effect?.artifact_id) ? inserted_battery.battery_effect.artifact_id : "NA"]<BR>"
-		dat += "<b>Charge:</b> [inserted_battery.stored_charge] / [inserted_battery.capacity]<BR>"
-		dat += "<b>Time left activated:</b> [round(max((time_end - last_process) / 10, 0))]<BR>"
+		dat += "<meta charset='utf-8'><b>Charge:</b> [inserted_battery.stored_charge] / [inserted_battery.capacity]<BR>"
+		dat += "<meta charset='utf-8'><b>Time left activated:</b> [round(max((time_end - last_process) / 10, 0))]<BR>"
 		if(activated)
-			dat += "<a href='?src=\ref[src];shutdown=1'>Shutdown</a><br>"
+			dat += "<meta charset='utf-8'><a href='?src=\ref[src];shutdown=1'>Shutdown</a><br>"
 		else
-			dat += "<A href='?src=\ref[src];startup=1'>Start</a><BR>"
-		dat += "<BR>"
+			dat += "<meta charset='utf-8'><A href='?src=\ref[src];startup=1'>Start</a><BR>"
+		dat += "<meta charset='utf-8'><BR>"
 
-		dat += "<b>Activate duration (sec):</b> <A href='?src=\ref[src];changetime=-100;duration=1'>--</a> <A href='?src=\ref[src];changetime=-10;duration=1'>-</a> [duration/10] <A href='?src=\ref[src];changetime=10;duration=1'>+</a> <A href='?src=\ref[src];changetime=100;duration=1'>++</a><BR>"
-		dat += "<b>Activate interval (sec):</b> <A href='?src=\ref[src];changetime=-100;interval=1'>--</a> <A href='?src=\ref[src];changetime=-10;interval=1'>-</a> [interval/10] <A href='?src=\ref[src];changetime=10;interval=1'>+</a> <A href='?src=\ref[src];changetime=100;interval=1'>++</a><BR>"
-		dat += "<br>"
-		dat += "<A href='?src=\ref[src];ejectbattery=1'>Eject battery</a><BR>"
+		dat += "<meta charset='utf-8'><b>Activate duration (sec):</b> <A href='?src=\ref[src];changetime=-100;duration=1'>--</a> <A href='?src=\ref[src];changetime=-10;duration=1'>-</a> [duration/10] <A href='?src=\ref[src];changetime=10;duration=1'>+</a> <A href='?src=\ref[src];changetime=100;duration=1'>++</a><BR>"
+		dat += "<meta charset='utf-8'><b>Activate interval (sec):</b> <A href='?src=\ref[src];changetime=-100;interval=1'>--</a> <A href='?src=\ref[src];changetime=-10;interval=1'>-</a> [interval/10] <A href='?src=\ref[src];changetime=10;interval=1'>+</a> <A href='?src=\ref[src];changetime=100;interval=1'>++</a><BR>"
+		dat += "<meta charset='utf-8'><br>"
+		dat += "<meta charset='utf-8'><A href='?src=\ref[src];ejectbattery=1'>Eject battery</a><BR>"
 	else
 		dat += "Please insert battery<br>"
 
-	dat += "<hr>"
-	dat += "<a href='?src=\ref[src];close=1'>Close</a>"
+	dat += "<meta charset='utf-8'><hr>"
+	dat += "<meta charset='utf-8'><a href='?src=\ref[src];close=1'>Close</a>"
 
 	var/datum/browser/popup = new(user, "anodevice", "Anomaly Power Utilizer", 400, 500)
 	popup.set_content(dat)

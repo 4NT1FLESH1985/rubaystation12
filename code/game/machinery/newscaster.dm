@@ -227,7 +227,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		switch(screen)
 			if(0)
 				dat += "Welcome to Newscasting Unit #[src.unit_no].<BR> Interface & News networks Operational."
-				dat += "<BR><FONT SIZE=1>Property of Ward-Takahashi GMB</FONT>"
+				dat += "<meta charset='utf-8'><BR><FONT SIZE=1>Property of Ward-Takahashi GMB</FONT>"
 				if(connected_group.wanted_issue)
 					dat+= "<HR><A href='?src=\ref[src];view_wanted=1'>Read Wanted Issue</A>"
 				dat+= "<HR><BR><A href='?src=\ref[src];create_channel=1'>Create Feed Channel</A>"

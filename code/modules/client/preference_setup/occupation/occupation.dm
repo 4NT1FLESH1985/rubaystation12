@@ -83,11 +83,11 @@
 
 	var/datum/species/S = preference_species()
 	. = list()
-	. += "<style>.Points,a.Points{background: #cc5555;}</style>"
-	. += "<style>a.Points:hover{background: #55cc55;}</style>"
-	. += "<tt><center>"
-	. += "<font size=3><b>Select and configure your occupation preferences. Unavailable occupations are crossed out.</b></font>"
-	. += "<br>"
+	. += "<meta charset='utf-8'><style>.Points,a.Points{background: #cc5555;}</style>"
+	. += "<meta charset='utf-8'><style>a.Points:hover{background: #55cc55;}</style>"
+	. += "<meta charset='utf-8'><tt><center>"
+	. += "<meta charset='utf-8'><font size=3><b>Select and configure your occupation preferences. Unavailable occupations are crossed out.</b></font>"
+	. += "<meta charset='utf-8'><br>"
 
 	// Display everything.
 	for(var/job_map in SSjobs.job_lists_by_map_name)
@@ -96,16 +96,16 @@
 		if(isnull(pref.hiding_maps[job_map]))
 			pref.hiding_maps[job_map] = map_data["default_to_hidden"]
 
-		. += "<hr><table width = '100%''><tr>"
-		. += "<td width = '50%' align = 'right'><font size = 3><b>[capitalize(job_map)]</b></td>"
-		. += "<td width = '50%' align = 'left''><a href='?src=\ref[src];toggle_map=[job_map]'>[pref.hiding_maps[job_map] ? "Show" : "Hide"]</a></font></td>"
-		. += "</tr></table>"
+		. += "<meta charset='utf-8'><hr><table width = '100%''><tr>"
+		. += "<meta charset='utf-8'><td width = '50%' align = 'right'><font size = 3><b>[capitalize(job_map)]</b></td>"
+		. += "<meta charset='utf-8'><td width = '50%' align = 'left''><a href='?src=\ref[src];toggle_map=[job_map]'>[pref.hiding_maps[job_map] ? "Show" : "Hide"]</a></font></td>"
+		. += "<meta charset='utf-8'></tr></table>"
 
 		if(!pref.hiding_maps[job_map])
 
-			. += "<hr/>"
-			. += "<table width='100%' cellpadding='1' cellspacing='0'><tr><td width='20%'>" // Table within a table for alignment, also allows you to easily add more columns.
-			. += "<table width='100%' cellpadding='1' cellspacing='0'>"
+			. += "<meta charset='utf-8'><hr/>"
+			. += "<meta charset='utf-8'><table width='100%' cellpadding='1' cellspacing='0'><tr><td width='20%'>" // Table within a table for alignment, also allows you to easily add more columns.
+			. += "<meta charset='utf-8'><table width='100%' cellpadding='1' cellspacing='0'>"
 
 			//The job before the current job. I only use this to get the previous jobs color when I'm filling in blank rows.
 			var/datum/job/lastJob
@@ -190,25 +190,25 @@
 						//If the cells were broken up by a job in the splitJob list then it will fill in the rest of the cells with
 						//the last job's selection color. Creating a rather nice effect.
 						for(var/i = 0, i < (limit - index), i += 1)
-							. += "<tr bgcolor='[lastJob.selection_color]'><td width='40%' align='right'><a>&nbsp</a></td><td><a>&nbsp</a></td></tr>"
-					. += "</table></td><td width='20%'><table width='100%' cellpadding='1' cellspacing='0'>"
+							. += "<meta charset='utf-8'><tr bgcolor='[lastJob.selection_color]'><td width='40%' align='right'><a>&nbsp</a></td><td><a>&nbsp</a></td></tr>"
+					. += "<meta charset='utf-8'></table></td><td width='20%'><table width='100%' cellpadding='1' cellspacing='0'>"
 					index = 0
 
-				. += "<tr bgcolor='[job.selection_color]'>"
+				. += "<meta charset='utf-8'><tr bgcolor='[job.selection_color]'>"
 				if(rank_branch_string && rank_branch_string != "")
 					. += "[rank_branch_string]"
-				. += "<td width='30%' align='left'>"
+				. += "<meta charset='utf-8'><td width='30%' align='left'>"
 
 				if(bad_message)
-					. += "<del>[title_link]</del>[help_link][skill_link]<td>[bad_message]</td></tr>"
+					. += "<meta charset='utf-8'><del>[title_link]</del>[help_link][skill_link]<td>[bad_message]</td></tr>"
 					continue
 				else if((GLOB.using_map.default_assistant_title in pref.job_low) && (title != GLOB.using_map.default_assistant_title))
-					. += "<font color=grey>[title_link]</font>[help_link][skill_link]<td></td></tr>"
+					. += "<meta charset='utf-8'><font color=grey>[title_link]</font>[help_link][skill_link]<td></td></tr>"
 					continue
 				else
 					. += "[title_link][help_link][skill_link]"
 
-				. += "<td>"
+				. += "<meta charset='utf-8'><td>"
 				if(title == GLOB.using_map.default_assistant_title)//Assistant is special
 					var/yes_link = "Yes"
 					var/no_link = "No"
@@ -218,9 +218,9 @@
 					else
 						yes_link = "<font color='black'>[yes_link]</font>"
 						no_link = "<font color='#55cc55'>[no_link]</font>"
-					. += "<a href='?src=\ref[src];set_job=[title];set_level=[JOB_LEVEL_LOW]'>[yes_link]</a><a href='?src=\ref[src];set_job=[title];set_level=[JOB_LEVEL_NEVER]'>[no_link]</a>"
+					. += "<meta charset='utf-8'><a href='?src=\ref[src];set_job=[title];set_level=[JOB_LEVEL_LOW]'>[yes_link]</a><a href='?src=\ref[src];set_job=[title];set_level=[JOB_LEVEL_NEVER]'>[no_link]</a>"
 				else if(!job.available_by_default)
-					. += "<font color = '#cccccc'>Not available at roundstart.</font>"
+					. += "<meta charset='utf-8'><font color = '#cccccc'>Not available at roundstart.</font>"
 				else
 					var/level_link
 					switch(current_level)
@@ -232,21 +232,21 @@
 							level_link = "<font color='#55cc55'>High</font>"
 						else
 							level_link = "<font color=black>Never</font>"
-					. += "<a href='?src=\ref[src];set_job=[title];inc_level=-1'>[level_link]</a>"
-				. += "</td></tr>"
-			. += "</td></tr></table>"
-			. += "</center></table><center>"
-	. += "<hr/>"
+					. += "<meta charset='utf-8'><a href='?src=\ref[src];set_job=[title];inc_level=-1'>[level_link]</a>"
+				. += "<meta charset='utf-8'></td></tr>"
+			. += "<meta charset='utf-8'></td></tr></table>"
+			. += "<meta charset='utf-8'></center></table><center>"
+	. += "<meta charset='utf-8'><hr/>"
 	switch(pref.alternate_option)
 		if(GET_RANDOM_JOB)
-			. += "<u><a href='?src=\ref[src];job_alternative=1'>Get random job if preferences unavailable</a></u>"
+			. += "<meta charset='utf-8'><u><a href='?src=\ref[src];job_alternative=1'>Get random job if preferences unavailable</a></u>"
 		if(BE_ASSISTANT)
-			. += "<u><a href='?src=\ref[src];job_alternative=1'>Be assistant if preference unavailable</a></u>"
+			. += "<meta charset='utf-8'><u><a href='?src=\ref[src];job_alternative=1'>Be assistant if preference unavailable</a></u>"
 		if(RETURN_TO_LOBBY)
-			. += "<u><a href='?src=\ref[src];job_alternative=1'>Return to lobby if preference unavailable</a></u>"
-	. += "<a href='?src=\ref[src];reset_jobs=1'>\[Reset\]</a></center>"
-	. += "<hr/>"
-	. += "</tt><br>"
+			. += "<meta charset='utf-8'><u><a href='?src=\ref[src];job_alternative=1'>Return to lobby if preference unavailable</a></u>"
+	. += "<meta charset='utf-8'><a href='?src=\ref[src];reset_jobs=1'>\[Reset\]</a></center>"
+	. += "<meta charset='utf-8'><hr/>"
+	. += "<meta charset='utf-8'></tt><br>"
 	. = jointext(.,null)
 
 /datum/category_item/player_setup_item/proc/validate_branch_and_rank()
@@ -397,13 +397,13 @@
 
 		var/dat = list()
 
-		dat += "<p style='background-color: [job.selection_color]'><br><br><p>"
+		dat += "<meta charset='utf-8'><p style='background-color: [job.selection_color]'><br><br><p>"
 		if(job.alt_titles)
-			dat += "<i><b>Alternative titles:</b> [english_list(job.alt_titles)].</i>"
+			dat += "<meta charset='utf-8'><i><b>Alternative titles:</b> [english_list(job.alt_titles)].</i>"
 		send_rsc(user, job.get_job_icon(), "job[ckey(rank)].png")
-		dat += "<img src=job[ckey(rank)].png width=96 height=96 style='float:left;'>"
+		dat += "<meta charset='utf-8'><img src=job[ckey(rank)].png width=96 height=96 style='float:left;'>"
 		if(job.department)
-			dat += "<b>Department:</b> [job.department]."
+			dat += "<meta charset='utf-8'><b>Department:</b> [job.department]."
 			if(job.head_position)
 				dat += "You are in charge of this department."
 
@@ -413,10 +413,10 @@
 			dat += "You can be of following ranks:"
 			for(var/T in job.allowed_branches)
 				var/datum/mil_branch/B = mil_branches.get_branch_by_type(T)
-				dat += "<li>[B.name]: [job.get_ranks(B.name)]"
-		dat += "<hr style='clear:left;'>"
+				dat += "<meta charset='utf-8'><li>[B.name]: [job.get_ranks(B.name)]"
+		dat += "<meta charset='utf-8'><hr style='clear:left;'>"
 		if(config.wiki_url)
-			dat += "<a href='?src=\ref[src];job_wiki=[rank]'>Open wiki page in browser</a>"
+			dat += "<meta charset='utf-8'><a href='?src=\ref[src];job_wiki=[rank]'>Open wiki page in browser</a>"
 
 		var/description = job.get_description_blurb()
 		if(description)

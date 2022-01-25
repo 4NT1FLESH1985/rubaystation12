@@ -106,7 +106,7 @@
 		return
 
 	var/dat = list()
-	dat += "<html><meta charset='utf-8'><body><hr><b>Lift panel</b><hr>"
+	dat += "<meta charset='utf-8'><html><meta charset='utf-8'><body><hr><b>Lift panel</b><hr>"
 
 	//the floors list stores levels in order of increasing Z
 	//therefore, to display upper levels at the top of the menu and
@@ -114,16 +114,16 @@
 	for(var/i in lift.floors.len to 1 step -1)
 		var/datum/turbolift_floor/floor = lift.floors[i]
 		var/label = floor.label? floor.label : "Level #[i]"
-		dat += "<font color = '[(floor in lift.queued_floors) ? COLOR_YELLOW : COLOR_WHITE]'>"
-		dat += "<a href='?src=\ref[src];move_to_floor=["\ref[floor]"]'>[label]</a>: [floor.name]</font><br>"
+		dat += "<meta charset='utf-8'><font color = '[(floor in lift.queued_floors) ? COLOR_YELLOW : COLOR_WHITE]'>"
+		dat += "<meta charset='utf-8'><a href='?src=\ref[src];move_to_floor=["\ref[floor]"]'>[label]</a>: [floor.name]</font><br>"
 
-	dat += "<hr>"
+	dat += "<meta charset='utf-8'><hr>"
 	if(lift.doors_are_open())
-		dat += "<a href='?src=\ref[src];close_doors=1'>Close Doors</a><br>"
+		dat += "<meta charset='utf-8'><a href='?src=\ref[src];close_doors=1'>Close Doors</a><br>"
 	else
-		dat += "<a href='?src=\ref[src];open_doors=1'>Open Doors</a><br>"
-	dat += "<a href='?src=\ref[src];emergency_stop=1'>Emergency Stop</a>"
-	dat += "<hr></body></html>"
+		dat += "<meta charset='utf-8'><a href='?src=\ref[src];open_doors=1'>Open Doors</a><br>"
+	dat += "<meta charset='utf-8'><a href='?src=\ref[src];emergency_stop=1'>Emergency Stop</a>"
+	dat += "<meta charset='utf-8'><hr></body></html>"
 
 	var/datum/browser/popup = new(user, "turbolift_panel", "Lift Panel", 230, 260)
 	popup.set_content(jointext(dat, null))

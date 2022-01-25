@@ -34,20 +34,20 @@
 /datum/codex_entry/proc/get_header(var/mob/presenting_to)
 	var/list/dat = list()
 	var/datum/codex_entry/linked_entry = SScodex.get_entry_by_string("nexus")
-	dat += "<a href='?src=\ref[SScodex];show_examined_info=\ref[linked_entry];show_to=\ref[presenting_to]'>Home</a>"
-	dat += "<a href='?src=\ref[presenting_to.client];codex_search=1'>Search Codex</a>"
-	dat += "<a href='?src=\ref[presenting_to.client];codex_index=1'>List All Entries</a>"
-	dat += "<hr><h2>[display_name]</h2>"
+	dat += "<meta charset='utf-8'><a href='?src=\ref[SScodex];show_examined_info=\ref[linked_entry];show_to=\ref[presenting_to]'>Home</a>"
+	dat += "<meta charset='utf-8'><a href='?src=\ref[presenting_to.client];codex_search=1'>Search Codex</a>"
+	dat += "<meta charset='utf-8'><a href='?src=\ref[presenting_to.client];codex_index=1'>List All Entries</a>"
+	dat += "<meta charset='utf-8'><hr><h2>[display_name]</h2>"
 	return jointext(dat, null)
 
 /datum/codex_entry/proc/get_text(var/mob/presenting_to)
 	var/list/dat = list(get_header(presenting_to))
 	if(lore_text)
-		dat += "<font color = '[CODEX_COLOR_LORE]'>[lore_text]</font>"
+		dat += "<meta charset='utf-8'><font color = '[CODEX_COLOR_LORE]'>[lore_text]</font>"
 	if(mechanics_text)
-		dat += "<h3>OOC Information</h3>"
-		dat += "<font color = '[CODEX_COLOR_MECHANICS]'>[mechanics_text]</font>"
+		dat += "<meta charset='utf-8'><h3>OOC Information</h3>"
+		dat += "<meta charset='utf-8'><font color = '[CODEX_COLOR_MECHANICS]'>[mechanics_text]</font>"
 	if(antag_text && presenting_to.mind && player_is_antag(presenting_to.mind))
-		dat += "<h3>Antagonist Information</h3>"
-		dat += "<font color='[CODEX_COLOR_ANTAG]'>[antag_text]</font>"
+		dat += "<meta charset='utf-8'><h3>Antagonist Information</h3>"
+		dat += "<meta charset='utf-8'><font color='[CODEX_COLOR_ANTAG]'>[antag_text]</font>"
 	return jointext(dat, null)

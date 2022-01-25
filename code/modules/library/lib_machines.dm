@@ -29,14 +29,14 @@
 	usr.set_machine(src)
 	var/dat = "<HEAD><TITLE>Scanner Control Interface</TITLE></HEAD><BODY>\n" // <META HTTP-EQUIV='Refresh' CONTENT='10'>
 	if(cache)
-		dat += "<FONT color=#005500>Data stored in memory.</FONT><BR>"
+		dat += "<meta charset='utf-8'><FONT color=#005500>Data stored in memory.</FONT><BR>"
 	else
 		dat += "No data stored in memory.<BR>"
-	dat += "<A href='?src=\ref[src];scan=1'>\[Scan\]</A>"
+	dat += "<meta charset='utf-8'><A href='?src=\ref[src];scan=1'>\[Scan\]</A>"
 	if(cache)
 		dat += "       <A href='?src=\ref[src];clear=1'>\[Clear Memory\]</A><BR><BR><A href='?src=\ref[src];eject=1'>\[Remove Book\]</A>"
 	else
-		dat += "<BR>"
+		dat += "<meta charset='utf-8'><BR>"
 	show_browser(user, dat, "window=scanner")
 	onclose(user, "scanner")
 

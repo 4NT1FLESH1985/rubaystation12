@@ -46,13 +46,13 @@
 		var/decl/uplink_source/US = entry
 		. +="[US.name] <a href='?src=\ref[src];move_source_up=\ref[US]'>Move Up</a> <a href='?src=\ref[src];move_source_down=\ref[US]'>Move Down</a> <a href='?src=\ref[src];remove_source=\ref[US]'>Remove</a><br>"
 		if(US.desc)
-			. += "<font size=1>[US.desc]</font><br>"
+			. += "<meta charset='utf-8'><font size=1>[US.desc]</font><br>"
 	if(!pref.uplink_sources.len)
-		. += "<span class='warning'>You will not receive an uplink unless you add an uplink source!</span>"
+		. += "<meta charset='utf-8'><span class='warning'>You will not receive an uplink unless you add an uplink source!</span>"
 	. +="<br>"
 	. +="Exploitable information:<br>"
 	if(jobban_isbanned(user, "Records"))
-		. += "<b>You are banned from using character records.</b><br>"
+		. += "<meta charset='utf-8'><b>You are banned from using character records.</b><br>"
 	else
 		. +="<a href='?src=\ref[src];exploitable_record=1'>[TextPreview(pref.exploit_record,40)]</a><br>"
 

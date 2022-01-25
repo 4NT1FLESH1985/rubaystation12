@@ -194,7 +194,7 @@
 	user.set_machine(src)
 	var/dat = "<b>Coordinates with positive matches</b><br>"
 
-	dat += "<A href='?src=\ref[src];clear=0'>== Clear all ==</a><br>"
+	dat += "<meta charset='utf-8'><A href='?src=\ref[src];clear=0'>== Clear all ==</a><br>"
 
 	if(current)
 		dat += "Time: [current.time]<br>"
@@ -207,20 +207,20 @@
 			dat += "Anomaly material: [finds_as_strings[index]]<br>"
 		else
 			dat += "Anomaly material: Unknown<br>"
-		dat += "<A href='?src=\ref[src];clear=[current.record_index]'>clear entry</a><br>"
+		dat += "<meta charset='utf-8'><A href='?src=\ref[src];clear=[current.record_index]'>clear entry</a><br>"
 	else
 		dat += "Select an entry from the list<br>"
-		dat += "<br><br><br><br>"
-	dat += "<hr>"
+		dat += "<meta charset='utf-8'><br><br><br><br>"
+	dat += "<meta charset='utf-8'><hr>"
 	if(positive_locations.len)
 		for(var/index = 1 to positive_locations.len)
 			var/datum/depth_scan/D = positive_locations[index]
-			dat += "<A href='?src=\ref[src];select=[index]'>[D.time], coords: [D.coords]</a><br>"
+			dat += "<meta charset='utf-8'><A href='?src=\ref[src];select=[index]'>[D.time], coords: [D.coords]</a><br>"
 	else
 		dat += "No entries recorded."
 
-	dat += "<hr>"
-	dat += "<a href='?src=\ref[src];close=1'>Close</a>"
+	dat += "<meta charset='utf-8'><hr>"
+	dat += "<meta charset='utf-8'><a href='?src=\ref[src];close=1'>Close</a>"
 
 	var/datum/browser/popup = new(user, "depth_scanner", "Results", 300, 500)
 	popup.set_content(dat)

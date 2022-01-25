@@ -55,9 +55,9 @@
 
 		if (total_moles>0)
 			if(abs(pressure - ONE_ATMOSPHERE) < 10)
-				. += "<span class='notice'>Pressure: [round(pressure,0.01)] kPa</span>"
+				. += "<meta charset='utf-8'><span class='notice'>Pressure: [round(pressure,0.01)] kPa</span>"
 			else
-				. += "<span class='warning'>Pressure: [round(pressure,0.01)] kPa</span>"
+				. += "<meta charset='utf-8'><span class='warning'>Pressure: [round(pressure,0.01)] kPa</span>"
 
 			var/perGas_add_string = ""
 			for(var/mix in mixture.gas)
@@ -85,7 +85,7 @@
 			. += "Temperature: [round(mixture.temperature-T0C)]&deg;C / [round(mixture.temperature)]K[totalGas_add_string]"
 
 			return
-	. += "<span class='warning'>\The [target] has no gases!</span>"
+	. += "<meta charset='utf-8'><span class='warning'>\The [target] has no gases!</span>"
 
 #undef DEFAULT_MODE
 #undef MV_MODE

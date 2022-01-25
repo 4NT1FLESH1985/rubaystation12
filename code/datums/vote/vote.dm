@@ -175,35 +175,35 @@
 	. = list()
 	. += "<meta charset='utf-8'>"
 	if(mob_not_participating(user))
-		. += "<h2>Вы не можете участвовать в этом голосовании, если вы не участвуете в раунде.</h2><br>"
+		. += "<meta charset='utf-8'><h2>Вы не можете участвовать в этом голосовании, если вы не участвуете в раунде.</h2><br>"
 		return
 	if(question)
-		. += "<h2>Vote: '[question]'</h2>"
+		. += "<meta charset='utf-8'><h2>Vote: '[question]'</h2>"
 	else
-		. += "<h2>Vote: [capitalize(name)]</h2>"
+		. += "<meta charset='utf-8'><h2>Vote: [capitalize(name)]</h2>"
 	. += "Ещё [time_remaining] секунд<hr>"
-	. += "<table width = '100%'><tr><th>Ответы</th><th>Голосовавшие</th>"
+	. += "<meta charset='utf-8'><table width = '100%'><tr><th>Ответы</th><th>Голосовавшие</th>"
 	. += additional_header
-	. += "</tr>"
+	. += "<meta charset='utf-8'></tr>"
 
 	for(var/i = 1, i <= choices.len, i++)
 		var/choice = choices[i]
 		var/voted_for = votes[user.ckey] && (i in votes[user.ckey])
 
-		. += "<tr><td><a href='?src=\ref[src];choice=[i]'[voted_for ? " style='font-weight: bold'" : ""]>"
+		. += "<meta charset='utf-8'><tr><td><a href='?src=\ref[src];choice=[i]'[voted_for ? " style='font-weight: bold'" : ""]>"
 		. += "[display_choices[choice]]"
-		. += "</a></td>"
+		. += "<meta charset='utf-8'></a></td>"
 
-		. += "<td style='text-align: center;'>"
+		. += "<meta charset='utf-8'><td style='text-align: center;'>"
 		if(voted_for)
 			var/list/vote = votes[user.ckey]
 			. += "[list_find(vote, i)]"
-		. += "</td>"
+		. += "<meta charset='utf-8'></td>"
 
 		if (additional_text[choice])
 			. += "[additional_text[choice]]" //Note lack of cell wrapper, to allow for dynamic formatting.
-		. += "</tr>"
-	. += "</table><hr>"
+		. += "<meta charset='utf-8'></tr>"
+	. += "<meta charset='utf-8'></table><hr>"
 
 /datum/vote/Topic(href, href_list, hsrc)
 	var/mob/user = usr

@@ -357,27 +357,27 @@ var/list/organ_cache = list()
 			. +=  "Mild Infection++"
 		if (INFECTION_LEVEL_TWO to INFECTION_LEVEL_TWO + ((INFECTION_LEVEL_THREE - INFECTION_LEVEL_THREE) / 3))
 			if(tag)
-				. += "<span class='average'>Acute Infection</span>"
+				. += "<meta charset='utf-8'><span class='average'>Acute Infection</span>"
 			else
 				. +=  "Acute Infection"
 		if (INFECTION_LEVEL_TWO + ((INFECTION_LEVEL_THREE - INFECTION_LEVEL_THREE) / 3) to INFECTION_LEVEL_TWO + (2 * (INFECTION_LEVEL_THREE - INFECTION_LEVEL_TWO) / 3))
 			if(tag)
-				. += "<span class='average'>Acute Infection+</span>"
+				. += "<meta charset='utf-8'><span class='average'>Acute Infection+</span>"
 			else
 				. +=  "Acute Infection+"
 		if (INFECTION_LEVEL_TWO + (2 * (INFECTION_LEVEL_THREE - INFECTION_LEVEL_TWO) / 3) to INFECTION_LEVEL_THREE)
 			if(tag)
-				. += "<span class='average'>Acute Infection++</span>"
+				. += "<meta charset='utf-8'><span class='average'>Acute Infection++</span>"
 			else
 				. +=  "Acute Infection++"
 		if (INFECTION_LEVEL_THREE to INFINITY)
 			if(tag)
-				. += "<span class='bad'>Septic</span>"
+				. += "<meta charset='utf-8'><span class='bad'>Septic</span>"
 			else
 				. +=  "Septic"
 	if(rejecting)
 		if(tag)
-			. += "<span class='bad'>Genetic Rejection</span>"
+			. += "<meta charset='utf-8'><span class='bad'>Genetic Rejection</span>"
 		else
 			. += "Genetic Rejection"
 

@@ -90,28 +90,28 @@ SUBSYSTEM_DEF(vote)
 	voting |= C
 
 	. = list()
-	. += "<html><head><title>Voting Panel</title></head><body>"
+	. += "<meta charset='utf-8'><html><head><title>Voting Panel</title></head><body>"
 	if(active_vote)
 		. += active_vote.interface(C.mob)
 		if(admin)
 			. += "(<a href='?src=\ref[src];cancel=1'>Cancel Vote</a>) "
 	else
-		. += "<h2>Start a vote:</h2><hr><ul>"
+		. += "<meta charset='utf-8'><h2>Start a vote:</h2><hr><ul>"
 		for(var/vote_type in vote_prototypes)
 			var/datum/vote/vote_datum = vote_prototypes[vote_type]
-			. += "<li><a href='?src=\ref[src];vote=\ref[vote_datum.type]'>"
+			. += "<meta charset='utf-8'><li><a href='?src=\ref[src];vote=\ref[vote_datum.type]'>"
 			if(vote_datum.can_run(C.mob))
 				. += "[capitalize(vote_datum.name)]"
 			else
-				. += "<font color='grey'>[capitalize(vote_datum.name)] (Disallowed)</font>"
-			. += "</a>"
+				. += "<meta charset='utf-8'><font color='grey'>[capitalize(vote_datum.name)] (Disallowed)</font>"
+			. += "<meta charset='utf-8'></a>"
 			var/toggle = vote_datum.check_toggle()
 			if(admin && toggle)
 				. += "\t(<a href='?src=\ref[src];toggle=1;vote=\ref[vote_datum.type]'>toggle; currently [toggle]</a>)"
-			. += "</li>"
-		. += "</ul><hr>"
+			. += "<meta charset='utf-8'></li>"
+		. += "<meta charset='utf-8'></ul><hr>"
 
-	. += "<a href='?src=\ref[src];close=1' style='position:absolute;right:50px'>Close</a></body></html>"
+	. += "<meta charset='utf-8'><a href='?src=\ref[src];close=1' style='position:absolute;right:50px'>Close</a></body></html>"
 	return JOINTEXT(.)
 
 /datum/controller/subsystem/vote/proc/show_panel(mob/user)

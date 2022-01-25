@@ -77,4 +77,4 @@
 
 /obj/item/clothing/suit/armor/pcarrier/get_mechanics_info()
 	. = ..()
-	. += "<br>Its protection is provided by the plate inside, examine it for details on armor.<br>"
+	. += "<meta charset='utf-8'><br>Its protection is provided by the plate inside, examine it for details on armor.<br>"

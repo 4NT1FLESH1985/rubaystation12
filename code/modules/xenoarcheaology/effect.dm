@@ -113,7 +113,7 @@
 		else
 			. += "Low level energy emissions"
 
-	. += "</b> have been detected <b>"
+	. += "<meta charset='utf-8'></b> have been detected <b>"
 
 	switch(effect)
 		if(EFFECT_TOUCH)
@@ -125,7 +125,7 @@
 		else
 			. += "emitting in an unknown way."
 
-	. += "</b>"
+	. += "<meta charset='utf-8'></b>"
 
 	. += " Activation index involves [trigger]."
 

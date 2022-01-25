@@ -265,7 +265,7 @@
 
 /obj/item/device/radio/intercom/get_mechanics_info()
 	. = ..()
-	. += "<p>To construct:</p>\
+	. += "<meta charset='utf-8'><p>To construct:</p>\
 			<ol>\
 				<li>Attach the frame to the wall</li>\
 				<li>Install the circuitboard into the frame</li>\
@@ -333,7 +333,7 @@
 
 /obj/item/intercom_electronics/get_mechanics_info()
 	. = ..()
-	. += "<p>To construct:</p>\
+	. += "<meta charset='utf-8'><p>To construct:</p>\
 			<ol>\
 				<li>Attach the frame to the wall</li>\
 				<li>Install the circuitboard into the frame</li>\

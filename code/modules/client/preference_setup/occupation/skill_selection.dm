@@ -176,26 +176,26 @@
 
 /datum/category_item/player_setup_item/occupation/proc/generate_skill_content(datum/job/job)
 	var/dat  = list()
-	dat += "<body>"
-	dat += "<style>.Selectable,.Current,.Unavailable,.Toohigh{border: 1px solid #161616;padding: 1px 4px 1px 4px;margin: 0 2px 0 0}</style>"
-	dat += "<style>.Selectable,a.Selectable{background: #40628a}</style>"
-	dat += "<style>.Current,a.Current{background: #2f943c}</style>"
-	dat += "<style>.Unavailable{background: #d09000}</style>"
-	dat += "<tt><center>"
-	dat += "<b>Skill points remaining: [pref.points_by_job[job]].</b><hr>"
-	dat += "<hr>"
-	dat += "</center></tt>"
+	dat += "<meta charset='utf-8'><body>"
+	dat += "<meta charset='utf-8'><style>.Selectable,.Current,.Unavailable,.Toohigh{border: 1px solid #161616;padding: 1px 4px 1px 4px;margin: 0 2px 0 0}</style>"
+	dat += "<meta charset='utf-8'><style>.Selectable,a.Selectable{background: #40628a}</style>"
+	dat += "<meta charset='utf-8'><style>.Current,a.Current{background: #2f943c}</style>"
+	dat += "<meta charset='utf-8'><style>.Unavailable{background: #d09000}</style>"
+	dat += "<meta charset='utf-8'><tt><center>"
+	dat += "<meta charset='utf-8'><b>Skill points remaining: [pref.points_by_job[job]].</b><hr>"
+	dat += "<meta charset='utf-8'><hr>"
+	dat += "<meta charset='utf-8'></center></tt>"
 
-	dat += "<table>"
+	dat += "<meta charset='utf-8'><table>"
 	var/decl/hierarchy/skill/skill = decls_repository.get_decl(/decl/hierarchy/skill)
 	for(var/decl/hierarchy/skill/cat in skill.children)
-		dat += "<tr><th colspan = 4><b>[cat.name]</b>"
-		dat += "</th></tr>"
+		dat += "<meta charset='utf-8'><tr><th colspan = 4><b>[cat.name]</b>"
+		dat += "<meta charset='utf-8'></th></tr>"
 		for(var/decl/hierarchy/skill/S in cat.children)
 			dat += get_skill_row(job, S)
 			for(var/decl/hierarchy/skill/perk in S.children)
 				dat += get_skill_row(job, perk)
-	dat += "</table>"
+	dat += "<meta charset='utf-8'></table>"
 	return JOINTEXT(dat)
 
 /datum/category_item/player_setup_item/occupation/proc/get_skill_row(datum/job/job, decl/hierarchy/skill/S)
@@ -203,11 +203,11 @@
 	var/min = pref.get_min_skill(job,S)
 	var/level = min + (pref.skills_allocated[job] ? pref.skills_allocated[job][S] : 0)				//the current skill level
 	var/cap = pref.get_max_affordable(job, S) //if selecting the skill would make you overspend, it won't be shown
-	dat += "<tr style='text-align:left;'>"
-	dat += "<th><a href='?src=\ref[src];skillinfo=\ref[S]'>[S.name] ([pref.get_spent_points(job, S)])</a></th>"
+	dat += "<meta charset='utf-8'><tr style='text-align:left;'>"
+	dat += "<meta charset='utf-8'><th><a href='?src=\ref[src];skillinfo=\ref[S]'>[S.name] ([pref.get_spent_points(job, S)])</a></th>"
 	for(var/i = SKILL_MIN, i <= SKILL_MAX, i++)
 		dat += skill_to_button(S, job, level, i, min, cap)
-	dat += "</tr>"
+	dat += "<meta charset='utf-8'></tr>"
 	return JOINTEXT(dat)
 
 /datum/category_item/player_setup_item/occupation/proc/open_skill_setup(mob/user, datum/job/job)

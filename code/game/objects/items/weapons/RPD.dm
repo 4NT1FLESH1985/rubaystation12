@@ -95,14 +95,14 @@ GLOBAL_LIST_INIT(rpd_pipe_selection_skilled, list(
 
 /obj/item/rpd/proc/get_console_data(var/list/pipe_categories, var/color_options = FALSE)
 	. = list()
-	. += "<table>"
+	. += "<meta charset='utf-8'><table>"
 	if(color_options)
-		. += "<tr><td>Color</td><td><a href='?src=\ref[src];color=\ref[src]'><font color = '[pipe_color]'>[pipe_color]</font></a></td></tr>"
+		. += "<meta charset='utf-8'><tr><td>Color</td><td><a href='?src=\ref[src];color=\ref[src]'><font color = '[pipe_color]'>[pipe_color]</font></a></td></tr>"
 	for(var/category in pipe_categories)
 		var/datum/pipe/cat = category
-		. += "<tr><td><font color = '#517087'><strong>[initial(cat.category)]</strong></font></td></tr>"
+		. += "<meta charset='utf-8'><tr><td><font color = '#517087'><strong>[initial(cat.category)]</strong></font></td></tr>"
 		for(var/datum/pipe/pipe in pipe_categories[category])
-			. += "<tr><td>[pipe.name]</td><td>[P.type == pipe.type ? "<span class='linkOn'>Select</span>" : "<a href='?src=\ref[src];select=\ref[pipe]'>Select</a>"]</td></tr>"
+			. += "<meta charset='utf-8'><tr><td>[pipe.name]</td><td>[P.type == pipe.type ? "<span class='linkOn'>Select</span>" : "<a href='?src=\ref[src];select=\ref[pipe]'>Select</a>"]</td></tr>"
 	.+= "</table>"
 	. = JOINTEXT(.)
 

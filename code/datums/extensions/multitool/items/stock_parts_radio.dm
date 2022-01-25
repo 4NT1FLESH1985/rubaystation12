@@ -6,7 +6,7 @@
 	var/obj/item/stock_parts/radio/radio = holder
 	if(radio.status & PART_STAT_INSTALLED)
 		return STATUS_CLOSE
-	return ..()	
+	return ..()
 
 /datum/extension/interactive/multitool/radio/interact(obj/item/device/multitool/M, mob/user)
 	if(extension_status(user) != STATUS_INTERACTIVE)
@@ -34,11 +34,11 @@
 	var/obj/item/stock_parts/radio/radio = holder
 	var/list/dat = list()
 
-	dat += "<a href='?src=\ref[src];unlink=1'>Unlink Machine</a><br>"
+	dat += "<meta charset='utf-8'><a href='?src=\ref[src];unlink=1'>Unlink Machine</a><br>"
 	var/obj/machinery/actual_machine = machine && machine.resolve()
 	if(actual_machine && actual_machine.can_apply_preset_to(radio))
-		dat += "<a href='?src=\ref[src];stockreset=1'>Reset to Machine Defaults</a><br>"
-	dat += "<b>Configuration for \the [radio].</b><br>"
+		dat += "<meta charset='utf-8'><a href='?src=\ref[src];stockreset=1'>Reset to Machine Defaults</a><br>"
+	dat += "<meta charset='utf-8'><b>Configuration for \the [radio].</b><br>"
 	dat += "Frequency: <a href='?src=\ref[src];frequency=1'>[radio.frequency || "none"]</a><br>"
 	dat += "ID: <a href='?src=\ref[src];id_tag=1'>[radio.id_tag || "none"]</a><br>"
 	dat += "Filter: <a href='?src=\ref[src];filter=1'>[radio.filter || "none"]</a><br>"
@@ -95,17 +95,17 @@
 // Helper.
 /datum/extension/interactive/multitool/radio/proc/event_list_to_selection_table(table_tag, list/selected_events)
 	. = list()
-	. += "<table>"
+	. += "<meta charset='utf-8'><table>"
 	for(var/thing in selected_events)
-		. += "<tr>"
-		. += "<td><a href='?src=\ref[src];[table_tag]=1;remove=[thing]'>(-)</a></td>"
-		. += "<td><a href='?src=\ref[src];[table_tag]=1;rename=[thing]'>[thing]</a></td>"
+		. += "<meta charset='utf-8'><tr>"
+		. += "<meta charset='utf-8'><td><a href='?src=\ref[src];[table_tag]=1;remove=[thing]'>(-)</a></td>"
+		. += "<meta charset='utf-8'><td><a href='?src=\ref[src];[table_tag]=1;rename=[thing]'>[thing]</a></td>"
 		var/decl/public_access/variable = selected_events[thing]
-		. += "<td><a href='?src=\ref[src];[table_tag]=1;new_val=[thing]'>[variable.name]</a></td>"
-		. += "<td><a href='?src=\ref[src];[table_tag]=1;desc=\ref[variable]'>(?)</a></td>"
-		. += "</tr>"
-	. += "<tr><td><a href='?src=\ref[src];[table_tag]=1;add=1'>(+)</a></td></tr>"
-	. += "</table>"
+		. += "<meta charset='utf-8'><td><a href='?src=\ref[src];[table_tag]=1;new_val=[thing]'>[variable.name]</a></td>"
+		. += "<meta charset='utf-8'><td><a href='?src=\ref[src];[table_tag]=1;desc=\ref[variable]'>(?)</a></td>"
+		. += "<meta charset='utf-8'></tr>"
+	. += "<meta charset='utf-8'><tr><td><a href='?src=\ref[src];[table_tag]=1;add=1'>(+)</a></td></tr>"
+	. += "<meta charset='utf-8'></table>"
 
 /datum/extension/interactive/multitool/radio/proc/event_list_topic(list/selected_events, list/valid_events, mob/user, href_list)
 	if(href_list["remove"])
@@ -163,10 +163,10 @@
 	var/obj/item/stock_parts/radio/transmitter/basic/radio = holder
 	var/list/dat = list()
 
-	dat += "<b>Transmit on change:</b><br>"
+	dat += "<meta charset='utf-8'><b>Transmit on change:</b><br>"
 	dat += event_list_to_selection_table("on_change", radio.transmit_on_change)
-	dat += "<br>"
-	dat += "<b>Transmit every tick:</b><br>"
+	dat += "<meta charset='utf-8'><br>"
+	dat += "<meta charset='utf-8'><b>Transmit every tick:</b><br>"
 	dat += event_list_to_selection_table("on_tick", radio.transmit_on_tick)
 	return ..() + JOINTEXT(dat)
 
@@ -197,13 +197,13 @@
 	var/obj/item/stock_parts/radio/transmitter/on_event/radio = holder
 	var/list/dat = list()
 
-	dat += "<b>Choose event:</b><br>"
+	dat += "<meta charset='utf-8'><b>Choose event:</b><br>"
 	if(radio.event)
-		dat += "<a href='?src=\ref[src];event=1;new_val=event'>[radio.event]</a>  (<a href='?src=\ref[src];event=1;desc=\ref[radio.event]'>?</a>)"
+		dat += "<meta charset='utf-8'><a href='?src=\ref[src];event=1;new_val=event'>[radio.event]</a>  (<a href='?src=\ref[src];event=1;desc=\ref[radio.event]'>?</a>)"
 	else
-		dat += "<a href='?src=\ref[src];event=1;add=1'>(+)</a>"
-	dat += "<br>"
-	dat += "<b>Transmit on event:</b><br>"
+		dat += "<meta charset='utf-8'><a href='?src=\ref[src];event=1;add=1'>(+)</a>"
+	dat += "<meta charset='utf-8'><br>"
+	dat += "<meta charset='utf-8'><b>Transmit on event:</b><br>"
 	dat += event_list_to_selection_table("on_event", radio.transmit_on_event)
 	return ..() + JOINTEXT(dat)
 
@@ -239,10 +239,10 @@
 	var/obj/item/stock_parts/radio/receiver/radio = holder
 	var/list/dat = list()
 
-	dat += "<b>Transmit on change:</b><br>"
+	dat += "<meta charset='utf-8'><b>Transmit on change:</b><br>"
 	dat += event_list_to_selection_table("call", radio.receive_and_call)
-	dat += "<br>"
-	dat += "<b>Transmit every tick:</b><br>"
+	dat += "<meta charset='utf-8'><br>"
+	dat += "<meta charset='utf-8'><b>Transmit every tick:</b><br>"
 	dat += event_list_to_selection_table("write", radio.receive_and_write)
 	return ..() + JOINTEXT(dat)
 

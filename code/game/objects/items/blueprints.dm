@@ -59,7 +59,7 @@
 	switch (get_area_type(A))
 		if (AREA_SPACE)
 			dat += "According \the [src], you are now <b>outside the facility</b>."
-			dat += "<a href='?src=\ref[src];action=create_area'>Mark this place as new area.</a>"
+			dat += "<meta charset='utf-8'><a href='?src=\ref[src];action=create_area'>Mark this place as new area.</a>"
 		if (AREA_STATION)
 			dat += "According \the [src], you are now in <b>\"[A.name]\"</b>."
 			dat += "You may <a href='?src=\ref[src];action=edit_area'> move an amendment</a> to the drawing."

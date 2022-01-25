@@ -11,40 +11,40 @@
 	if(!.)
 		return
 	var/dat = list()
-	dat += "<a href='?src=\ref[src]'>Refresh</a> | "
+	dat += "<meta charset='utf-8'><a href='?src=\ref[src]'>Refresh</a> | "
 	dat += get_filter_html(user)
 	dat += " | <a href='?src=\ref[src];reset=1'>Reset</a>"
-	dat += "<HR>"
-	dat += "<table border='1' style='width:100%;border-collapse:collapse;'>"
-	dat += "<tr><th style='text-align:left;'>Time</th><th style='text-align:left;'>Attacker</th><th style='text-align:left;'>Intent</th><th style='text-align:left;'>Zone Sel</th><th style='text-align:left;'>Victim</th></tr>"
+	dat += "<meta charset='utf-8'><HR>"
+	dat += "<meta charset='utf-8'><table border='1' style='width:100%;border-collapse:collapse;'>"
+	dat += "<meta charset='utf-8'><tr><th style='text-align:left;'>Time</th><th style='text-align:left;'>Attacker</th><th style='text-align:left;'>Intent</th><th style='text-align:left;'>Zone Sel</th><th style='text-align:left;'>Victim</th></tr>"
 
 	for(var/log in attack_log_repository.attack_logs_)
 		var/datum/attack_log/al = log
 		if(filter_log(user, al))
 			continue
 
-		dat += "<tr><td>[al.station_time]</td>"
+		dat += "<meta charset='utf-8'><tr><td>[al.station_time]</td>"
 
 		if(al.attacker)
-			dat += "<td>[al.attacker.key_name(check_if_offline = FALSE)] <a HREF='?_src_=holder;adminplayeropts=[al.attacker.ref]'>PP</a></td>"
+			dat += "<meta charset='utf-8'><td>[al.attacker.key_name(check_if_offline = FALSE)] <a HREF='?_src_=holder;adminplayeropts=[al.attacker.ref]'>PP</a></td>"
 		else
-			dat += "<td></td>"
+			dat += "<meta charset='utf-8'><td></td>"
 
-		dat += "<td>[al.intent]</td>"
+		dat += "<meta charset='utf-8'><td>[al.intent]</td>"
 
-		dat += "<td>[al.zone_sel]</td>"
+		dat += "<meta charset='utf-8'><td>[al.zone_sel]</td>"
 
 		if(al.victim)
-			dat += "<td>[al.victim.key_name(check_if_offline = FALSE)] <a HREF='?_src_=holder;adminplayeropts=[al.victim.ref]'>PP</a></td>"
+			dat += "<meta charset='utf-8'><td>[al.victim.key_name(check_if_offline = FALSE)] <a HREF='?_src_=holder;adminplayeropts=[al.victim.ref]'>PP</a></td>"
 		else
-			dat += "<td></td>"
+			dat += "<meta charset='utf-8'><td></td>"
 
-		dat += "</tr>"
-		dat += "<tr><td colspan=5>[al.message]"
+		dat += "<meta charset='utf-8'></tr>"
+		dat += "<meta charset='utf-8'><tr><td colspan=5>[al.message]"
 		if(al.location)
 			dat += " <a HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[al.location.x];Y=[al.location.y];Z=[al.location.z]'>JMP</a>"
-		dat += "</td></tr>"
-	dat += "</table>"
+		dat += "<meta charset='utf-8'></td></tr>"
+	dat += "<meta charset='utf-8'></table>"
 
 	var/datum/browser/popup = new(user, "admin_attack_logs", "Attack Logs", 800, 400)
 	popup.set_content(jointext(dat, null))
@@ -132,9 +132,9 @@
 	. = list()
 	. += "Must have clients: "
 	if(filter_missing_clients)
-		. += "<span class='linkOn'>Yes</span><a href='?src=\ref[src];no=1'>No</a>"
+		. += "<meta charset='utf-8'><span class='linkOn'>Yes</span><a href='?src=\ref[src];no=1'>No</a>"
 	else
-		. += "<a href='?src=\ref[src];yes=1'>Yes</a><span class='linkOn'>No</span>"
+		. += "<meta charset='utf-8'><a href='?src=\ref[src];yes=1'>Yes</a><span class='linkOn'>No</span>"
 	. = jointext(.,null)
 
 /attack_filter/no_client/OnTopic(href_list)

@@ -29,9 +29,9 @@
 	switch(security_level)
 		if(SUPPLY_SECURITY_ELEVATED)
 			if(security_state.all_security_levels.len > 1)
-				security_level = security_state.all_security_levels[2] 
+				security_level = security_state.all_security_levels[2]
 			else
-				security_level = security_state.high_security_level 
+				security_level = security_state.high_security_level
 		if(SUPPLY_SECURITY_HIGH)
 			security_level = security_state.high_security_level
 	if(!istype(security_level))
@@ -70,13 +70,13 @@ var/list/supply_methods_
 
 /decl/supply_method/proc/setup_manifest(var/decl/hierarchy/supply_pack/sp)
 	. = list()
-	. += "<ul>"
+	. += "<meta charset='utf-8'><ul>"
 	for(var/path in sp.contains)
 		var/atom/A = path
 		if(!ispath(A))
 			continue
-		. += "<li>[initial(A.name)]</li>"
-	. += "</ul>"
+		. += "<meta charset='utf-8'><li>[initial(A.name)]</li>"
+	. += "<meta charset='utf-8'></ul>"
 	. = jointext(.,null)
 
 /decl/supply_method/randomized/spawn_contents(var/decl/hierarchy/supply_pack/sp, var/location)

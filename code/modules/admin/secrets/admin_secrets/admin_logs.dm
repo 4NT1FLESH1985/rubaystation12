@@ -7,7 +7,7 @@
 		return
 	var/dat = "<B>Admin Log<HR></B>"
 	for(var/l in GLOB.admin_log)
-		dat += "<li>[l]</li>"
+		dat += "<meta charset='utf-8'><li>[l]</li>"
 	if(!GLOB.admin_log.len)
 		dat += "No-one has done anything this round!"
 	show_browser(user, dat, "window=admin_log")

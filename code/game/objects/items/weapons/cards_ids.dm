@@ -287,7 +287,7 @@ var/const/NO_EMAG_ACT = -50
 	dat += text("DNA Hash: []<BR><BR>\n", dna_hash)
 	if(front && side)
 		dat +="<td align = center valign = top>Photo:<br><img src=front.png height=80 width=80 border=4><img src=side.png height=80 width=80 border=4></td>"
-	dat += "</tr></table>"
+	dat += "<meta charset='utf-8'></tr></table>"
 	return jointext(dat,null)
 
 /obj/item/card/id/attack_self(mob/user as mob)

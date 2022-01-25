@@ -11,8 +11,8 @@
 
 	var/list/dat = list()
 
-	dat += "<h2>Summary</h2>"
-	dat += "<hr>"
+	dat += "<meta charset='utf-8'><h2>Summary</h2>"
+	dat += "<meta charset='utf-8'><hr>"
 
 	if(psi)
 
@@ -31,7 +31,7 @@
 			if(viewer != usr && GLOB.thralls.is_antagonist(mind) && ishuman(viewer))
 				var/mob/living/H = viewer
 				if(H.psi && H.psi.get_rank(PSI_REDACTION) >= PSI_RANK_GRANDMASTER)
-					dat += "<font color='#FF0000'><b>Their mind has been cored like an apple, and enslaved by another operant psychic.</b></font>"
+					dat += "<meta charset='utf-8'><font color='#FF0000'><b>Their mind has been cored like an apple, and enslaved by another operant psychic.</b></font>"
 
 		if(!use_rating)
 			switch(effective_rating)
@@ -60,7 +60,7 @@
 
 			dat += "[use_He_is] currently <b>[psi.suppressed ? "suppressing" : "not suppressing"]</b> your psychic operancy.<br>"
 			dat += "[use_He_has] <b>[psi.stamina]/[psi.max_stamina]</b> psi stamina remaining.<br>"
-			dat += "<hr>"
+			dat += "<meta charset='utf-8'><hr>"
 
 			for(var/faculty_id in psi.ranks)
 				var/decl/psionic_faculty/faculty = SSpsi.get_faculty(faculty_id)
@@ -68,23 +68,23 @@
 					dat += "[use_He_is] assayed at the rank of <b>[GLOB.psychic_ranks_to_strings[psi.ranks[faculty.id]]]</b> for the <b>[faculty.name] faculty</b>.<br>"
 				else
 					dat += "[use_He_has] no notable power within the <b>[faculty.name] faculty</b>.<br>"
-			dat += "<hr>"
+			dat += "<meta charset='utf-8'><hr>"
 
 			if(viewer == usr)
-				dat += "<table width = 100% border = 1><tr><td colspan = 2><h2>Psi-power Usage</h2></td></tr>"
+				dat += "<meta charset='utf-8'><table width = 100% border = 1><tr><td colspan = 2><h2>Psi-power Usage</h2></td></tr>"
 				for(var/faculty_id in psi.ranks)
 					var/list/check_powers = psi.get_powers_by_faculty(faculty_id)
 					if(LAZYLEN(check_powers))
 						var/decl/psionic_faculty/faculty = SSpsi.get_faculty(faculty_id)
-						dat += "<tr><td colspan = 2>[use_He_has] access to the following psi-powers within the <b>[faculty.name] faculty</b>:</td></tr>"
+						dat += "<meta charset='utf-8'><tr><td colspan = 2>[use_He_has] access to the following psi-powers within the <b>[faculty.name] faculty</b>:</td></tr>"
 						for(var/decl/psionic_power/power in check_powers)
-							dat += "<tr><td><b>[power.name]</b></td><td>[power.use_description]</td></tr>"
-				dat += "</table>"
+							dat += "<meta charset='utf-8'><tr><td><b>[power.name]</b></td><td>[power.use_description]</td></tr>"
+				dat += "<meta charset='utf-8'></table>"
 	else
 		dat += "[use_He_has] no notable psychic latency or operancy."
 
 	if(istype(machine))
-		dat += "<a href='?src=\ref[machine];print=1'>Print</a> <a href='?src=\ref[machine];clear=1'>Clear Buffer</a>"
+		dat += "<meta charset='utf-8'><a href='?src=\ref[machine];print=1'>Print</a> <a href='?src=\ref[machine];clear=1'>Clear Buffer</a>"
 		machine.last_assay = dat
 		return
 
