@@ -40,7 +40,7 @@
 
 //Performs functions relating to setting up the question and choices, if relevant.
 /datum/vote/proc/setup_vote(mob/creator, automatic)
-	initiator = (!automatic && istype(creator)) ? creator.ckey : "the server"
+	initiator = (!automatic && istype(creator)) ? creator.ckey : "мной"
 	for(var/choice in choices)
 		display_choices[choice] = choice // Default behavior is that the choice name is displayed directly.
 
@@ -52,11 +52,11 @@
 	var/text = get_start_text()
 
 	log_vote(text)
-	to_world("<font color='purple'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[SSvote];vote_panel=1'>here</a> to place your votes.\nYou have [config.vote_period/10] seconds to vote.</font>")
+	to_world("<font color='purple'><b>[text]</b>\nВыбери <b>нужное</b> из списка <a href='?src=\ref[SSvote];vote_panel=1'>тут</a>.\nВсего [config.vote_period/10] до конца голосования.</font>")
 	sound_to(world, sound('sound/ambience/alarm4.ogg', repeat = 0, wait = 0, volume = 50, channel = GLOB.vote_sound_channel))
 
 /datum/vote/proc/get_start_text()
-	return "[capitalize(name)] vote started by [initiator]."
+	return "Голосование на [capitalize(name)] начато [initiator]."
 
 //Modifies the vote totals based on non-voting mobs.
 /datum/vote/proc/handle_default_votes()
@@ -75,7 +75,7 @@
 		if(!length(remaining_votes) || !length(remaining_choices))  // we ran out of options or votes, you get what we have
 			result += remaining_choices.Copy(1, clamp(result_length - length(result) + 1, 0, length(remaining_choices) + 1))
 			break
-		else 
+		else
 			// 50% majority or we don't have enough candidates to be picky, declare the winner and remove it from the possible candidates
 			if(remaining_choices[remaining_choices[1]] > length(remaining_votes) / 2 || length(remaining_choices) <= result_length - length(result))
 				var/winner = remaining_choices[1]
@@ -84,7 +84,7 @@
 			else // no winner, remove the biggest loser and go again
 				var/loser = remaining_choices[length(remaining_choices)]
 				remove_candidate(remaining_choices, remaining_votes, loser)
-			
+
 // Remove candidate from choice_list and any votes for it from vote_list, transfering first choices to second
 /datum/vote/proc/remove_candidate(list/choice_list, list/vote_list, candidate)
 	var/candidate_index = list_find(choices, candidate) // use choices instead of choice_list because we need the original indexing
@@ -105,7 +105,7 @@
 
 	var/text = get_result_announcement()
 	log_vote(text)
-	to_world("<font color='purple'>[text]</font>")	
+	to_world("<font color='purple'>[text]</font>")
 
 	if(!(result[result[1]] > 0))
 		return 1
@@ -113,9 +113,9 @@
 /datum/vote/proc/get_result_announcement()
 	var/list/text = list()
 	if(!(result[result[1]] > 0)) // No one votes.
-		text += "<b>Vote Result: Inconclusive - No Votes!</b>"
+		text += "<b>Результат: Голосовавших не было.</b>"
 	else
-		text += "<b>Vote Result: [display_choices[result[1]]]</b>"
+		text += "<b>Результат: [display_choices[result[1]]]</b>"
 		if(result_length > 1)
 			text += "\nRunner ups: "
 			var/list/runner_ups = list()
@@ -173,15 +173,16 @@
 
 /datum/vote/proc/interface(mob/user)
 	. = list()
+	. += <meta charset='utf-8'>
 	if(mob_not_participating(user))
-		. += "<h2>You can't participate in this vote unless you're participating in the round.</h2><br>"
+		. += "<h2>Вы не можете участвовать в этом голосовании, если вы не участвуете в раунде.</h2><br>"
 		return
 	if(question)
 		. += "<h2>Vote: '[question]'</h2>"
 	else
 		. += "<h2>Vote: [capitalize(name)]</h2>"
-	. += "Time Left: [time_remaining] s<hr>"
-	. += "<table width = '100%'><tr><th>Choices</th><th>Order</th>"
+	. += "Ещё [time_remaining] секунд<hr>"
+	. += "<table width = '100%'><tr><th>Ответы</th><th>Голосовавшие</th>"
 	. += additional_header
 	. += "</tr>"
 
