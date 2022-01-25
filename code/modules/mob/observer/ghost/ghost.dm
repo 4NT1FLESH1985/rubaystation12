@@ -393,7 +393,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set category = "Ghost"
 
 	var/dat
-	dat += "<h4>Crew Manifest</h4>"
+	dat += "<h4>Список Экипажа</h4>"
 	dat += html_crew_manifest()
 
 	show_browser(src, dat, "window=manifest;size=370x420;can_close=1")

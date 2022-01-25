@@ -155,11 +155,11 @@
 							to_chat(usr, "<span class='notice'>Hardware error: Printer was unable to print the file. It may be out of paper.</span>")
 							return
 				else
-					var/contents = {"<h4>Crew Manifest</h4>
+					var/contents = {"<h4>Список Экипажа</h4>
 									<br>
 									[html_crew_manifest()]
 									"}
-					if(!computer.print_paper(contents, "crew manifest ([stationtime2text()])"))
+					if(!computer.print_paper(contents, "Список экипажа ([stationtime2text()])"))
 						to_chat(usr, "<span class='notice'>Hardware error: Printer was unable to print the file. It may be out of paper.</span>")
 						return
 		if("eject")

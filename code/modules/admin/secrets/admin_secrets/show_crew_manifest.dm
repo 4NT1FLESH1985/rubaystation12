@@ -6,7 +6,7 @@
 	if(!.)
 		return
 	var/dat
-	dat += "<h4>Crew Manifest</h4>"
+	dat += "<h4>Список Экипажа</h4>"
 	dat += html_crew_manifest()
 
 	show_browser(user, dat, "window=manifest;size=370x420;can_close=1")
