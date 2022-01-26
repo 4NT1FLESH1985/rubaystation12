@@ -7,7 +7,7 @@ world/IsBanned(key,address,computer_id)
 	if(!config.guests_allowed && IsGuestKey(key))
 		log_access("Failed Login: [key] - Guests not allowed")
 		message_admins("<span class='notice'>Failed Login: [key] - Guests not allowed</span>")
-		return list("reason"="guest", "desc"="\nReason: Guests not allowed. Please sign in with a byond account.")
+		return list("reason"="guest", "desc"="\nПричина: Гостевые аккаунты запрещены. Пожалуйста, войдите в систему с помощью учетной записи byond.")
 
 	if(config.ban_legacy_system)
 
@@ -34,7 +34,7 @@ world/IsBanned(key,address,computer_id)
 
 		if (config.minimum_player_age && get_player_age(key) < config.minimum_player_age)
 			message_admins("[key] tried to join but did not meet the configured minimum player age.")
-			return list("reason"="player age", "desc"="This server is not currently allowing accounts with a low number of days since first connection to join.")
+			return list("reason"="player age", "desc"="Этот сервер в настоящее время не разрешает присоединяться учетным записям с небольшим количеством дней с момента первого подключения.")
 
 		var/ipquery = ""
 		var/cidquery = ""
@@ -65,7 +65,7 @@ world/IsBanned(key,address,computer_id)
 			if(text2num(duration) > 0)
 				expires = " The ban is for [minutes_to_readable(duration)] and expires on [expiration] (server time)."
 
-			var/desc = "\nReason: You, or another user of this computer or connection ([pckey]) is banned from playing here. The ban reason is:\n[reason]\nThis ban was applied by [ackey] on [bantime], [expires]"
+			var/desc = "\nПричина: Твой сикей ([pckey]) или данный компьютер не имеют права подключиться к данному серверу. Причина:\n[reason]\nДанный бан выдан на [bantime] и истечёт [expires]."
 
 			return list("reason"="[bantype]", "desc"="[desc]")
 
