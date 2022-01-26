@@ -172,7 +172,7 @@
 			burn_damage += I.w_class * rand(power, 3*power)
 
 	if(owner && burn_damage)
-		owner.custom_pain("Something inside your [src] burns a [severity < 2 ? "bit" : "lot"]!", power * 15) //robotic organs won't feel it anyway
+		owner.custom_pain("Моя [src] болит [severity < 2 ? "сильно" : "слабо"]!", power * 15) //robotic organs won't feel it anyway
 		take_external_damage(0, burn_damage, 0, used_weapon = "Hot metal")
 
 	if(owner && limb_flags & ORGAN_FLAG_CAN_GRASP)
@@ -366,11 +366,11 @@
 
 	if(!damage_amount)
 		if(src.hatch_state != HATCH_OPENED)
-			to_chat(user, "<span class='notice'>Nothing to fix!</span>")
+			to_chat(user, "<span class='notice'>Нечего чинить!</span>")
 		return 0
 
 	if(damage_amount >= ROBOLIMB_SELF_REPAIR_CAP)
-		to_chat(user, "<span class='danger'>The damage is far too severe to patch over externally.</span>")
+		to_chat(user, "<span class='danger'>Такие поврежения не починить снаружи.</span>")
 		return 0
 
 	if(user == src.owner)
@@ -386,7 +386,7 @@
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(!do_after(user, 1 SECOND, owner))
-		to_chat(user, "<span class='warning'>You must stand still to do that.</span>")
+		to_chat(user, "<span class='warning'>Я должен сосредоточиться.</span>")
 		return 0
 
 	switch(damage_type)
@@ -477,7 +477,7 @@ This function completely restores a damaged organ to perfect condition.
 		if(prob(Ceil(damage/4)) && sever_tendon())
 			internal_damage = TRUE
 		if(internal_damage)
-			owner.custom_pain("You feel something rip in your [name]!", 50, affecting = src)
+			owner.custom_pain("Чувствую как внутри [name] ломается!", 50, affecting = src)
 
 	//Burn damage can cause fluid loss due to blistering and cook-off
 	if((type in list(BURN, LASER)) && (damage > 5 || damage + burn_dam >= 15) && !BP_IS_ROBOTIC(src))
@@ -942,8 +942,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return
 	if (holder.handcuffed && (body_part in list(ARM_LEFT, ARM_RIGHT, HAND_LEFT, HAND_RIGHT)))
 		holder.visible_message(\
-			"\The [holder.handcuffed.name] falls off of [holder.name].",\
-			"\The [holder.handcuffed.name] falls off you.")
+			"\The [holder.handcuffed.name] падает на [holder.name].",\
+			"\The [holder.handcuffed.name] падает с тебя.")
 		holder.drop_from_inventory(holder.handcuffed)
 
 // checks if all wounds on the organ are bandaged
@@ -1033,9 +1033,9 @@ obj/item/organ/external/proc/remove_clamps()
 
 	if(owner)
 		owner.visible_message(\
-			"<span class='danger'>You hear a loud cracking sound coming from \the [owner].</span>",\
-			"<span class='danger'>Something feels like it shattered in your [name]!</span>",\
-			"<span class='danger'>You hear a sickening crack.</span>")
+			"<span class='danger'>\the [owner] издаёт неприятный хруст.</span>",\
+			"<span class='danger'>Мой [name] издаёт неприятный хруст.</span>",\
+			"<span class='danger'>Слышу неприятный хруст.</span>")
 		jostle_bone()
 		if(can_feel_pain())
 			owner.emote("scream")
@@ -1099,8 +1099,8 @@ obj/item/organ/external/proc/remove_clamps()
 		else
 			model = company
 			force_icon = R.icon
-			name = "robotic [initial(name)]"
-			desc = "[R.desc] It looks like it was produced by [R.company]."
+			name = "роботизированая [initial(name)]"
+			desc = "[R.desc] Произведено [R.company]."
 
 	dislocated = -1
 	remove_splint()
@@ -1255,9 +1255,9 @@ obj/item/organ/external/proc/remove_clamps()
 	//Robotic limbs explode if sabotaged.
 	if(is_robotic && (status & ORGAN_SABOTAGED))
 		victim.visible_message(
-			"<span class='danger'>\The [victim]'s [src.name] explodes violently!</span>",\
-			"<span class='danger'>Your [src.name] explodes!</span>",\
-			"<span class='danger'>You hear an explosion!</span>")
+			"<span class='danger'>\The [victim]'s [src.name] взрывается!</span>",\
+			"<span class='danger'>Ваша [src.name] взрывается!</span>",\
+			"<span class='danger'>Слышу взрыв.</span>")
 		explosion(get_turf(owner),-1,-1,2,3)
 		var/datum/effect/effect/system/spark_spread/spark_system = new /datum/effect/effect/system/spark_spread()
 		spark_system.set_up(5, 0, victim)
@@ -1274,13 +1274,13 @@ obj/item/organ/external/proc/remove_clamps()
 		return
 	if(owner)
 		if(type == "brute")
-			owner.visible_message("<span class='danger'>You hear a sickening cracking sound coming from \the [owner]'s [name].</span>",	\
-			"<span class='danger'>Your [name] becomes a mangled mess!</span>",	\
-			"<span class='danger'>You hear a sickening crack.</span>")
+			owner.visible_message("<span class='danger'>[name] \the [owner] издаёт неприятный хруст.</span>",	\
+			"<span class='danger'>Моя [name] превращается в груду.</span>",	\
+			"<span class='danger'>Слышу неприятный хруст.</span>")
 		else
-			owner.visible_message("<span class='danger'>\The [owner]'s [name] melts away, turning into mangled mess!</span>",	\
-			"<span class='danger'>Your [name] melts away!</span>",	\
-			"<span class='danger'>You hear a sickening sizzle.</span>")
+			owner.visible_message("<span class='danger'>\The [owner]'s [name] распадается и превращается в месево!</span>",	\
+			"<span class='danger'>Моя [name] распадается!</span>",	\
+			"<span class='danger'>Слышу шипение.</span>")
 	status |= ORGAN_DISFIGURED
 
 /obj/item/organ/external/proc/get_incision(var/strict)
@@ -1344,7 +1344,7 @@ obj/item/organ/external/proc/remove_clamps()
 
 	var/armor = 100 * owner.get_blocked_ratio(owner, BRUTE, damage = 30)
 	if(armor < 70)
-		to_chat(owner, "<span class='danger'>You feel extreme pain!</span>")
+		to_chat(owner, "<span class='danger'>Очень больно!</span>")
 
 		var/max_halloss = round(owner.species.total_health * 0.8 * ((100 - armor) / 100)) //up to 80% of passing out, further reduced by armour
 		add_pain(clamp(0, max_halloss - owner.getHalLoss(), 30))
