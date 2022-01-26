@@ -5,6 +5,7 @@
 	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
 
 	var/image/blood_overlay = null //this saves our blood splatter overlay, which will be processed not to go over the edges of the sprite
+	var/second_name = null //Используется для обозначений вещей другими словами (дробь-дробинка, полёт-взлёт и похожее)
 	var/randpixel = 6
 	var/r_speed = 1.0
 	var/burn_point = null
