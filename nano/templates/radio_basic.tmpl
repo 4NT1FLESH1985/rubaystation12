@@ -48,7 +48,7 @@ Used In File(s): /code/game/objects/item/devices/radio/radio.dm
 
 <div class="item">
 	<div class="itemLabelWide">
-		Microphone
+		Микрофон
 	</div>
 	<div class="itemContentMedium">
 		{{if data.mic_cut}}
@@ -63,7 +63,7 @@ Used In File(s): /code/game/objects/item/devices/radio/radio.dm
 
 <div class="item">
 	<div class="itemLabelWide">
-		Speaker
+		Динамик
 	</div>
 	<div class="itemContentMedium">
 		{{if data.spk_cut}}
@@ -79,7 +79,7 @@ Used In File(s): /code/game/objects/item/devices/radio/radio.dm
 {{if data.has_subspace}}
 	<div class="item">
 		<div class="itemLabelWide">
-			Subspace Transmission:
+			Передатчик:
 		</div>
 		<div class="itemContentMedium">
 			{{:helper.link('On', null, {'mode' : 1}, data.subspace ? 'selected' : null)}}
@@ -91,7 +91,7 @@ Used In File(s): /code/game/objects/item/devices/radio/radio.dm
 {{if data.has_loudspeaker}}
 	<div class="item">
 		<div class="itemLabelWide">
-			Loudspeaker:
+			Усилитель:
 		</div>
 		<div class="itemContentMedium">
 			{{:helper.link('On', null, {'shutup' : 0}, data.loudspeaker ? 'selected' : null)}}
@@ -104,7 +104,7 @@ Used In File(s): /code/game/objects/item/devices/radio/radio.dm
 {{if data.charge}}
 	<div class="item">
 		<div class="itemLabelWide">
-			Battery charge:
+			Заряд:
 		</div>
 		<div class="itemContentMedium">
 			{{:data.charge}}
@@ -114,7 +114,7 @@ Used In File(s): /code/game/objects/item/devices/radio/radio.dm
 
 <div class="item">
 	<div class="itemLabelWide">
-		Frequency: {{:data.freq}}
+		Частота: {{:data.freq}}
 	</div>
 	<div class="itemContentMedium">
 		{{:helper.link('--', null, {'freq' : -10})}}
@@ -128,7 +128,7 @@ Used In File(s): /code/game/objects/item/devices/radio/radio.dm
 </div>
 
 {{if data.chan_list_len >= 1}}
-	<h3>Channels</h3>
+	<h3>Канал</h3>
 	<div class="item">
 	{{for data.chan_list}}
 		<div class="itemLabelWide">
