@@ -16,7 +16,7 @@
 	var/assignment	= "N/A"
 
 	var/notification_mute = FALSE
-	var/notification_sound = "*beep*"
+	var/notification_sound = "*бип*"
 
 /datum/computer_file/data/email_account/calculate_size()
 	size = 1
@@ -59,7 +59,7 @@
 		return FALSE
 
 	outbox.Add(message)
-	ntnet_global.add_log_with_ids_check("EMAIL LOG: [login] -> [recipient.login] title: [message.title].", intrusion = FALSE)
+	ntnet_global.add_log_with_ids_check("EMAIL LOG: [login] -> [recipient.login] заголовок: [message.title].", intrusion = FALSE)
 	return TRUE
 
 /datum/computer_file/data/email_account/proc/receive_mail(var/datum/computer_file/data/email_message/received_message, var/relayed)
