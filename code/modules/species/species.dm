@@ -53,8 +53,8 @@
 
 	var/mob_size	= MOB_MEDIUM
 	var/strength    = STR_MEDIUM
-	var/show_ssd = "fast asleep"
-	var/show_coma = "completely comatose"
+	var/show_ssd = "крепкий сон"
+	var/show_coma = "коматозное состояние"
 	var/short_sighted                         // Permanent weldervision.
 	var/light_sensitive                       // Ditto, but requires sunglasses to fix
 	var/blood_volume = SPECIES_BLOOD_DEFAULT  // Initial blood volume.
@@ -106,10 +106,10 @@
 	var/dusted_anim =   "dust-h"
 
 	var/death_sound
-	var/death_message = "seizes up and falls limp, their eyes dead and lifeless..."
-	var/knockout_message = "collapses, having been knocked unconscious."
-	var/halloss_message = "slumps over, too weak to continue fighting..."
-	var/halloss_message_self = "The pain is too severe for you to keep going..."
+	var/death_message = ""
+	var/knockout_message = "теряет сознание"
+	var/halloss_message = "ослабевает"
+	var/halloss_message_self = "Слишком больно, надо прилечь."
 
 	var/limbs_are_nonsolid
 	var/spawns_with_stack = 0
@@ -136,14 +136,14 @@
 	var/heat_discomfort_level = 315                             // Aesthetic messages about feeling warm.
 	var/cold_discomfort_level = 285                             // Aesthetic messages about feeling chilly.
 	var/list/heat_discomfort_strings = list(
-		"You feel sweat drip down your neck.",
-		"You feel uncomfortably warm.",
-		"Your skin prickles in the heat."
+		"Жарковато...",
+		"Мне неприятно тепло.",
+		"Я думаю или я слишком тепло оделся."
 		)
 	var/list/cold_discomfort_strings = list(
-		"You feel chilly.",
-		"You shiver suddenly.",
-		"Your chilly flesh stands out in goosebumps."
+		"Холодновато...",
+		"Мне неприятно холодно.",
+		"Я думал или я слишком просторно оделся."
 		)
 
 	var/water_soothe_amount
@@ -405,15 +405,15 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 
 /datum/species/proc/hug(var/mob/living/carbon/human/H,var/mob/living/target)
 
-	var/t_him = "them"
+	var/t_him = "это" //потому что "их" звучит странно
 	switch(target.gender)
 		if(MALE)
-			t_him = "him"
+			t_him = "его"
 		if(FEMALE)
-			t_him = "her"
+			t_him = "её"
 
-	H.visible_message("<span class='notice'>[H] hugs [target] to make [t_him] feel better!</span>", \
-					"<span class='notice'>You hug [target] to make [t_him] feel better!</span>")
+	H.visible_message("<span class='notice'>[H] обнимает [target] подбадривая [t_him]!</span>", \
+					"<span class='notice'>Ты обнимаешь [target] подбадривая [t_him]!</span>")
 
 	if(H != target)
 		H.update_personal_goal(/datum/goal/achievement/givehug, TRUE)
@@ -728,13 +728,13 @@ The slots that you can use are found in items_clothing.dm and are the inventory 
 
 /datum/species/proc/get_description(var/header, var/append, var/verbose = TRUE, var/skip_detail, var/skip_photo)
 	var/list/damage_types = list(
-		"physical trauma" = brute_mod,
-		"burns" = burn_mod,
-		"lack of air" = oxy_mod,
-		"poison" = toxins_mod
+		"травма" = brute_mod,
+		"ожог" = burn_mod,
+		"недостаток кислорода" = oxy_mod,
+		"отравление" = toxins_mod
 	)
 	if(!header)
-		header = "<center><h2>[name]</h2></center><hr/>"
+		header = "<meta charset='utf-8'><center><h2>[name]</h2></center><hr/>"
 	var/dat = list()
 	dat += "[header]"
 	dat += "<meta charset='utf-8'><table padding='8px'>"
