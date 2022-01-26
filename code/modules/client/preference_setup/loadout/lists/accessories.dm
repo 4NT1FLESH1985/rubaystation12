@@ -153,7 +153,7 @@
 	flags = GEAR_HAS_TYPE_SELECTION
 
 
-/datum/gear/accessory/pronouns
+/*/datum/gear/accessory/pronouns	//no
 	display_name = "pronoun badge selection"
 	description = "A selection of badges used to indicate the preferred pronouns of the wearer."
 	path = /obj/item/clothing/accessory/pronouns
@@ -170,10 +170,10 @@
 	options["he/she badge"] = /obj/item/clothing/accessory/pronouns/heshe
 	options["ze/hir badge"] = /obj/item/clothing/accessory/pronouns/zehir
 	options["ask me badge"] = /obj/item/clothing/accessory/pronouns/ask
-	gear_tweaks += new /datum/gear_tweak/path (options)
+	gear_tweaks += new /datum/gear_tweak/path (options)*/
 
 
-/datum/gear/accessory/pride_pins
+/*/datum/gear/accessory/pride_pins	//no
 	display_name = "pride pin selection"
 	description = "A selection of pins used to signal membership or support of an identity or sexuality."
 	path = /obj/item/clothing/accessory/pride_pin
@@ -190,7 +190,7 @@
 	options["nonbinary pride pin"] = /obj/item/clothing/accessory/pride_pin/nonbinary
 	options["asexual pride pin"] = /obj/item/clothing/accessory/pride_pin/asexual
 	options["intersex pride pin"] = /obj/item/clothing/accessory/pride_pin/intersex
-	gear_tweaks += new /datum/gear_tweak/path (options)
+	gear_tweaks += new /datum/gear_tweak/path (options)*/
 
 
 /datum/gear/accessory/neckerchief
