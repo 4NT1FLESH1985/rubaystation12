@@ -1,6 +1,6 @@
 /obj/item/robot_parts/robot_suit
-	name = "standard robot frame"
-	desc = "A complex metal backbone with standard limb sockets and pseudomuscle anchors."
+	name = "Стандартный каркас робота"
+	desc = "Комплекс металического хребта с стандартными конечностными розетками и псевдомускульными скреплениями."
 	icon_state = "robo_suit"
 
 	var/list/parts = list()
