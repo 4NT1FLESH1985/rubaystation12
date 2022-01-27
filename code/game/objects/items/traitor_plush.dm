@@ -1,6 +1,6 @@
 /obj/item/reagent_containers/food/snacks/dehydrated_carp
-	name = "carp plushie"
-	desc = "A plushie of an elated carp! Straight from the wilds of the Nyx frontier, now right here in your hands."
+	name = "Плюшевый карп"
+	desc = "Плюшевая игрушка веселого карпа! Прямиком с диких границ Никса, и сейчас в твоих руках."
 	atom_flags = ATOM_FLAG_NO_TEMP_CHANGE | ATOM_FLAG_OPEN_CONTAINER
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "carpplushie"
@@ -40,8 +40,8 @@
 	. += "You can add water to this plushie to hydrate it, transforming it into a living space carp after a short delay. Be careful, as the carp will be hostile to you too!"
 
 /obj/item/plushbomb
-	name = "kitten plush"
-	desc = "A plushie of a cute kitten! Watch as it purrs it's way right into your heart."
+	name = "Плюшевая игрушка котёнка"
+	desc = "Плюшевая игрушка милого котёнка! Смотри как оно мурлыкает на пути к твоему сердцу."
 	icon = 'icons/obj/toy.dmi'
 	icon_state = "kittenplushie"
 	var/phrase
@@ -56,17 +56,17 @@
 
 /obj/item/plushbomb/attack_self(mob/user)
 	if (user.a_intent == I_HELP)
-		user.visible_message(SPAN_NOTICE("\The [user] hugs [src]!"), SPAN_NOTICE("You hug [src]!"))
+		user.visible_message(SPAN_NOTICE("\The [user] обнимает [src]!"), SPAN_NOTICE("Ты обнял [src]!"))
 	else if (user.a_intent == I_GRAB)
 		if (!phrase)
-			phrase = sanitize_phrase(input("Choose activation phrase:") as text)
-			to_chat(user, SPAN_NOTICE("You set the activation phrase to be '[phrase]'."))
+			phrase = sanitize_phrase(input("Выберите слово для активации:") as text)
+			to_chat(user, SPAN_NOTICE("Вы выбрали слово для активации : '[phrase]'."))
 		else
-			user.visible_message(SPAN_WARNING("\The [user] attempts to strangle [src]!"), SPAN_WARNING("You attempt to strangle [src]!"))
+			user.visible_message(SPAN_WARNING("\The [user] попытался задушить [src]!"), SPAN_WARNING("Вы попытались задушить [src]!"))
 	else if (user.a_intent == I_HURT)
-		user.visible_message(SPAN_WARNING("\The [user] punches [src]!"), SPAN_WARNING("You punch [src]!"))
+		user.visible_message(SPAN_WARNING("\The [user] бьет [src]!"), SPAN_WARNING("Вы ударили [src]!"))
 	else
-		user.visible_message(SPAN_NOTICE("\The [user] pokes [src]."), SPAN_NOTICE("You poke [src]."))
+		user.visible_message(SPAN_NOTICE("\The [user] тыкнул в [src]."), SPAN_NOTICE("Вы тыкнули в  [src]."))
 
 /obj/item/plushbomb/hear_talk(mob/M, msg)
 	if (!phrase)
@@ -89,16 +89,16 @@
 	. += "Set an activation phrase by using the plush on grab intent. Upon hearing the trigger phrase, the plush will explode after a 5 second countdown."
 
 /obj/item/plushbomb/nymph
-	name = "diona nymph plush"
-	desc = "A plushie of an adorable diona nymph! While its level of self-awareness is still being debated, its level of cuteness is not."
+	name = "Плюшевая игрушка дионы нимф"
+	desc = "Плюшевая игрушка восхитительной дионы!Когда её уровень само-защиты все еще дискуссирован, её уровень милоты - нет."
 	icon_state = "nymphplushie"
 
 /obj/item/plushbomb/spider
-	name = "spider plush"
-	desc = "A plushie of a fuzzy spider! It has eight legs - all the better to hug you with."
+	name = "Плюшевая игрушка паука"
+	desc = "Плюшевая игрушка пушистого паука! Оно имеет восемь ног - все лучше что-бы обнимать тебя."
 	icon_state = "spiderplushie"
 
 /obj/item/plushbomb/carp
-	name = "plush carp"
-	desc = "A plushie of an elated carp! Straight from the wilds of the Nyx frontier, now right here in your hands."
+	name = "Плюшевый карп"
+	desc = "Плюшевая игрушка веселого карпа! Прямиком с диких границ Никса, и сейчас в твоих руках."
 	icon_state = "carpplushie"
