@@ -6,8 +6,8 @@
 	force = 0
 
 /obj/item/instrument/guitar
-	name = "guitar"
-	desc = "An antique musical instrument made of wood, originating from Earth.	It has six metal strings of different girth and tension. When moved, they vibrate and the waves resonate in the guitar's open body, producing sounds. Obtained notes can be altered by pressing the strings to the neck, affecting the vibration's frequency."
+	name = "Гитара"
+	desc = "Античный музыкальный инструмент сделаный из дерева, придуман на Земле. Имеет шесть металических струн. Когда двигаются, они вибрируют и создают волны , делая звук."
 	icon = 'icons/obj/items.dmi'
 	icon_state = "guitar"
 
