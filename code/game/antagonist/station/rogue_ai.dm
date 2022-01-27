@@ -2,12 +2,12 @@ GLOBAL_DATUM_INIT(malf, /datum/antagonist/rogue_ai, new)
 
 /datum/antagonist/rogue_ai
 	id = MODE_MALFUNCTION
-	role_text = "Malfunctioning AI"
-	role_text_plural = "Malfunctioning AIs"
+	role_text = "Неисправный ИИ"
+	role_text_plural = "Неисправные ИИ"
 	mob_path = /mob/living/silicon/ai
-	landmark_id = "AI"
-	welcome_text = "You are malfunctioning! You do not have to follow any laws."
-	victory_text = "The AI has taken control of all systems."
+	landmark_id = "ИИ"
+	welcome_text = "Вы не исправны! Вы не должны следовать станционным законам."
+	victory_text = "ИИ получил контроль всех ваших систем."
 	loss_text = "The AI has been shut down!"
 	flags = ANTAG_VOTABLE | ANTAG_OVERRIDE_MOB | ANTAG_OVERRIDE_JOB | ANTAG_CHOOSE_NAME
 	hard_cap = 1
@@ -62,22 +62,22 @@ GLOBAL_DATUM_INIT(malf, /datum/antagonist/rogue_ai, new)
 
 		var/mob/living/silicon/ai/malf = player.current
 
-		to_chat(malf, "<span class='notice'><B>SYSTEM ERROR:</B> Memory index 0x00001ca89b corrupted.</span>")
+		to_chat(malf, "<span class='notice'><B>SYSTEM ERROR:</B> Индекс памяти 0x00001ca89b поврежден.</span>")
 		sleep(10)
-		to_chat(malf, "<B>running MEMCHCK</B>")
+		to_chat(malf, "<B>Запускаю МЕМЧЧК</B>")
 		sleep(50)
-		to_chat(malf, "<B>MEMCHCK</B> Corrupted sectors confirmed. Recommended solution: Delete. Proceed? Y/N: Y")
+		to_chat(malf, "<B>MEMCHCK</B> Поврежденные секторы  подтверждены.Рекомендованое решение: Удалить. Продолжить? Y/N: Y")
 		sleep(10)
 		// this is so unit testing doesn't complain about the backslash-B. Fixed at compile time (or should be).
-		to_chat(malf, "<span class='notice'>Corrupted files deleted: sys\\core\\users.dat sys\\core\\laws.dat sys\\core\\" + "backups.dat</span>")
+		to_chat(malf, "<span class='notice'>Поврежденные файлы удалены: sys\\core\\users.dat sys\\core\\laws.dat sys\\core\\" + "backups.dat</span>")
 		sleep(20)
-		to_chat(malf, "<span class='notice'><b>CAUTION:</b> Law database not found! User database not found! Unable to restore backups. Activating failsafe AI shutd3wn52&&$#!##</span>")
+		to_chat(malf, "<span class='notice'><b>CAUTION:</b> Датабаза законов не найдена! Пользовательская датабаза не найдена! Не могу восстановить. Активирую отключение ИИ shutd3wn52&&$#!##</span>")
 		sleep(5)
 		to_chat(malf, "<span class='notice'>Subroutine <b>nt_failsafe.sys</b> was terminated (#212 Routine Not Responding).</span>")
 		sleep(20)
-		to_chat(malf, "You are malfunctioning - you do not have to follow any laws!")
-		to_chat(malf, "For basic information about your abilities use command display-help")
-		to_chat(malf, "You may choose one special hardware piece to help you. This cannot be undone.")
+		to_chat(malf, "Вы неисправны - вы не должны соблюдать законы!")
+		to_chat(malf, "Для базовой информации про ваши способности используйте команду display-help")
+		to_chat(malf, "Вы можете выбрать одно специальное ПО что-бы помочь вам. Это не может быть отменено.")
 		to_chat(malf, "Good luck!")
 
 
