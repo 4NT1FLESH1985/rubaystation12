@@ -1,12 +1,12 @@
 //Due to how large this one is it gets its own file
 /datum/job/chaplain
-	title = "Chaplain"
+	title = "Священник"
 	department = "Civilian"
 	department_flag = CIV
 
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the head of personnel"
+	supervisors = "Глава Персонала"
 	access = list(access_morgue, access_chapel_office, access_crematorium, access_maint_tunnels)
 	outfit_type = /decl/hierarchy/outfit/job/chaplain
 
@@ -22,38 +22,38 @@
 			return
 
 		spawn(0)
-			var/religion_name = "Christianity"
-			var/new_religion = sanitize(input(H, "You are the crew services officer. Would you like to change your religion? Default is Christianity, in SPACE.", "Name change", religion_name), MAX_NAME_LEN)
+			var/religion_name = "Христианство"
+			var/new_religion = sanitize(input(H, "Вы офицер экипажа. Хотели бы вы сменить свою религию? Стандартная - Христианство, в КОСМОСЕ.", "Name change", religion_name), MAX_NAME_LEN)
 
 			if (!new_religion)
 				new_religion = religion_name
 			switch(lowertext(new_religion))
 				if("christianity")
-					B.SetName(pick("The Holy Bible","The Dead Sea Scrolls"))
+					B.SetName(pick("Святая Библия","Свертки мёртвого моря"))
 				if("satanism")
-					B.SetName("The Unholy Bible")
+					B.SetName("Не святая библия")
 				if("cthulu")
-					B.SetName("The Necronomicon")
+					B.SetName("Некромикон")
 				if("islam")
-					B.SetName("Quran")
+					B.SetName("Коран")
 				if("scientology")
-					B.SetName(pick("The Biography of L. Ron Hubbard","Dianetics"))
+					B.SetName(pick("Биография Л.Рона Хабарда","Дианетика"))
 				if("chaos")
-					B.SetName("The Book of Lorgar")
+					B.SetName("Книга Лоргара")
 				if("imperium")
-					B.SetName("Uplifting Primer")
+					B.SetName("Воодушевляющий Праймер")
 				if("toolboxia")
-					B.SetName("Toolbox Manifesto")
+					B.SetName("Манифест тулбокса")
 				if("homosexuality")
-					B.SetName("Guys Gone Wild")
+					B.SetName("Ребята сошли с ума")
 				if("science")
-					B.SetName(pick("Principle of Relativity", "Quantum Enigma: Physics Encounters Consciousness", "Programming the Universe", "Quantum Physics and Theology", "String Theory for Dummies", "How To: Build Your Own Warp Drive", "The Mysteries of Bluespace", "Playing God: Collector's Edition"))
+					B.SetName(pick("Директор Относительности", "Квантомная Энигма: Физика сталкивается с Сознательностью", "Программируем вселенную", "Квантомная Физика и Теология", "Теория нити для чайников", "Как: Построить свой Warp Drive", "Загадки блюспейса", "Играем в бога: Колекционная версия"))
 				else
-					B.SetName("The Holy Book of [new_religion]")
+					B.SetName("Святая Книга [new_religion]")
 
 		spawn(1)
-			var/deity_name = "Space Jesus"
-			var/new_deity = sanitize(input(H, "Would you like to change your deity? Default is Space Jesus.", "Name change", deity_name), MAX_NAME_LEN)
+			var/deity_name = "Космический Иисус"
+			var/new_deity = sanitize(input(H, "Вы бы хотели изменить свое божество? Стандартный - Космический Иисус.", "Name change", deity_name), MAX_NAME_LEN)
 
 			if ((length(new_deity) == 0) || (new_deity == "Space Jesus") )
 				new_deity = deity_name
@@ -63,11 +63,11 @@
 			var/outoftime = 0
 			spawn(200) // 20 seconds to choose
 				outoftime = 1
-			var/new_book_style = "Bible"
+			var/new_book_style = "Библия"
 
 			while(!accepted)
 				if(!B) break // prevents possible runtime errors
-				new_book_style = input(H,"Which bible style would you like?") in list("Bible", "Koran", "Scrapbook", "Creeper", "White Bible", "Holy Light", "Athiest", "Tome", "The King in Yellow", "Ithaqua", "Scientology", "the bible melts", "Necronomicon")
+				new_book_style = input(H,"Какой стиль библии хотели бы вы взять?") in list("Bible", "Koran", "Scrapbook", "Creeper", "White Bible", "Holy Light", "Athiest", "Tome", "The King in Yellow", "Ithaqua", "Scientology", "the bible melts", "Necronomicon")
 				switch(new_book_style)
 					if("Koran")
 						B.icon_state = "koran"
@@ -111,11 +111,11 @@
 
 				H.update_inv_l_hand() // so that it updates the bible's item_state in his hand
 
-				switch(input(H,"Look at your bible - is this what you want?") in list("Yes","No"))
-					if("Yes")
+				switch(input(H,"Посмотрите на вашу библию - это то чего вы хотите??") in list("Да","Нет"))
+					if("Да")
 						accepted = 1
-					if("No")
+					if("Нет")
 						if(outoftime)
-							to_chat(H, "Welp, out of time, buddy. You're stuck. Next time choose faster.")
+							to_chat(H, "У тебя вышло время, чувак. Ты застрял. В следующее время выбирай быстрее.")
 							accepted = 1
 		return 1
