@@ -1,14 +1,14 @@
 var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 /datum/job/captain
-	title = "Captain"
-	department = "Command"
+	title = "Капитан"
+	department = "Коммандующий"
 	head_position = 1
 	department_flag = COM
 
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "company officials and Corporate Regulations"
+	supervisors = "Должностные лица корпорации"
 	selection_color = "#1d1d4f"
 	req_admin_notify = 1
 	access = list()
@@ -27,13 +27,13 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	return get_all_station_access()
 
 /datum/job/hop
-	title = "Head of Personnel"
+	title = "Глава Персонала"
 	head_position = 1
 	department_flag = COM|CIV
 
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the captain"
+	supervisors = "Капитан"
 	selection_color = "#2f2f7f"
 	req_admin_notify = 1
 	minimal_player_age = 14
