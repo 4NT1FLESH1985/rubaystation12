@@ -11,8 +11,8 @@
 
 
 /obj/machinery/cooker
-	name = "cooker"
-	desc = "You shouldn't be seeing this!"
+	name = "Плита"
+	desc = "Ты не должен видеть это!"
 	icon = 'icons/obj/cooking_machines.dmi'
 	density = TRUE
 	anchored = TRUE
@@ -249,8 +249,8 @@
 
 
 /obj/machinery/cooker/candy
-	name = "candy machine"
-	desc = "Get yer candied cheese wheels here!"
+	name = "Конфетная машина"
+	desc = "Получи свои конфетные куски сыра здесь!"
 	default_color = TRUE
 	icon_state = "mixer"
 	capacity = 2
@@ -287,8 +287,8 @@
 
 
 /obj/machinery/cooker/fryer
-	name = "deep fryer"
-	desc = "Deep fried <i>everything</i>."
+	name = "Фритюрница"
+	desc = "Сильно прожаренное <i>всё</i>."
 	icon_state = "fryer"
 	default_color = "#ffad33"
 	capacity = 4
@@ -359,8 +359,8 @@
 
 
 /obj/machinery/cooker/oven
-	name = "oven"
-	desc = "Cookies are ready, dear."
+	name = "Духовка"
+	desc = "Печеньки готовы, дорогой."
 	icon_state = "oven"
 	default_color = "#99502c"
 	capacity = 4
@@ -442,8 +442,8 @@
 
 
 /obj/machinery/cooker/cereal
-	name = "cereal maker"
-	desc = "Now with Dann O's available!"
+	name = "Хлопье машина"
+	desc = "Теперь с Данн O' доступно!"
 	icon_state = "cereal"
 	capacity = 2
 	cook_modes = list(
@@ -480,112 +480,112 @@
 
 
 /obj/item/reagent_containers/food/snacks/variable
-	name = "cooked food"
+	name = "Приготовленная еда"
 	icon = 'icons/obj/food_custom.dmi'
 	bitesize = 2
 
 
 /obj/item/reagent_containers/food/snacks/variable/pizza
-	name = "personal pizza"
-	desc = "A personalized pan pizza meant for only one person."
+	name = "Персональная пицца"
+	desc = "Персонализированная пицца только для одного человека."
 	icon_state = "personal_pizza"
 
 
 /obj/item/reagent_containers/food/snacks/variable/bread
-	name = "bread"
-	desc = "Tasty bread."
+	name = "Хлеб"
+	desc = "Вкусный хлеб."
 	icon_state = "breadcustom"
 
 
 /obj/item/reagent_containers/food/snacks/variable/pie
-	name = "pie"
-	desc = "Tasty pie."
+	name = "Пирог"
+	desc = "Вкусный пирог."
 	icon_state = "piecustom"
 
 
 /obj/item/reagent_containers/food/snacks/variable/cake
-	name = "cake"
-	desc = "A popular band."
+	name = "Торт"
+	desc = "Популярная группа."
 	icon_state = "cakecustom"
 
 
 /obj/item/reagent_containers/food/snacks/variable/pocket
-	name = "hot pocket"
-	desc = "You wanna put a bangin- oh, nevermind."
+	name = "Горячий донк-покет"
+	desc = "Ты хочешь посту-.. ой, забудь."
 	icon_state = "donk"
 
 
 /obj/item/reagent_containers/food/snacks/variable/kebab
-	name = "kebab"
-	desc = "Remove this!"
+	name = "Кебаб"
+	desc = "Убери это!"
 	icon_state = "kabob"
 
 
 /obj/item/reagent_containers/food/snacks/variable/waffles
-	name = "waffles"
-	desc = "Made with love."
+	name = "Вафли"
+	desc = "Сделано с любовью."
 	icon_state = "waffles"
 	gender = PLURAL
 
 
 /obj/item/reagent_containers/food/snacks/variable/pancakes
-	name = "pancakes"
-	desc = "How does an oven make pancakes?"
+	name = "Блины"
+	desc = "Как духовка делает блины?"
 	icon_state = "pancakescustom"
 	gender = PLURAL
 
 
 /obj/item/reagent_containers/food/snacks/variable/cookie
-	name = "cookie"
-	desc = "Sugar snap!"
+	name = "Печенье"
+	desc = "Сахарный щелчёк!"
 	icon_state = "cookie"
 
 
 /obj/item/reagent_containers/food/snacks/variable/donut
-	name = "filled donut"
-	desc = "Donut eat this!"
+	name = "Наполненный пончик"
+	desc = "Не ешь это!"
 	icon_state = "donut"
 
 
 /obj/item/reagent_containers/food/snacks/variable/jawbreaker
-	name = "flavored jawbreaker"
-	desc = "It's like cracking a molar on a rainbow."
+	name = "Ароматный jawbreaker"
+	desc = "Как сломать зуб на радуге."
 	icon_state = "jawbreaker"
 
 
 /obj/item/reagent_containers/food/snacks/variable/candybar
-	name = "flavored chocolate bar"
-	desc = "Made in a factory downtown."
+	name = "Ароматная плитка шоколада"
+	desc = "Сделана в фабрике даунтаун."
 	icon_state = "bar"
 
 
 /obj/item/reagent_containers/food/snacks/variable/sucker
-	name = "flavored sucker"
-	desc = "Suck, suck, suck."
+	name = "Ароматный чупачупс"
+	desc = "Соси, соси, соси."
 	icon_state = "sucker"
 
 
 /obj/item/reagent_containers/food/snacks/variable/jelly
-	name = "jelly"
-	desc = "All your friends will be jelly."
+	name = "Желе"
+	desc = "Все твои друзья будут желе."
 	icon_state = "jellycustom"
 
 
 /obj/item/reagent_containers/food/snacks/variable/stuffing
-	name = "stuffing"
-	desc = "Get stuffed."
+	name = "Начинка"
+	desc = "Стань фаршированным."
 	icon_state = "stuffing"
 
 
 /obj/item/reagent_containers/food/snacks/variable/shreds
-	name = "shreds"
-	desc = "Gnarly."
+	name = "Клочья"
+	desc = "Коряво."
 	icon_state = "shreds" //NB: there is no base icon state and that is intentional
 
 
 /obj/item/material/chopping_board
-	name = "chopping board"
-	desc = "A food preparation surface that allows you to combine food more easily."
+	name = "Доска для нарезания"
+	desc = "Поверхность для приготовления еды которая дает возможность комбинировать еду более легко."
 	icon = 'icons/obj/chopping_board.dmi'
 	icon_state = "chopping_board"
 	w_class = ITEM_SIZE_NORMAL
