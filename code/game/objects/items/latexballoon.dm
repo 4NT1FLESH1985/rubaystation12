@@ -1,6 +1,6 @@
 /obj/item/latexballon
-	name = "latex glove"
-	desc = "A latex glove, usually used as a balloon."
+	name = "Латексная перчатка"
+	desc = "Латексная перчатка, часто используемая как шарик."
 	icon_state = "latexballon"
 	item_state = "lgloves"
 	force = 0
