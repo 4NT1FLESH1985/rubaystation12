@@ -1,6 +1,6 @@
 /obj/item/holosign_creator
-	name = "holographic sign projector"
-	desc = "A handy-dandy holographic projector that displays a janitorial sign."
+	name = "Голографический проектор"
+	desc = "Ручной голографический проектор который показывает уборочные знаки."
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "signmaker"
 	item_state = "electronic"
