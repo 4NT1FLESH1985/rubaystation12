@@ -1,6 +1,6 @@
 /obj/item/documents
-	name = "secret documents"
-	desc = "\"Top Secret\" documents."
+	name = "Секретные документы"
+	desc = "Совершенно секретные документы."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "docs_generic"
 	item_state = "paper"
@@ -15,15 +15,15 @@
 		to_chat(user, description_antag)
 
 /obj/item/documents/nanotrasen
-	name = "secret corporate documents"
-	desc = "\"Top Secret\" corporate documents, filled with complex diagrams, research procedures, and details on cloning or breeding rights to non-sapient species the Torch encounters. It seems like they will be auctioning them off to the highest private bidder."
-	description_antag = "A conglomerate of powerful corporations seems to be wanting to create weaponized xenobiological species. Probably as a form of WMD, by your best guess."
+	name = "Секретные корпоративные документы"
+	desc = "Совершенно секретные корпоративные документы, заполненные с комплексными диаграммами, исследовательскими процедурами, и деталями клонирования или разведения  неразумных рас . Похоже что они выставят их на аукцион к высшим приватным аукционерам."
+	description_antag = "Конгломерат сильных корпораций похоже хочет создать веапонизированную ксенобиологическую расу. Возможно как форма ВМД."
 	icon_state = "docs_verified"
 
 /obj/item/documents/scg/verified
-	name = "secret government documents"
-	desc = "\"Top Secret\" documents detailing SCG IFF codes, granting the Torch access into restricted sectors. The majority of them are coordinates, codes for fellow ships, and clearance lists."
-	description_antag = "These codes seem very odd for an exploration vessel: a lot of them are SCG blacksites, covered up. You've never even heard of most of these."
+	name = "Секретные правительственные документы"
+	desc = "Совершенно секретные документы раскрывающие СГ ИГГ, давая доступ в запрещенные сектора. Ихняя важность - координаты, коды для союзных кораблей, и списки допусков."
+	description_antag = "Эти коды очень странные для исследовательских суден: много из них в списке СГ, спрятанные. Вы никогда не слышали этого."
 	icon_state = "docs_verified"
 
 /obj/item/documents/scg/brains
@@ -39,12 +39,12 @@
 	icon_state = "docs_red"
 
 /obj/item/documents/scg/blue
-	name = "blue secret documents"
-	desc = "\"Top Secret\" documents detailing the Skrellian company Krri'gli, and their insistent requests upon specific priority sectors for the Torch to investigate."
+	name = "Синие секретные документы"
+	desc = "Совершенно секретные документы описующие компанию скрелов Krri'gli, и ихние настойчивые запросы про исследовательско важные сектора для Torch для расследования."
 	description_antag = "Krri'gli seem to be guiding the Torch, subtly, to a specific unmapped sector of the galaxy. It's almost like they're too afraid to investigate it personally."
 	icon_state = "docs_blue"
 
 /obj/item/documents/scgr
-	name = "private memos and faxes"
-	desc = "\"Top Secret\" memos and faxes between the SCGR and other officials of the SCG. It's like a chat client ran on pure paperwork."
-	description_antag = "The SCGR's conversations contain a massive amount of dirt on politicians: drugs, sex, money..."
+	name = "Приватные записки и факсы"
+	desc = "Совершенно секретные записки и факсы Между SCGR и других официальных персон СГ."
+	description_antag = "Переписки SCGR хранящие массивное количество грязи на политиков: Наркотики, секс, деньги..."
