@@ -1,8 +1,8 @@
 //Also contains /obj/structure/closet/body_bag because I doubt anyone would think to look for bodybags in /object/structures
 
 /obj/item/bodybag
-	name = "body bag"
-	desc = "A folded bag designed for the storage and transportation of cadavers."
+	name = "Мешок для трупов"
+	desc = "Сложенный мешок , предназначенный для хранения и транспортировки трупов."
 	icon = 'icons/obj/closets/bodybag.dmi'
 	icon_state = "bodybag_folded"
 	w_class = ITEM_SIZE_SMALL
@@ -13,15 +13,15 @@
 
 
 /obj/item/storage/box/bodybags
-	name = "body bags"
-	desc = "This box contains body bags."
+	name = "Мешки для трупов"
+	desc = "Эта коробка хранит мешки для трупов."
 	icon_state = "bodybags"
 	startswith = list(/obj/item/bodybag = 7)
 
 
 /obj/structure/closet/body_bag
-	name = "body bag"
-	desc = "A plastic bag designed for the storage and transportation of cadavers."
+	name = "Мешок для трупов"
+	desc = "Пластиковый мешок предназначенный для хранения и перевозки трупов."
 	icon = 'icons/obj/closets/bodybag.dmi'
 	closet_appearance = null
 	open_sound = 'sound/items/zip.ogg'
@@ -98,8 +98,8 @@
 		fold(usr)
 
 /obj/item/robot_rack/body_bag
-	name = "stasis bag rack"
-	desc = "A rack for carrying folded stasis bags and body bags."
+	name = "Стойка для мешков"
+	desc = "Стойка предназначенная для хранения сложенных стазисных мешков."
 	icon = 'icons/obj/closets/cryobag.dmi'
 	icon_state = "bodybag_folded"
 	object_type = /obj/item/bodybag
