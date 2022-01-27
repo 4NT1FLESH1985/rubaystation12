@@ -1,8 +1,8 @@
 // Lightswitch Hull
 
 /obj/item/frame/light_switch
-	name = "light switch frame"
-	desc = "Used for building a light switch."
+	name = "Рамка для выключателя света"
+	desc = "Использована для постройки выключателя света."
 	icon = 'icons/obj/power.dmi'
 	icon_state = "light-p"
 	obj_flags = OBJ_FLAG_CONDUCTIBLE
